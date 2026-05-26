@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+    <!-- Page d'accueil -->
+    <url>
+        <loc>https://webuniv.fr/</loc>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Page services -->
+    <url>
+        <loc>https://webuniv.fr/services</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Page portfolio -->
+    <url>
+        <loc>https://webuniv.fr/portfolio</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Page contact -->
+    <url>
+        <loc>https://webuniv.fr/contact</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Page mentions légales / politique -->
+    <url>
+        <loc>https://webuniv.fr/legal</loc>
+        <priority>0.3</priority>
+    </url>
+
+</urlset>
