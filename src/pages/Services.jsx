@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 
 function Services() {
-  return (
-    <div className="services-container">
-        <p>Prestations / Work In Progress...</p>
-    </div>
-  )
+    // Changement du titre de la page au montage du composant
+    useEffect(() => {
+        document.title = "WebUniv - Nos prestations";
+    }, []);
+    return (
+        <div className="services-container">
+            <p>Prestations / Work In Progress...</p>
+        </div>
+    )
 }
 
 export default Services;

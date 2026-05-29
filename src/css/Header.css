@@ -8,122 +8,19 @@
   /* main font */
   --font-main: 'Arial', 'Helvetica', sans-serif;
 }
-
-/* Intégration du fond de couverture global au header */
-.header-container {
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: url('../assets/img/WebUniv_fond_couverture.png') no-repeat center center;
-    background-size: cover;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+/*********************************
+*********Animations***************
+*********************************/
+@keyframes pulseStar {
+    0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.6; }
+    50% { transform: scale(1.2) rotate(15deg); opacity: 1; }
 }
 
-/* Conteneur aligné */
-.header-wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border-radius: 0 0 12px 12px;
-}
+/*****************************
+*********Stars decorations****
+*****************************/
 
-/* ==========================================================
-   LES CONTENEURS RELATIFS (Le secret du positionnement absolu)
-========================================================== */
-/* On prépare les parents pour qu'ils retiennent les étoiles */
-.header-logo-link,
-.contact-wrapper,
-.burger-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.contact-wrapper {
-    margin-left: 10px; /* Sépare le bouton contact des autres liens sur PC */
-}
-
-.header-logo-link {
-    text-decoration: none;
-}
-
-.header-logo-img {
-    height: 150px; 
-    width: auto;
-    transition: transform 0.3s ease;
-}
-
-.header-logo-img:hover {
-    transform: scale(1.05); 
-}
-
-/* --- STYLE DE LA BARRE DE NAVIGATION DESKTOP --- */
-.header-nav {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.header-nav a {
-    color: var(--color-white);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.15rem; /* Un peu plus grand */
-    padding: 10px 15px;
-    transition: color 0.3s ease, transform 0.3s ease;
-    position: relative;
-}
-
-/* Animation de soulignement discrète pour Accueil/Prestations */
-.header-nav a:not(#navbar-contactLink)::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 15px;
-    width: 0;
-    height: 2px;
-    background-color: var(--color-dark-gray);
-    transition: width 0.3s ease;
-}
-
-.header-nav a:not(#navbar-contactLink):hover::after {
-    width: calc(100% - 30px);
-}
-
-
-.header-nav a:hover {
-   color:var(--color-dark-gray)
-}
-
-/* --- MISE EN VALEUR DU BOUTON CONTACT --- */
-.header-nav a#navbar-contactLink {
-    background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
-    border: 2px solid var(--color-light-blue);
-    padding: 12px 28px;
-    border-radius: 12px; /* Style bouton capsule moderne */
-    font-weight: 600;
-    box-shadow: 0 0 15px rgba(110, 185, 233, 0.2);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.header-nav a#navbar-contactLink:hover {
-    color: var(--color-white);
-    background: linear-gradient(135deg, #204373 0%, var(--color-light-blue) 100%);
-    box-shadow: 0 0 25px rgba(110, 185, 233, 0.6);
-    transform: translateY(-2px);
-    border-color: var(--color-white);
-}
-
-/* ==========================================================
-   LES ÉTOILES ANIMÉES (Accrochées aux coins via absolute)
-========================================================== */
+/* stars decoration */
 .star-decoration {
     position: absolute; /* Absolu uniquement par rapport au parent direct (.header-logo-link etc) */
     z-index: 10;
@@ -134,60 +31,202 @@
     pointer-events: none; /* Empêche l'étoile de bloquer le clic sur l'élément en dessous */
 }
 
-/* Étoile Blanche (Haut Gauche du Logo) */
-.star-white {
+/*first star on the left*/
+.star-left {
     background-color: var(--color-abyssal-blue);
-    top: 0px;
-    left: 10px;
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    left: -20px;
 }
 
-/* Étoile Bleue (Bas Droite du bouton Contact / Burger) */
-.star-blue {
+/* second star on the right */
+.star-right {
     background-color: var(--color-light-blue);
-    width: 20px;
-    height: 20px;
     animation-delay: 1.5s;
-    bottom: -10px;
-    right: -10px;
+    width: 30px;
+    height: 30px;
+    bottom: 10px;
+    right: -20px;
 }
 
-/* On cache l'étoile mobile par défaut sur PC */
-.star-mobile {
-    display: none;
+/**************************
+********Header container***
+**************************/
+
+/* full header */
+.header-container {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: url('../assets/img/WebUniv_fond_couverture.png') no-repeat center center;
+    background-size: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.445);
+    align-items: center;
+    flex-wrap: wrap; 
+    border-bottom: 1px solid #1f1f1f1f;
 }
 
-@keyframes pulseStar {
-    0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.6; }
-    50% { transform: scale(1.2) rotate(15deg); opacity: 1; }
-}
-
-/* --- BOUTON TÉLÉPHONE --- */
-.header-phone-btn {
-    background: transparent;
-    border: 2px solid var(--color-light-blue);
-    color: var(--color-white);
-    padding: 12px 16px; 
-    font-size: 0.85rem;
-    font-weight: 600;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    min-width: 170px; 
+/* header wrap */
+.header-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 0 0 12px 12px;
+}
+
+
+/*****************************
+*
+*****************************/
+/* On prépare les parents pour qu'ils retiennent les étoiles */
+.header-logo-link,
+.contact-wrapper,
+.burger-wrapper {
+    position: relative;
+    display: flex;
     align-items: center;
 }
 
-.header-phone-btn:hover {
-    background: rgba(110, 185, 233, 0.15); 
+/* Contact button wrapper*/
+.contact-wrapper {
+    margin-left: 10px;
 }
 
+
+/***************************
+************Header logo*****
+***************************/
+
+/* header logo link*/
+.header-logo-link {
+    text-decoration: none;
+}
+
+/* header logo img*/
+.header-logo-img {
+    height: 200px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+/* header logo hover*/
+.header-logo-img:hover {
+    transform: scale(1.05); 
+}
+
+/*********************************
+***************Header navbar******
+*********************************/
+
+/* header full navbar*/
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* header navbar links*/
+.header-nav a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.35rem;
+    padding: 10px 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+/* navbar links hover */
+.header-nav a:hover{
+    color:#d5e0e6;
+}
+
+
+/* animation underline for navbar links */
+.header-nav a:not(#navbar-contactLink)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    width: 0px;
+    height: 2px;
+    background-color: var(--color-white);
+    transition: width 0.3s ease;
+}
+
+/* animation underline hover */
+.header-nav a:not(#navbar-contactLink):hover::after {
+    width: calc(100% - 20px);
+}
+
+
+
+/* contact button */
+.header-nav a#navbar-contactLink {
+    background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
+    border: 2px solid var(--color-light-blue);
+    padding: 12px 28px;
+    border-radius: 12px; /* Style bouton capsule moderne */
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(110, 185, 233, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/*contact button hover */
+.header-nav a#navbar-contactLink:hover {
+    color: var(--color-white);
+    background: linear-gradient(135deg, #204373 0%, var(--color-light-blue) 100%);
+    box-shadow: 0 0 25px rgba(110, 185, 233, 0.6);
+    transform: translateY(-2px);
+    border-color: var(--color-white);
+}
+
+
+/* Phone button */
+.header-phone-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: 2px solid var(--color-light-blue);
+    color: var(--color-white);
+    padding: 16px 20px; 
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px; 
+    
+}
+
+/* Phone button hover*/
+.header-phone-btn:hover {
+    background: rgba(110, 185, 233, 0.15); 
+    
+    color:#d5e0e6;
+}
+
+/* Phone button icon */
 .header-phone-btn .phone-icon {
     margin-right: 8px;
     color: var(--color-light-blue);
 }
 
-/* --- MENU MOBILE RESPONSIVE --- */
+/********************************
+***************Menu for mobile***
+********************************/
+
+/* menu toggle*/
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -200,6 +239,7 @@
     padding: 0;
 }
 
+/* menu bars*/
 .menu-toggle .bar {
     width: 100%;
     height: 3px;
@@ -208,27 +248,26 @@
     transition: all 0.3s ease;
 }
 
+
 @media (max-width: 768px) {
 
-    .header-logo-img {
-        height: 70px; 
+    /* first star on the left */
+    .star-left{
+        width:25px;
+        height:25px;
+        top: 10px;
+        left: 5px;
     }
 
-
-    .menu-toggle {
-        display: flex;
+    /* second star on the right */
+    .star-right{
+        width: 20px;
+        height: 20px;
+        bottom: 5px;
+        right: 7px;
     }
 
-    .menu-toggle.active .bar:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-    .menu-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    .menu-toggle.active .bar:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
-
+    /*full header navbar*/
     .header-nav {
         position: absolute;
         top: 100%;
@@ -243,11 +282,35 @@
         box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
+    /*header logo img*/
+    .header-logo-img {
+        height: 100px; 
+    }
+
+    /*showing the burger button*/
+    .menu-toggle {
+        display: flex;
+    }
+
+    /*animations on click for the burger button*/
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+
+    /*navbar menu*/
     .header-nav.nav-open {
-        max-height: 400px; /* Assez grand pour tout afficher */
+        max-height: 400px;
         padding-bottom: 20px;
     }
 
+    /*header navbar links*/
     .header-nav a {
         padding: 15px 20px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -256,44 +319,30 @@
         text-align: center;
     }
     
+    /*header navbar links hover*/
     .header-nav a:hover {
         background: rgba(255, 255, 255, 0.1);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
+    /*contact wrapper*/
     .contact-wrapper {
-        margin: 15px auto; /* Centrage horizontal automatique */
-        width: 80%;
-        display: flex; /* On remet flex pour bien contrôler le contenu */
-        justify-content: center; /* Centre le bouton dans le wrapper */
+        margin: 15px auto;
+        width: 50%;
+        display: flex;
+        justify-content: center;
     }
 
-    /* --- Gestion des étoiles sur mobile --- */
-    .star-desktop {
-        display: none; /* Cache l'étoile du bouton Contact PC */
-    }
-    
-    .star-mobile {
-        display: block; /* Affiche l'étoile sur le burger menu */
-        bottom: -15px; 
-        right: -15px;
-    }
-
-    /* Ajustement des boutons dans le menu déroulant */
-    .contact-wrapper {
-        margin: 15px auto 0;
-        width: 80%;
-        display: block; /* Retire le flex pour que le lien prenne 100% de la largeur du wrapper */
-    }
-
+    /*contact button*/
     .header-nav a#navbar-contactLink {
-        margin: 0;
-        width: 100%; /* S'adapte au 80% du wrapper */
+        margin-top: 20px;
+        width: 80%;
         text-align: center;
         display: block;
         box-sizing: border-box;
     }
 
+    /*phone button*/
     .header-phone-btn {
         margin: 15px auto; 
         width: 80%; 

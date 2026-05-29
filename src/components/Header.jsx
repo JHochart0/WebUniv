@@ -16,11 +16,9 @@ function Header() {
     return (
         <header className="header-container">
             <div className="header-wrap">
-                
-                {/* 1. Le Logo devient le repère "relatif" pour l'étoile blanche */}
+                <div className="star-decoration star-left"></div>
                 <Logo />
-
-                {/* 2. Le Burger devient le repère "relatif" pour l'étoile bleue mobile */}
+              
                 <div className="burger-wrapper">
                     <button 
                         className={`menu-toggle ${isMenuOpen ? 'active' : ''}`} 
@@ -31,14 +29,13 @@ function Header() {
                         <span className="bar"></span>
                         <span className="bar"></span>
                     </button>
-                    {/* Cette étoile ne s'affichera que sur téléphone */}
-                    <div className="star-decoration star-blue star-mobile"></div>
                 </div>
 
                 <Navbar 
                     className={`header-nav ${isMenuOpen ? 'nav-open' : ''}`} 
                     onLinkClick={closeMenu} 
                 />
+                <div className="star-decoration star-right"></div>
             </div>
         </header>
     );
