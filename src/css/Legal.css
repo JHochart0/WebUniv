@@ -83,6 +83,17 @@
     color:var(--color-light-blue);
 }
 
+/* Legal CAPE section */
+.legal-section-CAPE{
+    margin-top:1rem;
+}
+
+/* Legal CAPE section text*/
+.legal-section-CAPE-text{
+    margin-left:1rem;
+}
+
+/* CAPE legal mention*/
 .CAPE{
     font-weight: normal;
     font-style: normal;

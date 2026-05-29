@@ -1,0 +1,302 @@
+:root {
+  /* Colors used for WebUniv */
+  --color-abyssal-blue: #183153;
+  --color-light-blue: #6EB9E9;
+  --color-white: #FFFFFF;
+  --color-dark-gray: #1F1F1F;
+
+  /* main font */
+  --font-main: 'Arial', 'Helvetica', sans-serif;
+}
+
+/* Intégration du fond de couverture global au header */
+.header-container {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: url('../assets/img/WebUniv_fond_couverture.png') no-repeat center center;
+    background-size: cover;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Conteneur aligné */
+.header-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 0 0 12px 12px;
+}
+
+/* ==========================================================
+   LES CONTENEURS RELATIFS (Le secret du positionnement absolu)
+========================================================== */
+/* On prépare les parents pour qu'ils retiennent les étoiles */
+.header-logo-link,
+.contact-wrapper,
+.burger-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.contact-wrapper {
+    margin-left: 10px; /* Sépare le bouton contact des autres liens sur PC */
+}
+
+.header-logo-link {
+    text-decoration: none;
+}
+
+.header-logo-img {
+    height: 150px; 
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.header-logo-img:hover {
+    transform: scale(1.05); 
+}
+
+/* --- STYLE DE LA BARRE DE NAVIGATION DESKTOP --- */
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.header-nav a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.15rem; /* Un peu plus grand */
+    padding: 10px 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+/* Animation de soulignement discrète pour Accueil/Prestations */
+.header-nav a:not(#navbar-contactLink)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-dark-gray);
+    transition: width 0.3s ease;
+}
+
+.header-nav a:not(#navbar-contactLink):hover::after {
+    width: calc(100% - 30px);
+}
+
+
+.header-nav a:hover {
+   color:var(--color-dark-gray)
+}
+
+/* --- MISE EN VALEUR DU BOUTON CONTACT --- */
+.header-nav a#navbar-contactLink {
+    background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
+    border: 2px solid var(--color-light-blue);
+    padding: 12px 28px;
+    border-radius: 12px; /* Style bouton capsule moderne */
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(110, 185, 233, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.header-nav a#navbar-contactLink:hover {
+    color: var(--color-white);
+    background: linear-gradient(135deg, #204373 0%, var(--color-light-blue) 100%);
+    box-shadow: 0 0 25px rgba(110, 185, 233, 0.6);
+    transform: translateY(-2px);
+    border-color: var(--color-white);
+}
+
+/* ==========================================================
+   LES ÉTOILES ANIMÉES (Accrochées aux coins via absolute)
+========================================================== */
+.star-decoration {
+    position: absolute; /* Absolu uniquement par rapport au parent direct (.header-logo-link etc) */
+    z-index: 10;
+    width: 18px;
+    height: 18px;
+    clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+    animation: pulseStar 4s infinite ease-in-out;
+    pointer-events: none; /* Empêche l'étoile de bloquer le clic sur l'élément en dessous */
+}
+
+/* Étoile Blanche (Haut Gauche du Logo) */
+.star-white {
+    background-color: var(--color-abyssal-blue);
+    top: 0px;
+    left: 10px;
+}
+
+/* Étoile Bleue (Bas Droite du bouton Contact / Burger) */
+.star-blue {
+    background-color: var(--color-light-blue);
+    width: 20px;
+    height: 20px;
+    animation-delay: 1.5s;
+    bottom: -10px;
+    right: -10px;
+}
+
+/* On cache l'étoile mobile par défaut sur PC */
+.star-mobile {
+    display: none;
+}
+
+@keyframes pulseStar {
+    0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.6; }
+    50% { transform: scale(1.2) rotate(15deg); opacity: 1; }
+}
+
+/* --- BOUTON TÉLÉPHONE --- */
+.header-phone-btn {
+    background: transparent;
+    border: 2px solid var(--color-light-blue);
+    color: var(--color-white);
+    padding: 12px 16px; 
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 170px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-phone-btn:hover {
+    background: rgba(110, 185, 233, 0.15); 
+}
+
+.header-phone-btn .phone-icon {
+    margin-right: 8px;
+    color: var(--color-light-blue);
+}
+
+/* --- MENU MOBILE RESPONSIVE --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+
+    .header-logo-img {
+        height: 70px; 
+    }
+
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .header-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(16, 37, 66, 0.95); 
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .header-nav.nav-open {
+        max-height: 400px; /* Assez grand pour tout afficher */
+        padding-bottom: 20px;
+    }
+
+    .header-nav a {
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    
+    .header-nav a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-wrapper {
+        margin: 15px auto; /* Centrage horizontal automatique */
+        width: 80%;
+        display: flex; /* On remet flex pour bien contrôler le contenu */
+        justify-content: center; /* Centre le bouton dans le wrapper */
+    }
+
+    /* --- Gestion des étoiles sur mobile --- */
+    .star-desktop {
+        display: none; /* Cache l'étoile du bouton Contact PC */
+    }
+    
+    .star-mobile {
+        display: block; /* Affiche l'étoile sur le burger menu */
+        bottom: -15px; 
+        right: -15px;
+    }
+
+    /* Ajustement des boutons dans le menu déroulant */
+    .contact-wrapper {
+        margin: 15px auto 0;
+        width: 80%;
+        display: block; /* Retire le flex pour que le lien prenne 100% de la largeur du wrapper */
+    }
+
+    .header-nav a#navbar-contactLink {
+        margin: 0;
+        width: 100%; /* S'adapte au 80% du wrapper */
+        text-align: center;
+        display: block;
+        box-sizing: border-box;
+    }
+
+    .header-phone-btn {
+        margin: 15px auto; 
+        width: 80%; 
+        padding: 12px;
+    }
+}

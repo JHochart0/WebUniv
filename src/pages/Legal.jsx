@@ -24,20 +24,25 @@ function Legal() {
                     <p><strong>Adresse : </strong>102 rue Neuve, 62100 Calais, France</p>
                     <p><strong>Numéro de téléphone : </strong>06 65 15 04 70</p> 
                     <p><strong>Adresse électronique : </strong>webuniv.pro@gmail.com</p>
-                    <h3>Cadre juridique (Contrat CAPE)</h3>
-                    <p>
-                        L'activité commerciale de l'éditeur est couvée et encadrée juridiquement par un Contrat d'Appui au Projet d'Entreprise (CAPE)
-                         auprès de l'<strong>Incubatest par BGE Hauts-de-France</strong>.
-                    </p>
-                    <p><strong>Structure accompagnatrice : </strong>Espace des Entrepreneurs</p>
-                    <p><strong>Adresse du siège social : </strong>4 rue des buisses, 59800 Lille</p>
-                    <p><strong>SIRET (Espace des Entrepreneurs) : </strong>418 541 553 000 32</p>
-                    <p><strong>Numéro de TVA Intracommunautaire : </strong>FR 23 418 541 553</p>
-                    <p><strong>Code NAF (APE) : </strong>8899B</p>
                     
-                    <p className="CAPE">
-                        Bénéficiaire d’un CAPE jusqu’au 4 mai 2027 maximum - Espace des Entrepreneurs - 4 rue des buisses 59800 Lille - Siret 418 541 553 000 32
-                    </p>
+                    <div className="legal-section-CAPE">
+                        <h3>Cadre juridique (Contrat CAPE)</h3>
+                        <div className="legal-section-CAPE-text">
+                            <p>
+                                L'activité commerciale de l'éditeur est couvée et encadrée juridiquement par un Contrat d'Appui au Projet d'Entreprise (CAPE)
+                                auprès de l'<strong>Incubatest par BGE Hauts-de-France</strong>.
+                            </p>
+                            <p><strong>Structure accompagnatrice : </strong>Espace des Entrepreneurs</p>
+                            <p><strong>Adresse du siège social : </strong>4 rue des buisses, 59800 Lille</p>
+                            <p><strong>SIRET (Espace des Entrepreneurs) : </strong>418 541 553 000 32</p>
+                            <p><strong>Numéro de TVA Intracommunautaire : </strong>FR 23 418 541 553</p>
+                            <p><strong>Code NAF (APE) : </strong>8899B</p>
+                            
+                            <p className="CAPE">
+                                Bénéficiaire d’un CAPE jusqu’au 4 mai 2027 maximum - Espace des Entrepreneurs - 4 rue des buisses 59800 Lille - Siret 418 541 553 000 32
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
