@@ -46,13 +46,13 @@ function Footer() {
                 <PhoneButton className="footer-phone-btn" />
                 
                 <div className="footer-socials">
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <a href="https://www.facebook.com/profile.php?id=61590322290757" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                         <FontAwesomeIcon icon={faFacebook} />
                     </a>
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <a href="https://www.instagram.com/webuniv_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                         <FontAwesomeIcon icon={faInstagram} />
                     </a>
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/company/webuniv/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                         <FontAwesomeIcon icon={faLinkedin} />
                     </a>
                 </div>

@@ -15,18 +15,17 @@
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-10px); /* Mouvement vertical très léger pour ne pas fatiguer les yeux */
+        transform: translateY(-10px);
     }
 }
 
 /* --- STRUCTURE GLOBALE --- */
 .footer-container {
-    /* Utilisation de ton bleu abyssal en fond */
     background: linear-gradient(180deg, #0d1b2e 0%, var(--color-abyssal-blue) 100%);
     color: var(--color-white);
     padding: 40px 20px 20px 20px;
     font-family: var(--font-main);
-    border-top: 1px solid rgba(110, 185, 233, 0.2); /* Lueur discrète */
+    border-top: 1px solid rgba(110, 185, 233, 0.2);
 }
 
 /* Alignement des gros blocs du haut */
@@ -37,33 +36,23 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-
     padding-bottom: 30px;
 }
 
 /***************************
 ************Bloc Avis*******
 ***************************/
-
 .footer-reviews {
     position: relative;
     z-index: 1;
-    
-    /* On force le conteneur à faire la taille exacte de la planète */
     width: 250px;
     height: 250px;
-    
-    /* Flexbox magique : tout le texte est centré horizontalement et verticalement */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    
-    /* On ajuste les marges pour que le bloc respire dans le footer-top */
     margin: 10px 0;
-
-    /* AJOUT : Animation de lévitation cosmique en continu */
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform;
 }
@@ -72,7 +61,7 @@
     animation: planetaryFloat 4s infinite ease-in-out;
 }
 
-/* --- LE CŒUR DE LA PLANÈTE (Optimisé à 100% du parent) --- */
+/* --- LE CŒUR DE LA PLANÈTE --- */
 .footer-reviews::before {
     content: '';
     position: absolute;
@@ -82,25 +71,21 @@
     height: 100%;
     border-radius: 50%;
     background: var(--color-light-blue);
-    box-shadow: 0 0 20px var(--color-light-blue); /* Halo bleu léger */
-
-    
-    
+    box-shadow: 0 0 20px var(--color-light-blue);
 }
 
-/* --- L'ANNEAU STELLAIRE (Reste basé sur le centre) --- */
+/* --- L'ANNEAU STELLAIRE --- */
 .footer-reviews::after {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) skew(10deg) rotate(-20deg);
-    width: 380px; /* Légèrement réduit pour être ultra-proportionnel */
+    width: 380px;
     height: 55px;
     border-radius: 50%;
     background: var(--color-light-blue);
-    box-shadow: 0 0 20px var(--color-light-blue); /* Halo bleu léger */
-    
+    box-shadow: 0 0 20px var(--color-light-blue);
     z-index: -1;
     pointer-events: none;
 }
@@ -114,9 +99,6 @@
     z-index: 10;
 }
 
-
-
-
 /* reviews button */
 .footer-reviews-btn {
     background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
@@ -126,9 +108,9 @@
     font-weight: 600;
     box-shadow: 0 0 15px rgba(110, 185, 233, 0.2);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    color:var(--color-white);
+    color: var(--color-white);
     z-index: 10;
-    text-decoration:none;
+    text-decoration: none;
 }
 
 /*reviews button hover */
@@ -150,8 +132,7 @@
     z-index: 10;
 }
 
-
-/* --- BLOC MARQUE (Gauche) --- */
+/* --- BLOC MARQUE (Gauche à la base) --- */
 .footer-brand {
     display: flex;
     flex-direction: column;
@@ -180,8 +161,9 @@
     background: rgba(110, 185, 233, 0.15);
     color: var(--color-light-blue);
 }
-.footer-phone-btn .phone-icon{
-    margin-right:8px;
+
+.footer-phone-btn .phone-icon {
+    margin-right: 8px;
     color: var(--color-light-blue);
 }
 
@@ -206,27 +188,17 @@
 /***************************
 ************Bloc Horaires***
 ***************************/
-
-/* --- CONTENEUR DEVENANT LA PLANÈTE --- */
 .footer-schedules {
     position: relative;
     z-index: 1;
-    
-    /* On force le conteneur à faire la taille exacte de la planète */
     width: 250px;
     height: 250px;
-    
-    /* Flexbox magique : tout le texte est centré horizontalement et verticalement */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    
-    /* On ajuste les marges pour que le bloc respire dans le footer-top */
     margin: 10px 0;
-
-    /* AJOUT : Animation de lévitation cosmique en continu */
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform;
 }
@@ -235,7 +207,7 @@
     animation: planetaryFloat 4s infinite ease-in-out;
 }
 
-/* --- LE CŒUR DE LA PLANÈTE (Optimisé à 100% du parent) --- */
+/* --- LE CŒUR DE LA PLANÈTE --- */
 .footer-schedules::before {
     content: '';
     position: absolute;
@@ -245,32 +217,28 @@
     height: 100%;
     border-radius: 50%;
     background: var(--color-light-blue);
-    box-shadow: 0 0 20px var(--color-light-blue); /* Halo bleu léger */
-
-
+    box-shadow: 0 0 20px var(--color-light-blue);
 }
 
-/* --- L'ANNEAU STELLAIRE (Reste basé sur le centre) --- */
+/* --- L'ANNEAU STELLAIRE --- */
 .footer-schedules::after {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) skew(-10deg) rotate(20deg);
-    width: 380px; /* Légèrement réduit pour être ultra-proportionnel */
+    width: 380px;
     height: 55px;
     border-radius: 50%;
     background: var(--color-light-blue);
-    box-shadow: 0 0 20px var(--color-light-blue); /* Halo bleu léger */
-    
-     z-index: -1;
+    box-shadow: 0 0 20px var(--color-light-blue);
+    z-index: -1;
     pointer-events: none;
 }
 
-/* --- ADAPTATION DES TEXTES POUR RESTER DANS LE CERCLE (250px) --- */
 .footer-schedules-h1 {
     color: var(--color-white);
-    font-size: 1.3rem; /* Légèrement réduit pour le cercle */
+    font-size: 1.3rem;
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -311,7 +279,7 @@
 }
 
 .footer-copyright {
-    color: rgba(255, 255, 255, 0.5); /* Blanc estompé */
+    color: rgba(255, 255, 255, 0.5);
 }
 
 #footer-legalLink {
@@ -328,7 +296,7 @@
 #footer-legalLink::after {
     content: '';
     position: absolute;
-    bottom: -4px; /* Ajuste l'espace entre le texte et le trait */
+    bottom: -4px;
     left: 0;
     width: 0px;
     height: 2px;
@@ -340,23 +308,59 @@
     width: calc(100% + 10px); 
 }
 
-/* --- RESPONSIVE DE BASE --- */
-@media (max-width: 768px) {
+/********************************
+****** Responsive Rules ********
+********************************/
+@media (max-width: 1024px) {
     .footer-top {
         flex-direction: column;
-        text-align: center;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+        padding-bottom: 40px;
     }
 
     .footer-brand {
-        align-items: center;
+        order: 1;
+    }
+
+    .footer-reviews {
+        order: 2;
     }
 
     .footer-schedules {
-        text-align: center;
+        order: 3;
+    }
+}
+
+@media (max-width: 599px) {
+    .footer-top {
+        gap: 45px;
+    }
+
+    .footer-reviews, 
+    .footer-schedules {
+        transform: scale(0.85);
+    }
+
+    .footer-reviews:hover,
+    .footer-schedules:hover {
+        animation: planetaryFloatMobile 4s infinite ease-in-out;
     }
 
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+        gap: 12px;
+        padding-top: 20px;
+    }
+}
+
+@keyframes planetaryFloatMobile {
+    0%, 100% {
+        transform: scale(0.85) translateY(0);
+    }
+    50% {
+        transform: scale(0.85) translateY(-10px);
     }
 }
