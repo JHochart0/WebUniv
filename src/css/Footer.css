@@ -84,8 +84,8 @@
     background: var(--color-light-blue);
     box-shadow: 0 0 20px var(--color-light-blue); /* Halo bleu léger */
 
-    z-index: -2;
-    opacity: 0.9;
+    
+    
 }
 
 /* --- L'ANNEAU STELLAIRE (Reste basé sur le centre) --- */
@@ -99,7 +99,8 @@
     height: 55px;
     border-radius: 50%;
     background: var(--color-light-blue);
-    filter: drop-shadow(0 0 10px var(--color-light-blue)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.2));
+    box-shadow: 0 0 20px var(--color-light-blue); /* Halo bleu léger */
+    
     z-index: -1;
     pointer-events: none;
 }
@@ -110,53 +111,27 @@
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    z-index: 10;
 }
 
 
-/* Bouton pour aller sur Google My Business - Version Boostée */
-.footer-reviews-btn {
-    display: inline-block;
-    text-decoration: none;
-    
-    /* Couleur de fond pleine pour qu'il ressorte instantanément */
-    background: var(--color-light-blue);
-    color: #0d1b2e; /* Écrit en bleu très foncé (fond du footer) pour un contraste et une lisibilité parfaits */
-    
-    padding: 10px 22px; /* Un poil plus grand pour plus de présence */
-    font-size: 0.85rem;
-    font-weight: bold;
-    border-radius: 25px;
-    
-    /* Un halo bleu lumineux permanent autour du bouton */
-    box-shadow: 0 0 12px rgba(110, 185, 233, 0.4);
-    
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
 
-.footer-reviews-btn:hover {
-    background: var(--color-white);
-    color: var(--color-dark-gray);
-    
-    /* Le halo s'intensifie et s'élargit au survol */
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-    
-    /* Un léger effet d'aspiration/grossissement très moderne */
-    transform: scale(1.05);
-}
 
-/* contact button */
+/* reviews button */
 .footer-reviews-btn {
     background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
     border: 2px solid var(--color-light-blue);
     padding: 12px 28px;
-    border-radius: 12px;
+    border-radius: 50px;
     font-weight: 600;
     box-shadow: 0 0 15px rgba(110, 185, 233, 0.2);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     color:var(--color-white);
+    z-index: 10;
+    text-decoration:none;
 }
 
-/*contact button hover */
+/*reviews button hover */
 .footer-reviews-btn:hover {
     color: var(--color-white);
     background: linear-gradient(135deg, #204373 0%, var(--color-light-blue) 100%);
@@ -172,6 +147,7 @@
     color: var(--color-abyssal-blue);
     font-size: 1.5rem;
     margin-bottom: 20px;
+    z-index: 10;
 }
 
 
@@ -271,8 +247,7 @@
     background: var(--color-light-blue);
     box-shadow: 0 0 20px var(--color-light-blue); /* Halo bleu léger */
 
-    z-index: -2;
-    opacity: 0.9;
+
 }
 
 /* --- L'ANNEAU STELLAIRE (Reste basé sur le centre) --- */
@@ -286,8 +261,9 @@
     height: 55px;
     border-radius: 50%;
     background: var(--color-light-blue);
-    filter: drop-shadow(0 0 10px var(--color-light-blue)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.2));
-    z-index: -1;
+    box-shadow: 0 0 20px var(--color-light-blue); /* Halo bleu léger */
+    
+     z-index: -1;
     pointer-events: none;
 }
 
@@ -298,12 +274,14 @@
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    z-index: 10;
 }
 
 .footer-schedules-hours {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    z-index: 10;
 }
 
 .footer-schedules-h2 {

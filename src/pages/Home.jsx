@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 function Home() {
     // Changement du titre de la page au montage du composant
     useEffect(() => {
-        document.title = "WebUniv - Accueil";
+        document.title = "WebUniv - Votre Univers Digital";
     }, []);
 
     return (
