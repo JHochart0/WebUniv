@@ -9,7 +9,9 @@
   --font-main: 'Arial', 'Helvetica', sans-serif;
 }
 
-/* Animation pour le flottement doux de la planète et de ses composants */
+/*********************************
+*********Animations***************
+*********************************/
 @keyframes planetaryFloat {
     0%, 100% {
         transform: translateY(0);
@@ -19,7 +21,23 @@
     }
 }
 
-/* --- STRUCTURE GLOBALE --- */
+@keyframes planetaryFloatTabletLandscape {
+    0%, 100% { transform: scale(0.85) translateY(0); }
+    50% { transform: scale(0.85) translateY(-8px); }
+}
+
+@keyframes planetaryFloatMobile {
+    0%, 100% { transform: scale(0.85) translateY(0); }
+    50% { transform: scale(0.85) translateY(-10px); }
+}
+
+@keyframes planetaryFloatMobileLandscape {
+    0%, 100% { transform: scale(0.65) translateY(0); }
+    50% { transform: scale(0.65) translateY(-6px); } /* Flottement réduit pour ne pas cogner le haut */
+}
+/**************************
+********Footer container***
+**************************/
 .footer-container {
     background: linear-gradient(180deg, #0d1b2e 0%, var(--color-abyssal-blue) 100%);
     color: var(--color-white);
@@ -28,7 +46,10 @@
     border-top: 1px solid rgba(110, 185, 233, 0.2);
 }
 
-/* Alignement des gros blocs du haut */
+
+/**************************
+***********Footer Top******
+**************************/
 .footer-top {
     max-width: 1200px;
     margin: 0 auto;
@@ -40,8 +61,9 @@
 }
 
 /***************************
-************Bloc Avis*******
+******section reviews*******
 ***************************/
+/*footer reviews*/
 .footer-reviews {
     position: relative;
     z-index: 1;
@@ -56,12 +78,12 @@
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform;
 }
-
+/*footer reviews hover*/
 .footer-reviews:hover {
     animation: planetaryFloat 4s infinite ease-in-out;
 }
 
-/* --- LE CŒUR DE LA PLANÈTE --- */
+/*footer reviews planet*/
 .footer-reviews::before {
     content: '';
     position: absolute;
@@ -74,7 +96,7 @@
     box-shadow: 0 0 20px var(--color-light-blue);
 }
 
-/* --- L'ANNEAU STELLAIRE --- */
+/*footer reviews planet ring*/
 .footer-reviews::after {
     content: '';
     position: absolute;
@@ -90,6 +112,7 @@
     pointer-events: none;
 }
 
+/*footer reviews title*/
 .footer-reviews-title {
     color: var(--color-white);
     font-size: 1.3rem;
@@ -99,7 +122,7 @@
     z-index: 10;
 }
 
-/* reviews button */
+/* footer reviews button */
 .footer-reviews-btn {
     background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
     border: 2px solid var(--color-light-blue);
@@ -113,7 +136,7 @@
     text-decoration: none;
 }
 
-/*reviews button hover */
+/*footer reviews button hover */
 .footer-reviews-btn:hover {
     color: var(--color-white);
     background: linear-gradient(135deg, #204373 0%, var(--color-light-blue) 100%);
@@ -123,6 +146,7 @@
     filter: drop-shadow(0 0 15px rgba(110, 185, 233, 0.8));
 }
 
+/*footer reviews stars*/
 .footer-stars {
     display: flex;
     gap: 6px;
@@ -132,7 +156,9 @@
     z-index: 10;
 }
 
-/* --- BLOC MARQUE (Gauche à la base) --- */
+/***************************
+********section Brand*******
+***************************/
 .footer-brand {
     display: flex;
     flex-direction: column;
@@ -140,7 +166,7 @@
     align-items: center;
 }
 
-/* Bouton téléphone adapté au footer */
+/* footer brand phone button*/
 .footer-phone-btn {
     display: flex;
     justify-content: center;
@@ -157,37 +183,43 @@
     min-width: 200px;
 }
 
+/* footer brand phone button hover*/
 .footer-phone-btn:hover {
     background: rgba(110, 185, 233, 0.15);
     color: var(--color-light-blue);
 }
 
+/* footer brand phone icon*/
 .footer-phone-btn .phone-icon {
     margin-right: 8px;
     color: var(--color-light-blue);
 }
 
-/* Réseaux sociaux */
+/* footer brand social networks */
 .footer-socials {
     display: flex;
     gap: 15px;
     align-items: center;
 }
 
+/* footer brand social network button */
 .footer-socials a {
     color: var(--color-white);
     font-size: 2rem;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
+
+/* footer brand social networks button hover */
 .footer-socials a:hover {
     color: var(--color-light-blue);
     transform: translateY(-3px);
 }
 
 /***************************
-************Bloc Horaires***
+********Sechdules section***
 ***************************/
+/* footer schedules */
 .footer-schedules {
     position: relative;
     z-index: 1;
@@ -202,12 +234,12 @@
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform;
 }
-
+/* footer schedules hover*/
 .footer-schedules:hover {
     animation: planetaryFloat 4s infinite ease-in-out;
 }
 
-/* --- LE CŒUR DE LA PLANÈTE --- */
+/* footer schedules planet */
 .footer-schedules::before {
     content: '';
     position: absolute;
@@ -220,7 +252,7 @@
     box-shadow: 0 0 20px var(--color-light-blue);
 }
 
-/* --- L'ANNEAU STELLAIRE --- */
+/* footer schedules planet ring */
 .footer-schedules::after {
     content: '';
     position: absolute;
@@ -236,6 +268,7 @@
     pointer-events: none;
 }
 
+/* footer schedules title*/
 .footer-schedules-h1 {
     color: var(--color-white);
     font-size: 1.3rem;
@@ -245,6 +278,7 @@
     z-index: 10;
 }
 
+/* footer schedules hours*/
 .footer-schedules-hours {
     display: flex;
     flex-direction: column;
@@ -252,6 +286,7 @@
     z-index: 10;
 }
 
+/* footer schedules subtitle*/
 .footer-schedules-h2 {
     font-size: 1.2rem;
     color: var(--color-white);
@@ -259,12 +294,16 @@
     font-weight: bold;
 }
 
+/* footer schedules hours text*/
 .footer-schedules-h3 {
     font-size: 1rem;
     color: rgb(68, 68, 68);
 }
 
-/* --- BARRE DU BAS --- */
+/**************************
+********Footer bottom******
+**************************/
+/* footer bottom */
 .footer-bottom {
     max-width: 1200px;
     margin: 0 auto;
@@ -278,10 +317,12 @@
     font-size: 0.85rem;
 }
 
+/* footer copyright */
 .footer-copyright {
     color: rgba(255, 255, 255, 0.5);
 }
 
+/* footer legal link */
 #footer-legalLink {
     color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
@@ -289,10 +330,12 @@
     position: relative;
 }
 
+/* footer legal link hover */
 #footer-legalLink:hover {
     color: var(--color-white);
 }
 
+/* footer legal link underline animation setup */
 #footer-legalLink::after {
     content: '';
     position: absolute;
@@ -304,6 +347,7 @@
     transition: width 0.3s ease;
 }
 
+/* footer legal link underline animation when hovered */
 #footer-legalLink:hover::after {
     width: calc(100% + 10px); 
 }
@@ -311,6 +355,7 @@
 /********************************
 ****** Responsive Rules ********
 ********************************/
+/* Tablets*/
 @media (max-width: 1024px) {
     .footer-top {
         flex-direction: column;
@@ -333,6 +378,7 @@
     }
 }
 
+/*Mobiles*/
 @media (max-width: 599px) {
     .footer-top {
         gap: 45px;
@@ -356,11 +402,58 @@
     }
 }
 
-@keyframes planetaryFloatMobile {
-    0%, 100% {
-        transform: scale(0.85) translateY(0);
+ /* Tablets Landscape */
+@media (max-width: 1500px) and (orientation: landscape) {
+    .footer-top {
+        flex-direction: row; 
+        justify-content: space-around;
+        gap: 20px;
     }
-    50% {
-        transform: scale(0.85) translateY(-10px);
+    
+    .footer-reviews, 
+    .footer-schedules {
+        transform: scale(0.85);
+    }
+
+    .footer-reviews:hover,
+    .footer-schedules:hover {
+        animation: planetaryFloatTabletLandscape 4s infinite ease-in-out;
     }
 }
+
+
+/* Mobiles Landscape */
+@media (max-width: 899px) and (orientation: landscape) {
+     .footer-reviews {
+        order: 1;
+    }
+    
+    .footer-brand {
+        order: 2;
+    }
+
+    .footer-schedules {
+        order: 3;
+    }
+    .footer-top {
+        padding-bottom: 15px;
+    }
+
+
+    .footer-reviews:hover,
+    .footer-schedules:hover {
+        animation: planetaryFloatMobileLandscape 4s infinite ease-in-out;
+    }
+
+    .footer-reviews, 
+    .footer-schedules {
+        transform: scale(0.65);
+        margin: 0 -30px; 
+    }
+
+    .footer-bottom {
+        padding-top: 15px;
+        font-size: 0.75rem;
+    }
+
+} 
