@@ -186,7 +186,7 @@
     background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
     border: 2px solid var(--color-light-blue);
     padding: 12px 28px;
-    border-radius: 12px; /* Style bouton capsule moderne */
+    border-radius: 12px;
     font-weight: 600;
     box-shadow: 0 0 15px rgba(110, 185, 233, 0.2);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -269,8 +269,8 @@
 /********************************
 ******** Responsive Rules *******
 ********************************/
-/* Tablets + Mobiles */
-@media (max-width: 1024px) {
+/* Tablets + Mobiles / Tablets landscape */
+@media (max-width: 1024px), (max-width: 1500px) and (orientation: landscape) {
 
     /* first star on the left */
     .star-left{
@@ -371,108 +371,6 @@
     }
 }
 
-/* Tablets (landscape)*/
-@media (max-width: 1500px) and (orientation: landscape){
-
-    /* first star on the left */
-    .star-left{
-        width:25px;
-        height:25px;
-        top: 10px;
-        left: 5px;
-    }
-
-    /* second star on the right */
-    .star-right{
-        width: 20px;
-        height: 20px;
-        bottom: 5px;
-        right: 7px;
-    }
-
-    /*full header navbar*/
-    .header-nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        background: rgba(16, 37, 66, 0.95); 
-        gap: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-in-out;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    /*header logo img*/
-    .header-logo-img {
-        height: 100px; 
-    }
-
-    /*showing the burger button*/
-    .menu-toggle {
-        display: flex;
-        margin-right:25px;
-    }
-
-    /*animations on click for the burger button*/
-    .menu-toggle.active .bar:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-    .menu-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    .menu-toggle.active .bar:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
-
-
-    /*navbar menu*/
-    .header-nav.nav-open {
-        max-height: 400px;
-        padding-bottom: 20px;
-    }
-
-    /*header navbar links*/
-    .header-nav a {
-        padding: 15px 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        width: 100%;
-        box-sizing: border-box;
-        text-align: center;
-    }
-    
-    /*header navbar links hover*/
-    .header-nav a:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    /*contact wrapper*/
-    .contact-wrapper {
-        margin: 15px auto;
-        width: 50%;
-        display: flex;
-        justify-content: center;
-    }
-
-    /*contact button*/
-    .header-nav a#navbar-contactLink {
-        margin-top: 20px;
-        width: 80%;
-        text-align: center;
-        display: block;
-        box-sizing: border-box;
-    }
-
-    /*phone button*/
-    .header-phone-btn {
-        margin: 15px auto; 
-        width: 80%; 
-        padding: 12px;
-    }
-}
 
 
 /* Mobile landscape */
