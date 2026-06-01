@@ -16,6 +16,21 @@
     50% { transform: scale(1.2) rotate(15deg); opacity: 1; }
 }
 
+@keyframes zeroGravityDrift {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+    50% {
+        /* Flotte légèrement vers le haut et tangue à droite */
+        transform: scale(1.05) translateY(-5px);
+    }
+
+    100% {
+        /* Retour parfait au point de départ */
+        transform: scale(1.00) translateY(0);
+    }
+}
+
 /*****************************
 *********Stars decorations****
 *****************************/
@@ -83,11 +98,7 @@
     position: relative;
 }
 
-
-/*****************************
-*
-*****************************/
-/* On prépare les parents pour qu'ils retiennent les étoiles */
+/* aligning every items in the header */
 .header-logo-link,
 .contact-wrapper,
 .burger-wrapper {
@@ -115,14 +126,15 @@
 .header-logo-img {
     height: 200px;
     width: auto;
-    transition: transform 0.3s ease;
+    transition: filter 0.4s ease-in-out, transform 0.4s ease-in-out;
+    will-change: transform, filter;
 }
 
-/* header logo hover*/
+/* header logo img hover*/
 .header-logo-img:hover {
-    transform: scale(1.05); 
+    filter: drop-shadow(0 0 15px rgba(110, 185, 233, 0.8));
+    animation: zeroGravityDrift 5s infinite ease-in-out;
 }
-
 /*********************************
 ***************Header navbar******
 *********************************/
@@ -169,7 +181,6 @@
 }
 
 
-
 /* contact button */
 .header-nav a#navbar-contactLink {
     background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
@@ -186,8 +197,8 @@
     color: var(--color-white);
     background: linear-gradient(135deg, #204373 0%, var(--color-light-blue) 100%);
     box-shadow: 0 0 25px rgba(110, 185, 233, 0.6);
-    transform: translateY(-2px);
     border-color: var(--color-white);
+    transform: translateY(-2px);
 }
 
 
@@ -212,7 +223,6 @@
 /* Phone button hover*/
 .header-phone-btn:hover {
     background: rgba(110, 185, 233, 0.15); 
-    
     color:#d5e0e6;
 }
 
@@ -223,10 +233,10 @@
 }
 
 /********************************
-***************Menu for mobile***
+********Menu button for mobile***
 ********************************/
 
-/* menu toggle*/
+/* show the button for mobile menu*/
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -237,9 +247,15 @@
     border: none;
     cursor: pointer;
     padding: 0;
+    transition: all 0.3s ease;
 }
 
-/* menu bars*/
+/* mobile menu button hover*/
+.menu-toggle:hover {
+    filter: drop-shadow(0 0 15px var(--color-white));
+}
+
+/* mobile menu button bars*/
 .menu-toggle .bar {
     width: 100%;
     height: 3px;
@@ -249,7 +265,11 @@
 }
 
 
-@media (max-width: 768px) {
+/********************************
+******** Responsive Rules *******
+********************************/
+/* Tablets + Mobiles */
+@media (max-width: 1024px) {
 
     /* first star on the left */
     .star-left{
@@ -347,5 +367,116 @@
         margin: 15px auto; 
         width: 80%; 
         padding: 12px;
+    }
+}
+
+/* Tablets (landscape)*/
+@media (max-width: 1500px) and (orientation: landscape){
+
+    /* first star on the left */
+    .star-left{
+        width:25px;
+        height:25px;
+        top: 10px;
+        left: 5px;
+    }
+
+    /* second star on the right */
+    .star-right{
+        width: 20px;
+        height: 20px;
+        bottom: 5px;
+        right: 7px;
+    }
+
+    /*full header navbar*/
+    .header-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(16, 37, 66, 0.95); 
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /*header logo img*/
+    .header-logo-img {
+        height: 100px; 
+    }
+
+    /*showing the burger button*/
+    .menu-toggle {
+        display: flex;
+        margin-right:25px;
+    }
+
+    /*animations on click for the burger button*/
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+
+    /*navbar menu*/
+    .header-nav.nav-open {
+        max-height: 400px;
+        padding-bottom: 20px;
+    }
+
+    /*header navbar links*/
+    .header-nav a {
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    
+    /*header navbar links hover*/
+    .header-nav a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /*contact wrapper*/
+    .contact-wrapper {
+        margin: 15px auto;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+    }
+
+    /*contact button*/
+    .header-nav a#navbar-contactLink {
+        margin-top: 20px;
+        width: 80%;
+        text-align: center;
+        display: block;
+        box-sizing: border-box;
+    }
+
+    /*phone button*/
+    .header-phone-btn {
+        margin: 15px auto; 
+        width: 80%; 
+        padding: 12px;
+    }
+}
+
+
+/* Mobile landscape */
+@media (max-width: 899px) and (orientation: landscape) {
+    .header-logo-img{
+        height: 80px; 
     }
 }
