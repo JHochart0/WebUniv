@@ -1,0 +1,218 @@
+:root {
+  /* Rappel de tes variables globales */
+  --color-abyssal-blue: #183153;
+  --color-light-blue: #6EB9E9;
+  --color-white: #FFFFFF;
+  --color-dark-gray: #1F1F1F;
+  --font-main: 'Arial', 'Helvetica', sans-serif;
+}
+
+/* --- CONTENEUR GLOBAL (FOND BLANC) --- */
+.notfound-container {
+    min-height: 70vh;
+    background-color: var(--color-white);
+    color: var(--color-dark-gray);
+    font-family: var(--font-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* [ÉTAGE 1 : LE PLUS AU FOND] LA PLANÈTE 
+   Liée au conteneur global pour passer sous l'anneau */
+.notfound-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    
+    /* Ton dégradé de planète */
+    background: radial-gradient(circle at 30% 30%, 
+        rgba(255, 255, 255) 0%, 
+        rgba(110, 185, 233, 0.8) 60%, 
+        var(--color-abyssal-blue) 100%
+    );
+    
+    border: 1px solid rgba(110, 185, 233, 0.3);
+    box-shadow: 
+        inset -10px -10px 30px rgba(24, 49, 83, 0.2),
+        0 15px 35px rgba(24, 49, 83, 0.1);
+    z-index: 1; /* Niveau 1 */
+}
+
+/* [ÉTAGE 3 : TOUT AU-DESSUS] BLOC CENTRAL TEXTE */
+.notfound-content {
+    position: relative;
+    z-index: 3; /* Niveau 3 (Passe au-dessus de la planète et de l'anneau) */
+    max-width: 520px;
+    pointer-events: auto; /* Assure que le bouton reste cliquable */
+    animation: contentFadeIn 1s ease-out;
+}
+
+/* --- TEXTES & BOUTONS --- */
+.notfound-code {
+    font-size: 8.5rem;
+    font-weight: 900;
+    margin: 0;
+    line-height: 1;
+    color: var(--color-abyssal-blue);
+    letter-spacing: -2px;
+    filter: drop-shadow(0 4px 6px rgba(24, 49, 83, 0.12));
+}
+
+.notfound-title {
+    font-size: 1.6rem;
+    color: var(--color-dark-gray);
+    margin: 20px 0 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.notfound-text {
+    font-size: 1.05rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+.notfound-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
+    color: var(--color-white);
+    padding: 14px 35px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(24, 49, 83, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.notfound-btn:hover {
+    background: linear-gradient(135deg, #204373 0%, var(--color-light-blue) 100%);
+    box-shadow: 0 6px 20px rgba(110, 185, 233, 0.4);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   --- [ÉTAGE 2 : AU MILIEU] ANNEAU AUTOUR DE LA PLANÈTE ---
+   ========================================================================== */
+.cosmic-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 820px;  
+    height: 190px; 
+    transform: translate(-50%, -50%) rotate(15deg) skew(-25deg);
+    transform-origin: center center;
+    pointer-events: none;
+    z-index: 2; /* Niveau 2 (Au-dessus de la planète [1] mais sous le texte [3]) */
+}
+
+/* L'anneau */
+.cosmic-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(110, 185, 233, 0.5); 
+    box-shadow: 0 0 15px rgba(110, 185, 233, 0.15);
+}
+
+/* --- ÉTOILES FIXES SUR L'ANNEAU --- */
+.star-glow-1, 
+.star-glow-2 {
+    position: absolute;
+    top: 50%;
+    z-index: 5; /* Reste lié à l'anneau */
+    clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+}
+
+.star-glow-1 {
+    background-color: var(--color-abyssal-blue);
+    width: 38px;
+    height: 38px;
+    left: 0;
+    animation: pulseStarLeft404 4s infinite ease-in-out;
+}
+
+.star-glow-2 {
+    background-color: var(--color-light-blue);
+    width: 28px;
+    height: 28px;
+    right: 0;
+    animation: pulseStarRight404 4s infinite ease-in-out;
+    animation-delay: 1.5s;
+}
+
+/*********************************
+********* ANIMATIONS *************
+*********************************/
+@keyframes pulseStarLeft404 {
+    0%, 100% { transform: translate(-50%, -50%) skew(25deg) rotate(-15deg) scale(0.85); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) skew(25deg) rotate(-15deg) scale(1.15) rotate(15deg); opacity: 1; }
+}
+
+@keyframes pulseStarRight404 {
+    0%, 100% { transform: translate(50%, -50%) skew(25deg) rotate(-15deg) scale(0.85); opacity: 0.7; }
+    50% { transform: translate(50%, -50%) skew(25deg) rotate(-15deg) scale(1.15) rotate(15deg); opacity: 1; }
+}
+
+@keyframes contentFadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/*********************************
+********* RESPONSIVE *************
+*********************************/
+@media (max-width: 1024px) {
+    .notfound-container::before {
+        width: 420px;
+        height: 420px;
+    }
+    .cosmic-background {
+        width: 640px;
+        height: 150px;
+    }
+    .star-glow-1 { width: 30px; height: 30px; }
+    .star-glow-2 { width: 22px; height: 22px; }
+}
+
+@media (max-width: 650px) {
+    .notfound-container::before {
+        width: 280px;
+        height: 280px;
+    }
+    .cosmic-background {
+        width: 100%; height: 100%;
+        transform: translate(-50%, -50%);
+    }
+    .cosmic-background::before { display: none; } /* Cache l'anneau sur mobile */
+    
+    .star-glow-1 {
+        left: 10%; top: 15%;
+        animation: pulseStarMobile404 4s infinite ease-in-out;
+    }
+    .star-glow-2 {
+        right: 10%; top: auto; bottom: 15%;
+        animation: pulseStarMobile404 4s infinite ease-in-out -1.5s;
+    }
+    .notfound-code { font-size: 5.5rem; }
+    .notfound-title { font-size: 1.3rem; }
+}
+
+@keyframes pulseStarMobile404 {
+    0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) scale(1.1) rotate(15deg); opacity: 1; }
+}
