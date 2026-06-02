@@ -1,5 +1,4 @@
 :root {
-  /* Rappel de tes variables globales */
   --color-abyssal-blue: #183153;
   --color-light-blue: #6EB9E9;
   --color-white: #FFFFFF;
@@ -7,7 +6,27 @@
   --font-main: 'Arial', 'Helvetica', sans-serif;
 }
 
-/* --- CONTENEUR GLOBAL (FOND BLANC) --- */
+/*********************************
+********* ANIMATIONS *************
+*********************************/
+@keyframes pulseStarLeft404 {
+    0%, 100% { transform: translate(-50%, -50%) skew(25deg) rotate(-15deg) scale(0.85); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) skew(25deg) rotate(-15deg) scale(1.15) rotate(15deg); opacity: 1; }
+}
+
+@keyframes pulseStarRight404 {
+    0%, 100% { transform: translate(50%, -50%) skew(25deg) rotate(-15deg) scale(0.85); opacity: 0.7; }
+    50% { transform: translate(50%, -50%) skew(25deg) rotate(-15deg) scale(1.15) rotate(15deg); opacity: 1; }
+}
+
+@keyframes contentFadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/*********************************
+*********notfound container ******
+*********************************/
 .notfound-container {
     min-height: 70vh;
     background-color: var(--color-white);
@@ -19,10 +38,10 @@
     position: relative;
     overflow: hidden;
     text-align: center;
+    padding: 40px;
 }
 
-/* [ÉTAGE 1 : LE PLUS AU FOND] LA PLANÈTE 
-   Liée au conteneur global pour passer sous l'anneau */
+/* notfound planet in the background */
 .notfound-container::before {
     content: '';
     position: absolute;
@@ -33,7 +52,6 @@
     height: 500px;
     border-radius: 50%;
     
-    /* Ton dégradé de planète */
     background: radial-gradient(circle at 30% 30%, 
         rgba(255, 255, 255) 0%, 
         rgba(110, 185, 233, 0.8) 60%, 
@@ -44,19 +62,20 @@
     box-shadow: 
         inset -10px -10px 30px rgba(24, 49, 83, 0.2),
         0 15px 35px rgba(24, 49, 83, 0.1);
-    z-index: 1; /* Niveau 1 */
+    z-index: 1;
 }
 
-/* [ÉTAGE 3 : TOUT AU-DESSUS] BLOC CENTRAL TEXTE */
+/*********************************
+*********notfound text ***********
+*********************************/
 .notfound-content {
     position: relative;
-    z-index: 3; /* Niveau 3 (Passe au-dessus de la planète et de l'anneau) */
+    z-index: 3;
     max-width: 520px;
-    pointer-events: auto; /* Assure que le bouton reste cliquable */
+    pointer-events: auto;
     animation: contentFadeIn 1s ease-out;
 }
 
-/* --- TEXTES & BOUTONS --- */
 .notfound-code {
     font-size: 8.5rem;
     font-weight: 900;
@@ -77,7 +96,7 @@
 
 .notfound-text {
     font-size: 1.05rem;
-    color: #555555;
+    color: var(--color-dark-gray);
     line-height: 1.6;
     margin-bottom: 35px;
 }
@@ -101,10 +120,10 @@
     transform: translateY(-2px);
 }
 
-/* ==========================================================================
-   --- [ÉTAGE 2 : AU MILIEU] ANNEAU AUTOUR DE LA PLANÈTE ---
-   ========================================================================== */
-.cosmic-background {
+/************************************
+***********notfound stars and ring***
+************************************/
+.notfound-stars {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -113,11 +132,11 @@
     transform: translate(-50%, -50%) rotate(15deg) skew(-25deg);
     transform-origin: center center;
     pointer-events: none;
-    z-index: 2; /* Niveau 2 (Au-dessus de la planète [1] mais sous le texte [3]) */
+    z-index: 2;
 }
 
-/* L'anneau */
-.cosmic-background::before {
+/* notfound ring */
+.notfound-stars::before {
     content: '';
     position: absolute;
     top: 0;
@@ -129,90 +148,170 @@
     box-shadow: 0 0 15px rgba(110, 185, 233, 0.15);
 }
 
-/* --- ÉTOILES FIXES SUR L'ANNEAU --- */
-.star-glow-1, 
-.star-glow-2 {
+.notfound-star1, .notfound-star2 {
     position: absolute;
     top: 50%;
-    z-index: 5; /* Reste lié à l'anneau */
+    z-index: 5;
     clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
 }
 
-.star-glow-1 {
+.notfound-star1 {
     background-color: var(--color-abyssal-blue);
-    width: 38px;
-    height: 38px;
-    left: 0;
+    width: 38px; height: 38px; left: 0;
     animation: pulseStarLeft404 4s infinite ease-in-out;
 }
 
-.star-glow-2 {
+.notfound-star2 {
     background-color: var(--color-light-blue);
-    width: 28px;
-    height: 28px;
-    right: 0;
+    width: 28px; height: 28px; right: 0;
     animation: pulseStarRight404 4s infinite ease-in-out;
     animation-delay: 1.5s;
 }
 
-/*********************************
-********* ANIMATIONS *************
-*********************************/
-@keyframes pulseStarLeft404 {
-    0%, 100% { transform: translate(-50%, -50%) skew(25deg) rotate(-15deg) scale(0.85); opacity: 0.6; }
-    50% { transform: translate(-50%, -50%) skew(25deg) rotate(-15deg) scale(1.15) rotate(15deg); opacity: 1; }
-}
-
-@keyframes pulseStarRight404 {
-    0%, 100% { transform: translate(50%, -50%) skew(25deg) rotate(-15deg) scale(0.85); opacity: 0.7; }
-    50% { transform: translate(50%, -50%) skew(25deg) rotate(-15deg) scale(1.15) rotate(15deg); opacity: 1; }
-}
-
-@keyframes contentFadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 
 /*********************************
 ********* RESPONSIVE *************
 *********************************/
+
+/* Tablets */
 @media (max-width: 1024px) {
     .notfound-container::before {
-        width: 420px;
-        height: 420px;
+        width: 400px;
+        height: 400px;
     }
-    .cosmic-background {
-        width: 640px;
+    .notfound-stars {
+        width: 660px;
         height: 150px;
     }
-    .star-glow-1 { width: 30px; height: 30px; }
-    .star-glow-2 { width: 22px; height: 22px; }
+    .notfound-code { 
+        font-size: 7rem; 
+    }
+    .notfound-title { 
+        font-size: 1.4rem; 
+    }
+    .notfound-star1 { 
+        width: 32px; 
+        height: 32px; 
+    }
+    .notfound-star2 { 
+        width: 24px; 
+        height: 24px; 
+    }
 }
 
-@media (max-width: 650px) {
+/* Mobiles */
+@media (max-width: 599px) {
+    .notfound-container {
+        padding: 10px;
+    }
+    .notfound-container::before {
+        width: 240px;
+        height: 240px;
+    }
+    .notfound-stars {
+        width: 310px;
+        height: 75px;
+    }
+    .notfound-content {
+        max-width: 190px;
+    }
+    .notfound-code { 
+        font-size: 3.2rem; 
+    }
+    .notfound-title { 
+        font-size: 0.85rem; 
+        margin: 8px 0 4px 0; 
+    }
+    .notfound-text { 
+        font-size: 0.72rem; 
+        line-height: 1.3; 
+        margin-bottom: 12px; 
+    }
+    .notfound-btn { 
+        padding: 8px 18px; 
+        font-size: 0.75rem; 
+        border-radius: 6px; 
+    }
+    .notfound-star1 { 
+        width: 20px; 
+        height: 20px; 
+    }
+    .notfound-star2 { 
+        width: 14px; 
+        height: 14px; 
+    }
+}
+
+/* Tablets Landscape */
+@media (max-width: 1500px) and (orientation: landscape) {
+    .notfound-container {
+        min-height: 100vh;
+    }
+    .notfound-container::before {
+        width: 360px;
+        height: 360px;
+    }
+    .notfound-stars {
+        width: 600px;
+        height: 140px;
+    }
+    .notfound-code { 
+        font-size: 5.4rem; 
+    }
+    .notfound-title { 
+        font-size: 1.2rem; 
+        margin: 10px 0; 
+    }
+    .notfound-text { 
+        font-size: 1rem; 
+        margin-bottom: 20px; 
+    }
+}
+
+/* Mobiles Landscape  */
+@media (max-width: 899px) and (orientation: landscape) {
+    .notfound-container {
+        padding: 20px 10px;
+        min-height: 100vh; 
+    }
+
     .notfound-container::before {
         width: 280px;
         height: 280px;
     }
-    .cosmic-background {
-        width: 100%; height: 100%;
-        transform: translate(-50%, -50%);
-    }
-    .cosmic-background::before { display: none; } /* Cache l'anneau sur mobile */
-    
-    .star-glow-1 {
-        left: 10%; top: 15%;
-        animation: pulseStarMobile404 4s infinite ease-in-out;
-    }
-    .star-glow-2 {
-        right: 10%; top: auto; bottom: 15%;
-        animation: pulseStarMobile404 4s infinite ease-in-out -1.5s;
-    }
-    .notfound-code { font-size: 5.5rem; }
-    .notfound-title { font-size: 1.3rem; }
-}
 
-@keyframes pulseStarMobile404 {
-    0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
-    50% { transform: translate(-50%, -50%) scale(1.1) rotate(15deg); opacity: 1; }
+    .notfound-stars {
+        width: 440px;
+        height: 100px;
+    }
+ 
+    .notfound-content {
+        max-width: 220px;
+    }
+
+    .notfound-code {
+        font-size: 4.2rem;
+    }
+    .notfound-title {
+        font-size: 1.05rem;
+        margin: 10px 0 6px 0;
+    }
+    .notfound-text {
+        font-size: 0.82rem;
+        line-height: 1.4;
+        margin-bottom: 14px;
+    }
+    .notfound-btn {
+        padding: 10px 22px;
+        font-size: 0.82rem;
+        border-radius: 8px;
+    }
+    .notfound-star1 { 
+        width: 24px; 
+        height: 24px; 
+    }
+    .notfound-star2 { 
+        width: 18px; 
+        height: 18px; 
+    }
 }

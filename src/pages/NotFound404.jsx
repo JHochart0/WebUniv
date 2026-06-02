@@ -18,16 +18,14 @@ function NotFound404() {
                     Oups ! La page que vous cherchez n'existe pas.
                 </p>
                 
-                {/* Bouton de secours pour revenir à l'accueil */}
                 <Link to="/" className="notfound-btn">
                     Revenir à l'accueil
                 </Link>
             </div>
 
-            {/* Arrière-plan plus sobre (juste des lueurs d'étoiles) */}
-            <div className="cosmic-background">
-                <div className="star-glow-1"></div>
-                <div className="star-glow-2"></div>
+            <div className="notfound-stars">
+                <div className="notfound-star1"></div>
+                <div className="notfound-star2"></div>
             </div>
         </div>
     );

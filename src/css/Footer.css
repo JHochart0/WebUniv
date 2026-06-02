@@ -402,7 +402,7 @@
     }
 }
 
- /* Tablets Landscape */
+/* Tablets Landscape */
 @media (max-width: 1500px) and (orientation: landscape) {
     .footer-top {
         flex-direction: row; 
