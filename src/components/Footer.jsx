@@ -46,7 +46,7 @@ function Footer() {
                 <PhoneButton className="footer-phone-btn" />
                 
                 <div className="footer-socials">
-                    <a href="https://www.facebook.com/profile.php?id=61590322290757" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <a href="https://www.facebook.com/WebUniv.Dev/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                         <FontAwesomeIcon icon={faFacebook} />
                     </a>
                     <a href="https://www.instagram.com/webuniv_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
