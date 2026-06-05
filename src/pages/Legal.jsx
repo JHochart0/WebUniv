@@ -4,9 +4,9 @@ import '../css/Legal.css';
 
 import NavLink from "../components/NavLink.jsx";
 
-// Page des mentions légales et politique de confidentialité - WebUniv
+// legal & privacy politics page
 function Legal() {
-    // Changement du titre de la page au montage du composant
+    // change the title
     useEffect(() => {
         document.title = "WebUniv - Mentions légales et politique de confidentialité";
     }, []);
@@ -46,7 +46,7 @@ function Legal() {
                 </div>
             </div>
 
-            {/* Part 2: privacy section (Texte officiel Incubatest adapté) */}
+            {/* Part 2: privacy section */}
             <div className="privacy-section">
                 <h2>Politique de confidentialité</h2>
                 <div className="privacy-section-text">
@@ -74,7 +74,6 @@ function Legal() {
                         justificatif d’identité :
                     </p>
                     <ul>
-                        {/* Ajustement ici : Intégration du composant NavLink pour rendre l'exercice du droit effectif sur le site */}
                         <li>soit directement sur le site, via la page de <NavLink to="/contact" content="Contact" id=""/></li>
                         <li>soit par courriel : <strong>webuniv.pro@gmail.com</strong></li>
                         <li>soit en écrivant à : <strong>WebUniv - Jovany Hochart, 102 rue Neuve, 62100 Calais, France</strong></li>
@@ -82,7 +81,7 @@ function Legal() {
                 </div>   
             </div>
 
-            {/* Part 3: Tarification, Host et credits */}
+            {/* Part 3: pricing, Host et credits */}
             <div className="hosting-section">
                 <h2>Hébergement, Tarification et crédits</h2>
                 <div className="hosting-section-text">

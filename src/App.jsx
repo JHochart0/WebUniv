@@ -15,6 +15,7 @@ import Services from "./pages/Services.jsx";
 import Contact from "./pages/Contact.jsx";
 import Legal from "./pages/Legal.jsx";
 import NotFound404 from "./pages/NotFound404.jsx";
+import GTC from "./pages/GTC.jsx";
 
 function App() {
     // check if sessionStorage "redirect" exists, then redirect correctly to the NotFound404 page
@@ -36,6 +37,7 @@ function App() {
                         <Route path="/services" element={<Services/>} />
                         <Route path="/contact" element={<Contact/>} />
                         <Route path="/legal" element={<Legal/>} />
+                        <Route path="/gtc" element={<GTC/>} />
                         <Route path="*" element={<NotFound404/>} />
                     </Routes>
                 </div>

@@ -1,0 +1,136 @@
+:root {
+  /* Colors used for WebUniv */
+  --color-abyssal-blue: #183153;
+  --color-light-blue: #6EB9E9;
+  --color-white: #FFFFFF;
+  --color-dark-gray: #1F1F1F;
+
+  /* main font */
+  --font-main: 'Arial', 'Helvetica', sans-serif;
+}
+
+/*********************************
+**********GTC container**********
+*********************************/
+.GTC-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+    color: var(--color-dark-gray);
+    font-family: var(--font-main);
+}
+
+/*********************************
+******GTC page main title*******
+*********************************/
+.GTC-container h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    
+}
+
+/*********************************
+*******GTC section blocks********
+*********************************/
+.gtc-section {
+    min-width: 50vw;
+    width: 100%;
+    background: var(--color-white);
+    border-radius: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: transform 0.2s ease;
+}
+
+
+.gtc-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--color-light-blue);
+    padding-left: 0.6rem;
+    color: var(--color-light-blue);
+}
+
+
+.gtc-section h3 {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--color-dark-gray);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+
+.gtc-section-text {
+    margin-left: 1rem;
+}
+
+
+.gtc-section-text p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+
+.gtc-section-text ul {
+    list-style: disc inside;
+    margin: 0.5rem 0 1rem 0.5rem;
+    padding-left: 1rem;
+}
+
+.gtc-section-text li {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+}
+
+
+.gtc-section-text a {
+    color: #0077ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+    border-bottom: 1px dashed transparent;
+}
+
+.gtc-section-text a:hover {
+    color: #0056cc;
+    border-bottom: 1px dashed #0056cc;
+}
+
+
+.gtc-consumer-note {
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    margin: 20px 0;
+    padding: 10px;
+    border-left: 3px solid var(--color-light-blue);
+}
+
+/*********************************
+**********GTC link*********
+*********************************/
+.gtc-link {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.gtc-link a {
+    color: #0077ff;
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+}
+
+.gtc-link a:hover {
+    color: #0056cc;
+    border-bottom: 1px dashed #0056cc;
+}

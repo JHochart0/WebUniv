@@ -51,7 +51,7 @@
 ***********Footer Top******
 **************************/
 .footer-top {
-    max-width: 1200px;
+    max-width: 62.5vw;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -305,7 +305,7 @@
 **************************/
 /* footer bottom */
 .footer-bottom {
-    max-width: 1200px;
+    max-width: 62.5vw;
     margin: 0 auto;
     padding-top: 25px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -313,30 +313,42 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 15px;
     font-size: 0.85rem;
 }
 
 /* footer copyright */
 .footer-copyright {
     color: rgba(255, 255, 255, 0.5);
+    flex: 1;
+    text-align: left;
+}
+
+/*footer gtc link*/
+#footer-gtcLink {
+    text-align: center;
 }
 
 /* footer legal link */
 #footer-legalLink {
+    flex: 1;
+    text-align: right;
+}
+
+/* footer links */
+#footer-legalLink, #footer-gtcLink {
     color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
     transition: color 0.3s ease;
     position: relative;
 }
 
-/* footer legal link hover */
-#footer-legalLink:hover {
+/* footer links hover */
+#footer-legalLink:hover, #footer-gtcLink:hover{
     color: var(--color-white);
 }
 
-/* footer legal link underline animation setup */
-#footer-legalLink::after {
+/* footer links underline animation setup */
+#footer-legalLink::after, #footer-gtcLink::after{
     content: '';
     position: absolute;
     bottom: -4px;
@@ -347,10 +359,12 @@
     transition: width 0.3s ease;
 }
 
-/* footer legal link underline animation when hovered */
-#footer-legalLink:hover::after {
+/* footer link underline animation when hovered */
+#footer-legalLink:hover::after, #footer-gtcLink:hover::after {
     width: calc(100% + 10px); 
 }
+
+
 
 /********************************
 ****** Responsive Rules ********
