@@ -314,23 +314,27 @@
     align-items: center;
     flex-wrap: wrap;
     font-size: 0.85rem;
+    flex: 1;
+}
+
+
+
+/*footer gtc link*/
+#footer-gtcLink {
+
+    text-align: left;
 }
 
 /* footer copyright */
 .footer-copyright {
     color: rgba(255, 255, 255, 0.5);
-    flex: 1;
-    text-align: left;
-}
-
-/*footer gtc link*/
-#footer-gtcLink {
+    
     text-align: center;
+    
 }
 
 /* footer legal link */
 #footer-legalLink {
-    flex: 1;
     text-align: right;
 }
 
@@ -405,6 +409,18 @@
         text-align: center;
         width: 100%;
     }
+
+    .footer-copyright{
+        order:1;
+    }
+
+    #footer-gtcLink{
+        order:2;
+    }
+
+    #footer-legalLink{
+        order:3;
+    }
 }
 
 /*Mobiles*/
@@ -436,6 +452,18 @@
         flex: none;
         text-align: center;
         width: 100%;
+    }
+
+    .footer-copyright{
+        order:1;
+    }
+
+    #footer-gtcLink{
+        order:2;
+    }
+
+    #footer-legalLink{
+        order:3;
     }
 }
 

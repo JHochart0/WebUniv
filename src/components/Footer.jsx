@@ -64,8 +64,8 @@ function Footer() {
 
         {/*legal part of the footer*/}
         <div className="footer-bottom">
+             <NavLink to="/gtc" content="Conditions générales de prestations de service" id="footer-gtcLink" />
             <p className="footer-copyright">© {new Date().getFullYear()} Tous droits réservés | WebUniv</p>
-            <NavLink to="/gtc" content="Conditions générales de prestations de service" id="footer-gtcLink" />
             <NavLink to="/legal" content="Mentions légales et politique de confidentialité" id="footer-legalLink" />
         </div>
     </footer>

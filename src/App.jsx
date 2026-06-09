@@ -25,7 +25,6 @@ function App() {
         window.history.replaceState(null, "", redirect);
     }
 
-
     return (
         <Router basename="/">
             <ScrollToTop />
