@@ -1,0 +1,555 @@
+:root {
+  --color-abyssal-blue: #183153;
+  --color-light-blue: #6EB9E9;
+  --color-white: #FFFFFF;
+  --color-dark-gray: #1F1F1F;
+  --font-main: 'Arial', 'Helvetica', sans-serif;
+}
+
+/*********************************
+********* ANIMATIONS *************
+*********************************/
+@keyframes pulseStarLeftContact {
+    0%, 100% { transform: translate(-50%, -50%) skew(25deg) rotate(-15deg) scale(0.85); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) skew(25deg) rotate(-15deg) scale(1.15) rotate(15deg); opacity: 1; }
+}
+
+@keyframes pulseStarRightContact {
+    0%, 100% { transform: translate(50%, -50%) skew(25deg) rotate(-15deg) scale(0.85); opacity: 0.7; }
+    50% { transform: translate(50%, -50%) skew(25deg) rotate(-15deg) scale(1.15) rotate(15deg); opacity: 1; }
+}
+
+/* Animations de flottement héritées du Footer */
+@keyframes planetaryFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes planetaryFloatTabletLandscape {
+    0%, 100% { transform: scale(0.85) translateY(0); }
+    50% { transform: scale(0.85) translateY(-8px); }
+}
+
+@keyframes planetaryFloatMobile {
+    0%, 100% { transform: scale(0.85) translateY(0); }
+    50% { transform: scale(0.85) translateY(-10px); }
+}
+
+@keyframes planetaryFloatMobileLandscape {
+    0%, 100% { transform: scale(0.65) translateY(0); }
+    50% { transform: scale(0.65) translateY(-6px); }
+}
+
+/*********************************
+********* CONTAINER **************
+*********************************/
+.contact-container {
+    min-height: 100vh;
+    background-color: var(--color-white);
+    color: var(--color-dark-gray);
+    font-family: var(--font-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 20px;
+    
+}
+
+/* Planète en arrière-plan global */
+.contact-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, 
+        rgba(255, 255, 255) 0%, 
+        rgba(110, 185, 233, 0.8) 60%, 
+        var(--color-abyssal-blue) 100%
+    );
+    border: 1px solid rgba(110, 185, 233, 0.3);
+    box-shadow: 
+        inset -10px -10px 30px rgba(24, 49, 83, 0.2),
+        0 15px 35px rgba(24, 49, 83, 0.1);
+    z-index: 1;
+}
+
+/*********************************
+********* WRAPPER & GRID *********
+*********************************/
+.contact-wrap {
+    position: relative;
+    z-index: 50;
+    width: 100%;
+    max-width: 65.5vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: start;
+    backdrop-filter: blur(3px);
+    padding: 40px;
+    border-radius: 16px;
+}
+
+/*********************************
+********* STARS DECORATIONS *******
+*********************************/
+.contact-star-deco {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1720px;  
+    height: 400px; 
+    transform: translate(-50%, -50%) rotate(-15deg) skew(-25deg);
+    transform-origin: center center;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.contact-star-deco::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(110, 185, 233, 0.5); 
+    box-shadow: 0 0 15px rgba(110, 185, 233, 0.15);
+}
+
+.contact-star-left, .contact-star-right {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+}
+
+.contact-star-left {
+    background-color: var(--color-abyssal-blue);
+    width: 38px; height: 38px; left: 0;
+    animation: pulseStarLeftContact 4s infinite ease-in-out;
+}
+
+.contact-star-right {
+    background-color: var(--color-light-blue);
+    width: 28px; height: 28px; right: 0;
+    animation: pulseStarRightContact 4s infinite ease-in-out;
+}
+
+/*********************************
+********* TEXT SIDE **************
+*********************************/
+.contact-info-section {
+    display: flex;
+    flex-direction: column;
+    background: #fdfdfdb7;
+    border: 1px solid rgba(110, 185, 233, 0.2);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(24, 49, 83, 0.04);
+    min-height: 75vh;
+    min-width: 30vw;
+}
+
+.contact-main-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--color-abyssal-blue);
+    margin: 0 0 10px 0;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.contact-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-light-blue);
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.contact-text {
+    font-size: 1.05rem;
+    color: var(--color-dark-gray);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.contact-direct-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.contact-direct-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    padding: 12px 20px; 
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.phone-btn {
+    border: 2px solid var(--color-abyssal-blue);
+    color: var(--color-abyssal-blue);
+}
+
+.phone-btn:hover {
+    background: rgba(110, 185, 233, 0.08);
+    color: var(--color-light-blue);
+    transform: translateY(-2px);
+}
+
+.email-btn {
+    border: 2px solid var(--color-light-blue);
+    color: var(--color-dark-gray);
+}
+
+.email-btn:hover {
+    background: rgba(110, 185, 233, 0.08);
+    color: var(--color-light-blue);
+    transform: translateY(-2px);
+}
+
+.contact-btn-icon {
+    margin-right: 8px;
+    color: var(--color-light-blue);
+}
+
+/*************************************************
+********* SCHEDULES PLANET (STYLE MATCH) *********
+*************************************************/
+.contact-schedules {
+    position: relative;
+    z-index: 1;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+/* Effet au survol identique au footer */
+.contact-schedules:hover {
+    animation: planetaryFloat 4s infinite ease-in-out;
+}
+
+/* Sphère de la planète */
+.contact-schedules::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--color-light-blue);
+    box-shadow: 0 0 20px var(--color-light-blue);
+}
+
+/* Anneau de la planète */
+.contact-schedules::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) skew(-10deg) rotate(20deg);
+    width: 380px;
+    height: 55px;
+    border-radius: 50%;
+    background: var(--color-light-blue);
+    box-shadow: 0 0 20px var(--color-light-blue);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Titre principal (H1) dans la planète */
+.contact-schedules-h1 {
+    color: var(--color-white);
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 10;
+}
+
+.contact-schedules-hours {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 10;
+}
+
+/* Jours (H2) dans la planète */
+.contact-schedules-h2 {
+    font-size: 1.2rem;
+    color: var(--color-white);
+    margin-top: 6px;
+    font-weight: bold;
+}
+
+/* Heures (H3) dans la planète - Sombre pour le contraste sur fond bleu clair */
+.contact-schedules-h3 {
+    font-size: 1rem;
+    color: rgb(68, 68, 68);
+    font-weight: normal;
+    margin: 0;
+}
+
+.contact-social-section {
+    margin-top:50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-social-title {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--color-abyssal-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 12px 0;
+}
+
+.contact-socials {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.contact-socials a {
+    color: var(--color-abyssal-blue);
+    font-size: 2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-socials a:hover {
+    color: var(--color-light-blue);
+    transform: translateY(-3px);
+}
+
+
+
+/*********************************
+********* FORM CARD SIDE *********
+*********************************/
+.contact-form-section {
+    background: #fdfdfdb7;
+    border: 1px solid rgba(110, 185, 233, 0.2);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(24, 49, 83, 0.04);
+    min-height: 75vh;
+    min-width:25vw;
+}
+
+.contact-form-element {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.contact-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-form-group label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--color-abyssal-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-form-group input,
+.contact-form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    color: var(--color-dark-gray);
+    background-color: var(--color-white);
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.contact-form-group input:focus,
+.contact-form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-light-blue);
+    box-shadow: 0 0 8px rgba(110, 185, 233, 0.15);
+}
+
+.contact-form-group textarea {
+    resize: vertical;
+    min-height: 300px;
+    max-height: 500px;
+    font-family: inherit;
+}
+
+/*********************************
+********* BUTTON & ALERTS ********
+*********************************/
+.contact-form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.contact-submit-btn {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
+    border: 2px solid var(--color-light-blue);
+    padding: 14px 35px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-white);
+    box-shadow: 0 0 15px rgba(110, 185, 233, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.contact-submit-btn:hover {
+    color: var(--color-white);
+    background: linear-gradient(135deg, #204373 0%, var(--color-light-blue) 100%);
+    box-shadow: 0 0 25px rgba(110, 185, 233, 0.6);
+    border-color: var(--color-white);
+    transform: translateY(-2px);
+}
+
+.contact-submit-btn:disabled {
+    background: #cbd5e1;
+    border-color: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.contact-alert {
+    font-size: 0.95rem;
+    margin: 0;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.contact-alert.success {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+.contact-alert.error {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+/*********************************
+********* RESPONSIVE *************
+*********************************/
+@media (max-width: 1024px) {
+    .contact-wrap {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 30px;
+        max-width: 85vw;
+    }
+
+    .contact-main-title {
+        font-size: 2.4rem;
+    }
+    
+    .contact-schedules {
+        margin-top: 30px;
+        align-self: center;
+    }
+}
+
+@media (max-width: 599px) {
+    .contact-container {
+        padding: 40px 10px;
+    }
+
+    .contact-wrap {
+        max-width: 95vw;
+        padding: 25px 15px;
+        gap: 30px;
+    }
+
+    .contact-form-section {
+        padding: 25px 15px;
+    }
+
+    .contact-main-title {
+        font-size: 2.1rem;
+    }
+
+    .contact-submit-btn,
+    .contact-direct-btn {
+        width: 100%;
+    }
+
+    /* Échelle et animation mobile identiques au footer */
+    .contact-schedules {
+        transform: scale(0.85);
+        margin: 15px auto;
+    }
+
+    .contact-schedules:hover {
+        animation: planetaryFloatMobile 4s infinite ease-in-out;
+    }
+}
+
+/* Alignement et gestion Landscape pour Tablettes */
+@media (max-width: 1500px) and (orientation: landscape) {
+    .contact-schedules {
+        transform: scale(0.85);
+    }
+    .contact-schedules:hover {
+        animation: planetaryFloatTabletLandscape 4s infinite ease-in-out;
+    }
+}
+
+/* Alignement et gestion Landscape pour Mobiles */
+@media (max-width: 899px) and (orientation: landscape) {
+    .contact-schedules {
+        transform: scale(0.65);
+        margin: 10px auto; 
+    }
+    .contact-schedules:hover {
+        animation: planetaryFloatMobileLandscape 4s infinite ease-in-out;
+    }
+}

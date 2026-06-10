@@ -165,7 +165,6 @@
     background-color: var(--color-light-blue);
     width: 28px; height: 28px; right: 0;
     animation: pulseStarRight404 4s infinite ease-in-out;
-    animation-delay: 1.5s;
 }
 
 
