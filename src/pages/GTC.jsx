@@ -241,7 +241,7 @@ function GTC() {
             </div>
 
             <div className="gtc-link">
-                <p>Besoin d'éclaircissements ? <NavLink to="/contact" content="Contactez WebUniv" id=""/></p>
+                <p>Besoin de renseignements ? <NavLink to="/contact" content="Contactez WebUniv" id=""/></p>
             </div>
         </div>
     );
