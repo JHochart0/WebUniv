@@ -132,14 +132,18 @@
 }
 
 .contact-star-left {
-    background-color: var(--color-abyssal-blue);
-    width: 38px; height: 38px; left: 0;
+    background-color: var(--color-light-blue);
+    width: 38px; 
+    height: 38px; 
+    left: 0;
     animation: pulseStarLeftContact 4s infinite ease-in-out;
 }
 
 .contact-star-right {
-    background-color: var(--color-light-blue);
-    width: 28px; height: 28px; right: 0;
+    background-color: var(--color-abyssal-blue);
+    width: 48px; 
+    height: 48px; 
+    right: 0;
     animation: pulseStarRightContact 4s infinite ease-in-out;
 }
 

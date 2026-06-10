@@ -110,7 +110,7 @@ function Contact() {
                         <input type="hidden" name="_captcha" value="false" />
 
                         <div className="contact-form-group">
-                            <label htmlFor="name">Nom / Entreprise</label>
+                            <label htmlFor="name">Nom / Entreprise*</label>
                             <input 
                                 type="text" 
                                 id="name" 
@@ -123,7 +123,7 @@ function Contact() {
                         </div>
 
                         <div className="contact-form-group">
-                            <label htmlFor="email">Adresse E-mail</label>
+                            <label htmlFor="email">Adresse E-mail*</label>
                             <input 
                                 type="email" 
                                 id="email" 
@@ -136,7 +136,7 @@ function Contact() {
                         </div>
 
                         <div className="contact-form-group">
-                            <label htmlFor="subject">Sujet du message</label>
+                            <label htmlFor="subject">Sujet du message*</label>
                             <input 
                                 type="text" 
                                 id="subject" 
@@ -149,7 +149,7 @@ function Contact() {
                         </div>
 
                         <div className="contact-form-group">
-                            <label htmlFor="message">Votre Message</label>
+                            <label htmlFor="message">Votre Message*</label>
                             <textarea 
                                 id="message" 
                                 name="message" 
