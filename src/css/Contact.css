@@ -336,6 +336,7 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     margin: 0 0 12px 0;
+    text-align:center;
 }
 
 .contact-socials {
@@ -502,34 +503,52 @@
     }
 }
 
+/*********************************
+********* RESPONSIVE MOBILE ******
+*********************************/
 @media (max-width: 599px) {
     .contact-container {
-        padding: 40px 10px;
+        padding: 40px 15px;
+        background-color: var(--color-white); /* Fond propre et uni */
+    }
+
+    /* 1. ON SUPPRIME LA GRANDE PLANÈTE ET L'ANNEAU SUR MOBILE */
+    .contact-container::before,
+    .contact-star-deco {
+        display: none;
     }
 
     .contact-wrap {
-        max-width: 95vw;
-        padding: 25px 15px;
-        gap: 30px;
+        max-width: 100%;
+        padding: 0;
+        gap: 30px; /* Espace équilibré entre la section info et le formulaire */
     }
 
+    /* 2. ADAPTATION DES CARTES (OPAQUES ET ÉPURÉES) */
+    .contact-info-section,
     .contact-form-section {
-        padding: 25px 15px;
+        background: #FFFFFF;
+        border: 1px solid #e2e8f0; /* Une bordure grise très légère pour structurer */
+        padding: 30px 20px;
+        min-height: auto; /* On libère la hauteur fixe du desktop */
+        min-width: auto;
+        box-shadow: 0 4px 15px rgba(24, 49, 83, 0.03); /* Ombre très subtile */
     }
 
+    /* Ajustements des textes et boutons */
     .contact-main-title {
         font-size: 2.1rem;
     }
 
     .contact-submit-btn,
     .contact-direct-btn {
-        width: 100%;
+        width: 100%; /* Boutons à 100% pour une meilleure ergonomie tactile */
     }
 
-    /* Échelle et animation mobile identiques au footer */
+    /* 3. ON GARDE UNIQUEMENT LA PETITE PLANÈTE DES HORAIRES */
     .contact-schedules {
         transform: scale(0.85);
-        margin: 15px auto;
+        margin: 20px auto;
     }
 
     .contact-schedules:hover {

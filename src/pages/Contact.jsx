@@ -98,10 +98,6 @@ function Contact() {
                             </a>
                         </div>
                     </div>
-
-
-                    
-
                 </div>
 
                 {/* Partie Formulaire de contact */}
