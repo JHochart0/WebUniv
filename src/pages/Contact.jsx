@@ -29,12 +29,13 @@ function Contact() {
         }));
     };
 
+    //handle the submit button of the form
     const handleSubmit = (e) => {
         e.preventDefault();
         setStatus({ loading: true, success: null });
 
-        // Envoi AJAX à FormSubmit pour éviter toute redirection externe
-        fetch("https://formsubmit.co/ajax/webuniv.pro@gmail.com", {
+        // Send AJAX to FormSubmit to avoid any external redirection
+        fetch("https://formsubmit.co/ajax/4622a189abe7c4c0da2eb7f053cc67b8 ", {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json",
