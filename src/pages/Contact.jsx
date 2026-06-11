@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import '../css/Contact.css';
-import Schedules from '../components/Schedules';
 
-// Importations FontAwesome identiques au Footer
+import Schedules from '../components/Schedules';
+import NavLink from '../components/NavLink';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -107,6 +108,8 @@ function Contact() {
                     <form onSubmit={handleSubmit} className="contact-form-element">
                         <input type="hidden" name="_captcha" value="false" />
 
+                        
+
                         <div className="contact-form-group">
                             <label htmlFor="name">Nom / Entreprise*</label>
                             <input 
@@ -158,6 +161,12 @@ function Contact() {
                                 required
                             ></textarea>
                         </div>
+                        <p className="contact-form-note">* Champs obligatoires</p>
+
+                        <p className="contact-privacy-text">
+                            En soumettant ce formulaire, vous acceptez que les informations saisies soient exploitées dans le cadre de la demande de contact et de la relation professionnelle qui peut en découler. Pour en savoir plus, consultez notre <NavLink to="/legal" content="Politique de confidentialité"/>.
+
+                        </p>
 
                         <div className="contact-form-actions">
                             <button type="submit" className="contact-submit-btn" disabled={status.loading}>

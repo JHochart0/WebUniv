@@ -65,6 +65,9 @@ function Legal() {
                         de la relation établie, et jusqu’à 3 ans maximum après, selon la nature de la relation concernée.
                     </p>
                     <p>
+                        Pour assurer l'acheminement et le traitement technique de vos messages, le formulaire de contact utilise le service tiers <a href="https://formsubmit.co/">FormSubmit.co</a>. Les données que vous y saisissez (Nom/Entreprise, e-mail, sujet et message) lui sont temporairement transmises de manière sécurisée dans le seul but de nous les délivrer par courrier électronique. Ce prestataire agit en tant que sous-traitant technique et s'engage contractuellement à ne jamais céder, vendre ou exploiter vos informations à des fins commerciales ou publicitaires.
+                    </p>
+                    <p>
                         Les données ainsi collectées ne seront ni cédées, ni échangées ou louées. Conformément aux textes susvisés, vous
                         disposez d'un droit d’opposition, d'accès, de rectification, de suppression, de limitation ou de portabilité portant sur les
                         données vous concernant.
