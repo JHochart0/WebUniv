@@ -33,7 +33,7 @@
 
 @keyframes planetaryFloatMobileLandscape {
     0%, 100% { transform: scale(0.65) translateY(0); }
-    50% { transform: scale(0.65) translateY(-6px); } /* Flottement réduit pour ne pas cogner le haut */
+    50% { transform: scale(0.65) translateY(-6px); }
 }
 /**************************
 ********Footer container***
@@ -54,6 +54,7 @@
     max-width: 62.5vw;
     margin: 0 auto;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
@@ -376,6 +377,7 @@
 /* Tablets*/
 @media (max-width: 1024px) {
     .footer-top {
+        
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -470,6 +472,7 @@
 /* Tablets Landscape */
 @media (max-width: 1500px) and (orientation: landscape) {
     .footer-top {
+        max-width: none;
         flex-direction: row; 
         justify-content: space-around;
         gap: 20px;

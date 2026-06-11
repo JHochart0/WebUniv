@@ -42,7 +42,8 @@ function Contact() {
             },
             body: JSON.stringify({
                 ...formData,
-                _subject: `🌌 Nouveau message WebUniv : ${formData.subject}`
+                _subject: `🌌 Nouveau message de contact WebUniv : ${formData.subject}`,
+                _template: "table"
             })
         })
         .then(response => response.json())
@@ -67,7 +68,7 @@ function Contact() {
                     <h1 className="contact-main-title">Un projet en vue ?</h1>
                     <h2 className="contact-subtitle">Mettons le cap sur votre Univers !</h2>
                     <p className="contact-text">
-                        Besoin d'un site vitrine, d'un portfolio ou d'un outil web sur-mesure ? 
+                        Besoin d'un site vitrine, d'un outil web sur-mesure ou d'un simple renseignement ? 
                         Remplissez le formulaire de contact ou utilisez les canaux directs ci-dessous pour lancer la discussion avec votre développeur web.
                     </p>
 
@@ -113,7 +114,7 @@ function Contact() {
                                 name="name" 
                                 value={formData.name} 
                                 onChange={handleChange} 
-                                placeholder="Ex: Jean Dupont"
+                                placeholder="Saisissez votre nom..."
                                 required 
                             />
                         </div>
@@ -126,7 +127,7 @@ function Contact() {
                                 name="email" 
                                 value={formData.email} 
                                 onChange={handleChange} 
-                                placeholder="Ex: jean.dupont@gmail.com"
+                                placeholder="Saisissez votre adresse e-mail..."
                                 required 
                             />
                         </div>
@@ -139,7 +140,7 @@ function Contact() {
                                 name="subject" 
                                 value={formData.subject} 
                                 onChange={handleChange} 
-                                placeholder="Ex: Création de site internet"
+                                placeholder="Ex: Création de site internet, demande de renseignement..."
                                 required 
                             />
                         </div>
@@ -163,7 +164,7 @@ function Contact() {
                             </button>
 
                             {status.success === true && (
-                                <p className="contact-alert success">✨ Message envoyé avec succès ! Je reviens vers vous rapidement.</p>
+                                <p className="contact-alert success">✨ Message envoyé avec succès ! Nous revenons vers vous au plus vite.</p>
                             )}
                             {status.success === false && (
                                 <p className="contact-alert error">❌ Une erreur est survenue. Merci de réessayer ou d'utiliser le mail direct.</p>

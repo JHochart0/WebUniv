@@ -25,39 +25,34 @@
     50% { transform: translateY(-10px); }
 }
 
-@keyframes planetaryFloatTabletLandscape {
-    0%, 100% { transform: scale(0.85) translateY(0); }
-    50% { transform: scale(0.85) translateY(-8px); }
-}
 
 @keyframes planetaryFloatMobile {
     0%, 100% { transform: scale(0.85) translateY(0); }
     50% { transform: scale(0.85) translateY(-10px); }
 }
 
-@keyframes planetaryFloatMobileLandscape {
-    0%, 100% { transform: scale(0.65) translateY(0); }
-    50% { transform: scale(0.65) translateY(-6px); }
-}
 
 /*********************************
-********* CONTAINER **************
+********* CONTACT CONTAINER ******
 *********************************/
 .contact-container {
     min-height: 100vh;
+    width: 100%;
     background-color: var(--color-white);
     color: var(--color-dark-gray);
     font-family: var(--font-main);
     display: flex;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
     padding: 60px 20px;
+    margin:auto;
     
 }
 
-/* Planète en arrière-plan global */
+/* planet in the background */
 .contact-container::before {
     content: '';
     position: absolute;
@@ -80,75 +75,25 @@
 }
 
 /*********************************
-********* WRAPPER & GRID *********
+******* CONTACT WRAPPER **********
 *********************************/
 .contact-wrap {
     position: relative;
     z-index: 50;
-    width: 100%;
-    max-width: 65.5vw;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 60px;
-    align-items: start;
+    width: 65.5vw;
+    display: flex;
+    flex-direction:row;
+    justify-content:center;
+    gap: 30px;
     backdrop-filter: blur(3px);
     padding: 40px;
     border-radius: 16px;
 }
 
-/*********************************
-********* STARS DECORATIONS *******
-*********************************/
-.contact-star-deco {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 1720px;  
-    height: 400px; 
-    transform: translate(-50%, -50%) rotate(-15deg) skew(-25deg);
-    transform-origin: center center;
-    pointer-events: none;
-    z-index: 2;
-}
 
-.contact-star-deco::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 2px solid rgba(110, 185, 233, 0.5); 
-    box-shadow: 0 0 15px rgba(110, 185, 233, 0.15);
-}
-
-.contact-star-left, .contact-star-right {
-    position: absolute;
-    top: 50%;
-    z-index: 5;
-    clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
-}
-
-.contact-star-left {
-    background-color: var(--color-light-blue);
-    width: 38px; 
-    height: 38px; 
-    left: 0;
-    animation: pulseStarLeftContact 4s infinite ease-in-out;
-}
-
-.contact-star-right {
-    background-color: var(--color-abyssal-blue);
-    width: 48px; 
-    height: 48px; 
-    right: 0;
-    animation: pulseStarRightContact 4s infinite ease-in-out;
-}
 
 /*********************************
-********* TEXT SIDE **************
+****** CONTACT INFOS SIDE ********
 *********************************/
 .contact-info-section {
     display: flex;
@@ -160,6 +105,7 @@
     box-shadow: 0 10px 30px rgba(24, 49, 83, 0.04);
     min-height: 75vh;
     min-width: 30vw;
+    
 }
 
 .contact-main-title {
@@ -169,6 +115,7 @@
     margin: 0 0 10px 0;
     line-height: 1.1;
     letter-spacing: -1px;
+    text-align:center;
 }
 
 .contact-subtitle {
@@ -178,13 +125,15 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
+    text-align:center;
 }
 
 .contact-text {
-    font-size: 1.05rem;
+    font-size: 0.99rem;
     color: var(--color-dark-gray);
     line-height: 1.6;
     margin-bottom: 25px;
+    text-align: center;
 }
 
 .contact-direct-links {
@@ -236,9 +185,9 @@
     color: var(--color-light-blue);
 }
 
-/*************************************************
-********* SCHEDULES PLANET (STYLE MATCH) *********
-*************************************************/
+/***********************************
+*********** CONTACT SCHEDULES*******
+***********************************/
 .contact-schedules {
     position: relative;
     z-index: 1;
@@ -254,12 +203,11 @@
     will-change: transform;
 }
 
-/* Effet au survol identique au footer */
 .contact-schedules:hover {
     animation: planetaryFloat 4s infinite ease-in-out;
 }
 
-/* Sphère de la planète */
+/* schedules planet sphere */
 .contact-schedules::before {
     content: '';
     position: absolute;
@@ -272,7 +220,7 @@
     box-shadow: 0 0 20px var(--color-light-blue);
 }
 
-/* Anneau de la planète */
+/* schedules planet ring */
 .contact-schedules::after {
     content: '';
     position: absolute;
@@ -288,7 +236,6 @@
     pointer-events: none;
 }
 
-/* Titre principal (H1) dans la planète */
 .contact-schedules-h1 {
     color: var(--color-white);
     font-size: 1.3rem;
@@ -305,7 +252,6 @@
     z-index: 10;
 }
 
-/* Jours (H2) dans la planète */
 .contact-schedules-h2 {
     font-size: 1.2rem;
     color: var(--color-white);
@@ -313,7 +259,6 @@
     font-weight: bold;
 }
 
-/* Heures (H3) dans la planète - Sombre pour le contraste sur fond bleu clair */
 .contact-schedules-h3 {
     font-size: 1rem;
     color: rgb(68, 68, 68);
@@ -321,6 +266,9 @@
     margin: 0;
 }
 
+/***********************************
+*********** CONTACT SOCIALS*********
+***********************************/
 .contact-social-section {
     margin-top:50px;
     display: flex;
@@ -356,10 +304,8 @@
     transform: translateY(-3px);
 }
 
-
-
 /*********************************
-********* FORM CARD SIDE *********
+******* CONTACT FORM SIDE ********
 *********************************/
 .contact-form-section {
     background: #fdfdfdb7;
@@ -368,7 +314,7 @@
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(24, 49, 83, 0.04);
     min-height: 75vh;
-    min-width:25vw;
+    min-width: 30vw;
 }
 
 .contact-form-element {
@@ -483,22 +429,118 @@
 }
 
 /*********************************
-********* RESPONSIVE *************
+********* STARS DECORATIONS *******
+*********************************/
+.contact-star-deco {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1720px;  
+    height: 400px; 
+    transform: translate(-50%, -50%) rotate(-15deg) skew(-25deg);
+    transform-origin: center center;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.contact-star-deco::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(110, 185, 233, 0.5); 
+    box-shadow: 0 0 15px rgba(110, 185, 233, 0.15);
+}
+
+.contact-star-left, .contact-star-right {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+}
+
+.contact-star-left {
+    background-color: var(--color-light-blue);
+    width: 38px; 
+    height: 38px; 
+    left: 0;
+    animation: pulseStarLeftContact 4s infinite ease-in-out;
+}
+
+.contact-star-right {
+    background-color: var(--color-abyssal-blue);
+    width: 48px; 
+    height: 48px; 
+    right: 0;
+    animation: pulseStarRightContact 4s infinite ease-in-out;
+}
+
+/*********************************
+********* RESPONSIVE TABLET ******
 *********************************/
 @media (max-width: 1024px) {
+    
+    .contact-container,
+    .contact-container * {
+        box-sizing: border-box;
+    }
+
+    .contact-container {
+        padding: 50px 20px;
+        overflow-x: hidden; 
+    }
+
+
+    .contact-container::before,
+    .contact-star-deco,
+    .contact-star-left,
+    .contact-star-right {
+        display: none !important;
+    }
+
     .contact-wrap {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: stretch;
         gap: 40px;
-        padding: 30px;
-        max-width: 85vw;
+        padding: 20px;
+        max-width: 100%;
+        width: 100%;
+        backdrop-filter: none;
+    }
+
+
+    .contact-info-section, 
+    .contact-form-section {
+        min-height: auto;
+        min-width: auto !important;
+        width: 100%;
+        background: var(--color-white);
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 20px rgba(24, 49, 83, 0.04);
+        padding: 40px 25px;
     }
 
     .contact-main-title {
         font-size: 2.4rem;
+        text-align: center;
+    }
+
+    .contact-subtitle,
+    .contact-text {
+        text-align: center;
+    }
+
+    .contact-direct-links {
+        align-self: center;
+        width: 100%;
+        max-width: 450px;
     }
     
     .contact-schedules {
-        margin-top: 30px;
+        margin: 30px auto;
         align-self: center;
     }
 }
@@ -507,48 +549,53 @@
 ********* RESPONSIVE MOBILE ******
 *********************************/
 @media (max-width: 599px) {
-    .contact-container {
-        padding: 40px 15px;
-        background-color: var(--color-white); /* Fond propre et uni */
+    .contact-container::before,
+    .contact-star-deco,
+    .contact-star-left,
+    .contact-star-right {
+        display: none !important;
     }
 
-    /* 1. ON SUPPRIME LA GRANDE PLANÈTE ET L'ANNEAU SUR MOBILE */
-    .contact-container::before,
-    .contact-star-deco {
-        display: none;
+    .contact-container {
+        padding: 30px 15px;
     }
 
     .contact-wrap {
-        max-width: 100%;
+        gap: 25px;
         padding: 0;
-        gap: 30px; /* Espace équilibré entre la section info et le formulaire */
     }
 
-    /* 2. ADAPTATION DES CARTES (OPAQUES ET ÉPURÉES) */
-    .contact-info-section,
+    .contact-info-section, 
     .contact-form-section {
-        background: #FFFFFF;
-        border: 1px solid #e2e8f0; /* Une bordure grise très légère pour structurer */
-        padding: 30px 20px;
-        min-height: auto; /* On libère la hauteur fixe du desktop */
-        min-width: auto;
-        box-shadow: 0 4px 15px rgba(24, 49, 83, 0.03); /* Ombre très subtile */
+        padding: 25px 20px;
     }
 
-    /* Ajustements des textes et boutons */
     .contact-main-title {
-        font-size: 2.1rem;
+        font-size: 1.9rem;
+    }
+
+    .contact-subtitle {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .contact-text {
+        font-size: 0.95rem;
     }
 
     .contact-submit-btn,
     .contact-direct-btn {
-        width: 100%; /* Boutons à 100% pour une meilleure ergonomie tactile */
+        width: 100%;
+        padding: 14px 20px;
     }
 
-    /* 3. ON GARDE UNIQUEMENT LA PETITE PLANÈTE DES HORAIRES */
+    .contact-form-group textarea {
+        min-height: 220px;
+    }
+
     .contact-schedules {
         transform: scale(0.85);
-        margin: 20px auto;
+        margin: 0px auto;
     }
 
     .contact-schedules:hover {
@@ -556,23 +603,23 @@
     }
 }
 
-/* Alignement et gestion Landscape pour Tablettes */
+/* Tablets Landscape */
 @media (max-width: 1500px) and (orientation: landscape) {
-    .contact-schedules {
-        transform: scale(0.85);
+    .contact-container::before,
+    .contact-star-deco,
+    .contact-star-left,
+    .contact-star-right {
+        display: none !important;
     }
-    .contact-schedules:hover {
-        animation: planetaryFloatTabletLandscape 4s infinite ease-in-out;
-    }
+
 }
 
-/* Alignement et gestion Landscape pour Mobiles */
+/* Mobiles Landscape */
 @media (max-width: 899px) and (orientation: landscape) {
-    .contact-schedules {
-        transform: scale(0.65);
-        margin: 10px auto; 
-    }
-    .contact-schedules:hover {
-        animation: planetaryFloatMobileLandscape 4s infinite ease-in-out;
+    .contact-container::before,
+    .contact-star-deco,
+    .contact-star-left,
+    .contact-star-right {
+        display: none !important;
     }
 }
