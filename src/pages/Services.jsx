@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
 
+import '../css/Services.css';
+
 function Services() {
-    // Changement du titre de la page au montage du composant
+    // Change the tab title
     useEffect(() => {
-        document.title = "WebUniv - Nos prestations";
+        document.title = "WebUniv - Découvrez nos prestations";
     }, []);
+
     return (
         <div className="services-container">
             <p>Prestations / Work In Progress...</p>

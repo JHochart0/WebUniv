@@ -1,0 +1,162 @@
+:root {
+  /* Colors used for WebUniv */
+  --color-abyssal-blue: #183153;
+  --color-light-blue: #6EB9E9;
+  --color-white: #FFFFFF;
+  --color-dark-gray: #1F1F1F;
+
+  /* main font */
+  --font-main: 'Arial', 'Helvetica', sans-serif;
+}
+
+/*********************************
+****** ANIMATION FLOTTEMENT 3D ***
+*********************************/
+@keyframes floatSpatial {
+    0% {
+        /* Position de base : taille normale, pas de déplacement */
+        transform: translateY(0px) scale(1);
+        /* Ombre proche, nette et plus sombre */
+        filter: drop-shadow(0 10px 10px #183153e7);
+    }
+    50% {
+        /* Sommet du mouvement : monte de 18px et grossit de 4% */
+        transform: translateY(-15px) scale(1.03);
+        /* L'ombre descend plus bas (35px), s'étale (22px de flou) et s'estompe (opacité 0.2) */
+        filter: drop-shadow(0 30px 22px #1831538a);
+    }
+    100% {
+        /* Retour au point de départ */
+        transform: translateY(0px) scale(1);
+        filter: drop-shadow(0 10px 10px #183153e7);
+    }
+}
+/*********************************
+**********home container**********
+*********************************/
+.home-container {
+    min-height: 150vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    margin: 0 auto;
+    line-height: 1.6;
+    color: var(--color-dark-gray);
+    font-family: var(--font-main);
+}
+
+.home-banner {
+    width: 100%;
+    min-height: 80vh; /* Légèrement augmenté pour donner de l'air */
+    background: url('../assets/img/WebUniv_fond_couverture.png') no-repeat center center;
+    background-size: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.445);
+    border-bottom: 1px solid rgba(31, 31, 31, 0.1);
+    
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; -> MODIFIÉ pour coller en haut */
+    justify-content: flex-start; 
+    align-items: center;
+    
+
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Conteneur global du logo (Icône + Texte) */
+.home-banner-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* Sécurité pour mobile : on s'assure que le logo ne dépasse pas */
+    max-width: 100%;
+    /* L'animation passe à 5s pour que le mouvement de grossissement reste très fluide et pas agressif */
+    animation: floatSpatial 6s ease-in-out infinite;
+}
+
+/* L'icône WU seule */
+.home-banner-logo-simple {
+    height: 340px; 
+    width: auto;
+    object-fit: contain;
+    max-width: 90%; /* Responsive */
+    margin-top:-10px;
+}
+
+/* Le nom WebUniv seul */
+.home-banner-logo-name {
+    height: 200px; 
+    width: auto;
+    object-fit: contain;
+    max-width: 80%; /* Responsive */
+    
+    /* Imbrication */
+    margin-top: -120px; 
+    margin-bottom:-40px;
+}
+
+/* Bloc de textes */
+.home-banner-texts {
+    width: 100%; /* Prend toute la largeur disponible du flex parent */
+    max-width: 1300px; /* Largeur max globale augmentée */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre les enfants (h1, h2, h3) horizontalement */
+    color: var(--color-white); 
+    
+}
+
+.home-banner-texts h1 {
+    font-size: 3.2rem;
+    filter: drop-shadow(0px 0px 20px rgb(255, 255, 255));
+    font-weight: bold;
+    width: 100%; /* Prend toute la largeur du max-width: 1300px */
+}
+
+.home-banner-texts h2 {
+    /* Largeur réduite par rapport à H1 */
+    width: 75%; 
+    max-width: 900px; /* Sécurité pour très grands écrans */
+    
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.home-banner-texts h3 {
+    /* Largeur encore plus réduite */
+    width: 60%;
+    max-width: 700px; /* Sécurité */
+    text-shadow: 0px 0px 10px #183153;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: var(--color-abyssal-blue); /* Remis en bleu clair, abyssal sur fond bleu foncé était illisible */
+}
+
+/*********************************
+********** RESPONSIVE ************
+*********************************/
+/* Petit fix rapide pour mobile pour que le h1 ne casse pas tout */
+@media (max-width: 768px) {
+    .home-banner-texts h1 {
+        font-size: 2.2rem;
+    }
+    
+    .home-banner-logo-simple {
+        height: 200px;
+    }
+    .home-banner-logo-name {
+        height: 80px;
+        margin-top: -50px;
+    }
+    
+    .home-banner-texts h2,
+    .home-banner-texts h3 {
+        width: 100%; /* On repasse à 100% sur mobile pour utiliser tout l'espace */
+    }
+}

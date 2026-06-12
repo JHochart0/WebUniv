@@ -1,0 +1,25 @@
+:root {
+  /* Colors used for WebUniv */
+  --color-abyssal-blue: #183153;
+  --color-light-blue: #6EB9E9;
+  --color-white: #FFFFFF;
+  --color-dark-gray: #1F1F1F;
+
+  /* main font */
+  --font-main: 'Arial', 'Helvetica', sans-serif;
+}
+
+/*********************************
+**********home container**********
+*********************************/
+.services-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+    color: var(--color-dark-gray);
+    font-family: var(--font-main);
+}

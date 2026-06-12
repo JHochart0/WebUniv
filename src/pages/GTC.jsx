@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import '../css/GTC.css';
 import NavLink from "../components/NavLink.jsx";
 
-// General Terms and Conditions page (CGV)
+// General Terms and Conditions page
 function GTC() {
 
     // Change the tab title

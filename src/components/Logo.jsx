@@ -8,7 +8,6 @@ import logo from '../assets/img/WebUniv_logo_full_circle.png';
 function Logo() {
     return (
         <NavLink to="/" content="" className="logo">
-            
             <img src={logo} alt="Logo WebUniv" className="header-logo-img"></img>
         </NavLink>
     );
