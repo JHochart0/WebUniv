@@ -144,15 +144,17 @@
 /* Petit fix rapide pour mobile pour que le h1 ne casse pas tout */
 @media (max-width: 768px) {
     .home-banner-texts h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
     
     .home-banner-logo-simple {
         height: 200px;
+        margin-top:10px;
     }
     .home-banner-logo-name {
         height: 80px;
-        margin-top: -50px;
+        margin-top: -60px;
+        margin-bottom:10px;
     }
     
     .home-banner-texts h2,
