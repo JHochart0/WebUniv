@@ -19,18 +19,70 @@
     50% { transform: translate(50%, -50%) skew(25deg) rotate(-15deg) scale(1.15) rotate(15deg); opacity: 1; }
 }
 
-/* Animations de flottement héritées du Footer */
 @keyframes planetaryFloat {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
-
 
 @keyframes planetaryFloatMobile {
     0%, 100% { transform: scale(0.85) translateY(0); }
     50% { transform: scale(0.85) translateY(-10px); }
 }
 
+
+.stellar-orbit-left {
+    opacity: 0;
+}
+
+
+.stellar-orbit-left.visible {
+    opacity: 1;
+    pointer-events: auto;
+    animation: stellar-arc-in-left 1.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes stellar-arc-in-left {
+    0% {
+       
+        transform: translateX(-350px) translateY(350px) rotate(-35deg) scale(0.8);
+        opacity: 0;
+        filter: blur(10px);
+    }
+
+    100% {
+
+        transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+
+.stellar-orbit-right {
+    opacity: 0;
+}
+
+
+.stellar-orbit-right.visible {
+    opacity: 1;
+    pointer-events: auto; 
+    animation: stellar-arc-in-right 1.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes stellar-arc-in-right {
+    0% {
+        /* Départ : bas-gauche de l'écran, déformé (scale/rotate), complètement éteint */
+        transform: translateX(350px) translateY(350px) rotate(35deg) scale(0.8);
+        opacity: 0;
+        filter: blur(10px);
+    }
+
+    100% {
+        /* Arrivée : position finale de layout (0,0), scale 1, net */
+        transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
 
 /*********************************
 ********* CONTACT CONTAINER ******
@@ -42,14 +94,13 @@
     color: var(--color-dark-gray);
     font-family: var(--font-main);
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
     padding: 60px 20px;
-    margin:auto;
-    
+    margin: auto;
 }
 
 /* planet in the background */
@@ -82,15 +133,13 @@
     z-index: 50;
     width: 65.5vw;
     display: flex;
-    flex-direction:row;
-    justify-content:center;
+    flex-direction: row;
+    justify-content: center;
     gap: 30px;
     backdrop-filter: blur(3px);
     padding: 40px;
     border-radius: 16px;
 }
-
-
 
 /*********************************
 ****** CONTACT INFOS SIDE ********
@@ -105,7 +154,6 @@
     box-shadow: 0 10px 30px rgba(24, 49, 83, 0.04);
     min-height: 75vh;
     min-width: 30vw;
-    
 }
 
 .contact-main-title {
@@ -115,7 +163,7 @@
     margin: 0 0 10px 0;
     line-height: 1.1;
     letter-spacing: -1px;
-    text-align:center;
+    text-align: center;
 }
 
 .contact-subtitle {
@@ -125,7 +173,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
-    text-align:center;
+    text-align: center;
 }
 
 .contact-text {
@@ -270,7 +318,7 @@
 *********** CONTACT SOCIALS*********
 ***********************************/
 .contact-social-section {
-    margin-top:50px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -284,7 +332,7 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     margin: 0 0 12px 0;
-    text-align:center;
+    text-align: center;
 }
 
 .contact-socials {
@@ -519,7 +567,6 @@
         overflow-x: hidden; 
     }
 
-
     .contact-container::before,
     .contact-star-deco,
     .contact-star-left,
@@ -537,7 +584,6 @@
         backdrop-filter: none;
     }
 
-
     .contact-info-section, 
     .contact-form-section {
         min-height: auto;
@@ -548,6 +594,8 @@
         box-shadow: 0 4px 20px rgba(24, 49, 83, 0.04);
         padding: 40px 25px;
     }
+
+
 
     .contact-main-title {
         font-size: 2.4rem;
@@ -637,7 +685,6 @@
     .contact-star-right {
         display: none !important;
     }
-
 }
 
 /* Mobiles Landscape */

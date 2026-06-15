@@ -10,26 +10,48 @@
 }
 
 /*********************************
-****** ANIMATION FLOTTEMENT 3D ***
+************ ANIMATIONS **********
 *********************************/
 @keyframes floatSpatial {
     0% {
-        /* Position de base : taille normale, pas de déplacement */
         transform: translateY(0px) scale(1);
-        /* Ombre proche, nette et plus sombre */
         filter: drop-shadow(0 10px 10px #183153e7);
     }
     50% {
-        /* Sommet du mouvement : monte de 18px et grossit de 4% */
         transform: translateY(-15px) scale(1.03);
-        /* L'ombre descend plus bas (35px), s'étale (22px de flou) et s'estompe (opacité 0.2) */
         filter: drop-shadow(0 30px 22px #1831538a);
     }
     100% {
-        /* Retour au point de départ */
         transform: translateY(0px) scale(1);
         filter: drop-shadow(0 10px 10px #183153e7);
     }
+}
+
+.nebula-bloom {
+    opacity: 0;
+    transform: scale(0.3);
+    filter: blur(20px) brightness(3);
+    transition: all 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nebula-bloom.visible {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px) brightness(1);
+}
+
+.horizon-rise {
+    opacity:0.5;
+    transform: translateY(70%);
+    filter: blur(1px);
+    transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                opacity 1.5s ease-out,
+                filter 1.5s ease-out;
+}
+
+.horizon-rise.visible {
+    opacity:1;
+    transform: translateY(0);
+    filter: blur(0px);
 }
 /*********************************
 **********home container**********
@@ -45,83 +67,83 @@
     font-family: var(--font-main);
 }
 
+/*********************************
+************home banner***********
+*********************************/
 .home-banner {
     width: 100%;
-    min-height: 80vh; /* Légèrement augmenté pour donner de l'air */
+    min-height: 80vh;
     background: url('../assets/img/WebUniv_fond_couverture.png') no-repeat center center;
     background-size: cover;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.445);
     border-bottom: 1px solid rgba(31, 31, 31, 0.1);
-    
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; -> MODIFIÉ pour coller en haut */
     justify-content: flex-start; 
     align-items: center;
-    
-
     box-sizing: border-box;
     text-align: center;
 }
 
-/* Conteneur global du logo (Icône + Texte) */
+/*********************************
+*********home banner logo*********
+*********************************/
 .home-banner-logo {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
-    /* Sécurité pour mobile : on s'assure que le logo ne dépasse pas */
     max-width: 100%;
-    /* L'animation passe à 5s pour que le mouvement de grossissement reste très fluide et pas agressif */
     animation: floatSpatial 6s ease-in-out infinite;
 }
 
-/* L'icône WU seule */
+
 .home-banner-logo-simple {
     height: 340px; 
     width: auto;
     object-fit: contain;
-    max-width: 90%; /* Responsive */
-    margin-top:-10px;
+    max-width: 90%; 
+    margin-top: -10px;
 }
 
-/* Le nom WebUniv seul */
+
 .home-banner-logo-name {
     height: 200px; 
     width: auto;
     object-fit: contain;
-    max-width: 80%; /* Responsive */
-    
-    /* Imbrication */
+    max-width: 80%; 
+
     margin-top: -120px; 
-    margin-bottom:-40px;
+    margin-bottom: -40px;
 }
 
-/* Bloc de textes */
+/*********************************
+*********home banner texts********
+*********************************/
+
 .home-banner-texts {
-    width: 100%; /* Prend toute la largeur disponible du flex parent */
-    max-width: 1300px; /* Largeur max globale augmentée */
+    width: 100%; 
+    max-width: 1300px; 
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centre les enfants (h1, h2, h3) horizontalement */
+    align-items: center; 
     color: var(--color-white); 
-    
+    padding: 0 1.5rem;
+    box-sizing: border-box;
 }
 
 .home-banner-texts h1 {
-    font-size: 3.2rem;
+    font-size: 3.5rem;
     filter: drop-shadow(0px 0px 20px rgb(255, 255, 255));
     font-weight: bold;
-    width: 100%; /* Prend toute la largeur du max-width: 1300px */
+    width: 100%; 
 }
 
 .home-banner-texts h2 {
-    /* Largeur réduite par rapport à H1 */
     width: 75%; 
-    max-width: 900px; /* Sécurité pour très grands écrans */
-    
-    font-size: 1.2rem;
+    max-width: 1000px; 
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1.2rem;
     line-height: 1.6;
@@ -129,36 +151,111 @@
 }
 
 .home-banner-texts h3 {
-    /* Largeur encore plus réduite */
     width: 60%;
-    max-width: 700px; /* Sécurité */
-    text-shadow: 0px 0px 10px #183153;
-    font-size: 1.05rem;
+    max-width: 900px; 
+    text-shadow: 0px 0px 10px var(--color-abyssal-blue);
+    font-size: 1.3rem;
     font-weight: bold;
-    color: var(--color-abyssal-blue); /* Remis en bleu clair, abyssal sur fond bleu foncé était illisible */
+    color: var(--color-abyssal-blue); 
 }
 
-/*********************************
-********** RESPONSIVE ************
-*********************************/
-/* Petit fix rapide pour mobile pour que le h1 ne casse pas tout */
-@media (max-width: 768px) {
-    .home-banner-texts h1 {
-        font-size: 2rem;
+/********************************
+****** Responsive Rules ********
+********************************/
+
+/* tablets */
+@media (max-width: 1024px) {
+
+    .home-banner{
+        min-height: 70vh;
+        padding-bottom:25px;
     }
     
+    .home-banner-texts h2 {
+        width: 95%;
+    }
+    
+    .home-banner-texts h3 {
+        width: 90%;
+    }
+
+}
+
+
+/* Mobiles */
+@media (max-width: 599px) {
+    .home-banner-texts h1 {
+        font-size: 1.7rem;
+        margin-bottom:20px;
+    }
+
+
     .home-banner-logo-simple {
         height: 200px;
-        margin-top:10px;
     }
+
     .home-banner-logo-name {
-        height: 80px;
+        height: 120px;
         margin-top: -60px;
         margin-bottom:10px;
     }
-    
-    .home-banner-texts h2,
+
+    .home-banner-texts h2 {
+        font-size: 1.05rem;
+        margin-bottom: 1rem;
+    }
+
     .home-banner-texts h3 {
-        width: 100%; /* On repasse à 100% sur mobile pour utiliser tout l'espace */
+        font-size: 1rem;
+    }
+
+}
+
+/*tablets landscape */
+@media (max-width: 1500px) and (orientation: landscape) {
+    .horizon-rise{
+        transform: translateY(50%);
+    }
+    .home-banner{
+        padding-bottom:25px;
+    }
+
+    .home-banner-texts h2 {
+        width: 95%;
+    }
+    
+    .home-banner-texts h3 {
+        width: 90%;
+    }
+}
+
+/*mobile landscape*/
+@media (max-width: 899px) and (orientation: landscape) {
+    .horizon-rise{
+        transform: translateY(50%);
+    }
+
+    .home-banner-logo-simple {
+        height: 140px;
+    }
+
+    .home-banner-logo-name {
+        height: 85px;
+        margin-top: -45px;
+        margin-bottom: 00px;
+    }
+
+    .home-banner-texts h1 {
+        font-size: 2rem;
+        margin-bottom:10px;
+    }
+
+    .home-banner-texts h2 {
+        font-size: 1.1rem;
+    }
+
+    .home-banner-texts h3 {
+        font-size: 1rem;
+        width: 90%;
     }
 }

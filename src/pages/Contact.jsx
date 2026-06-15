@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import '../css/Contact.css';
 
+import useRevealOnScroll from '../hooks/useRevealOnScroll';
+
 import Schedules from '../components/Schedules';
 import NavLink from '../components/NavLink';
 
@@ -9,6 +11,8 @@ import { faFacebook, faInstagram, faLinkedin } from '@fortawesome/free-brands-sv
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function Contact() {
+    useRevealOnScroll(".stellar-orbit-left, .stellar-orbit-right");
+
     useEffect(() => {
         document.title = "WebUniv - Contactez-nous !";
     }, []);
@@ -30,7 +34,7 @@ function Contact() {
         }));
     };
 
-    //handle the submit button of the form
+    // handle the submit button of the form
     const handleSubmit = (e) => {
         e.preventDefault();
         setStatus({ loading: true, success: null });
@@ -65,8 +69,9 @@ function Contact() {
     return (
         <div className="contact-container">
             <div className="contact-wrap">
-                {/* Partie textuelle et informations */}
-                <div className="contact-info-section">
+                
+                <div className="contact-info-section stellar-orbit-left">
+
                     <h1 className="contact-main-title">Un projet en vue ?</h1>
                     <h2 className="contact-subtitle">Mettons le cap sur votre Univers !</h2>
                     <p className="contact-text">
@@ -74,7 +79,7 @@ function Contact() {
                         Remplissez le formulaire de contact ou utilisez les canaux directs ci-dessous pour lancer la discussion avec votre développeur web.
                     </p>
 
-                    {/* Liens directs transformés en boutons arrondis style "Footer" */}
+
                     <div className="contact-direct-links">
                         <a href="tel:+33665150470" className="contact-direct-btn phone-btn">
                             <FontAwesomeIcon icon={faPhone} className="contact-btn-icon" /> +33 6 65 15 04 70
@@ -86,7 +91,6 @@ function Contact() {
 
                     <Schedules className="contact" />
 
-                    {/* Section Réseaux Sociaux identique au style du Footer */}
                     <div className="contact-social-section">
                         <h3 className="contact-social-title">Rejoignez nos réseaux sociaux</h3>
                         <div className="contact-socials">
@@ -103,12 +107,9 @@ function Contact() {
                     </div>
                 </div>
 
-                {/* Partie Formulaire de contact */}
-                <div className="contact-form-section">
+                <div className="contact-form-section stellar-orbit-right">
                     <form onSubmit={handleSubmit} className="contact-form-element">
                         <input type="hidden" name="_captcha" value="false" />
-
-                        
 
                         <div className="contact-form-group">
                             <label htmlFor="name">Nom / Entreprise*</label>
@@ -165,7 +166,6 @@ function Contact() {
 
                         <p className="contact-privacy-text">
                             En soumettant ce formulaire, vous acceptez que les informations saisies soient exploitées dans le cadre de la demande de contact et de la relation professionnelle qui peut en découler. Pour en savoir plus, consultez notre <NavLink to="/legal" content="Politique de confidentialité"/>.
-
                         </p>
 
                         <div className="contact-form-actions">
