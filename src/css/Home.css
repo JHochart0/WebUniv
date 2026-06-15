@@ -165,7 +165,9 @@
 
 /* tablets */
 @media (max-width: 1024px) {
-
+    .horizon-rise{
+        transform: translateY(50%);
+    }
     .home-banner{
         min-height: 70vh;
         padding-bottom:25px;
@@ -184,6 +186,9 @@
 
 /* Mobiles */
 @media (max-width: 599px) {
+    .horizon-rise{
+        transform: translateY(50%);
+    }
     .home-banner-texts h1 {
         font-size: 1.7rem;
         margin-bottom:20px;
