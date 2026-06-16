@@ -15,8 +15,14 @@
 }
 
 @keyframes pulseHomeStar {
-    0%, 100% { transform: var(--inverse-skew) scale(1); opacity: 0.7; filter: drop-shadow(0 0 5px rgba(110, 185, 233, 0.5)); }
-    50% { transform: var(--inverse-skew) scale(1.3); opacity: 1; filter: drop-shadow(0 0 15px rgba(110, 185, 233, 1)); }
+    0%, 100% { 
+        transform: var(--inverse-skew) scale(0.85); 
+        opacity: 0.55;
+    }
+    50% { 
+        transform: var(--inverse-skew) scale(1.15); 
+        opacity: 1; 
+    }
 }
 
 @keyframes followOrbit {
@@ -33,14 +39,29 @@
     0%, 100% { transform: scale(0.85) translateY(0); }
     50% { transform: scale(0.85) translateY(-10px); }
 }
-
+/*horizon rise animation*/
 .horizon-rise {
     opacity: 0.5;
     transform: translateY(70%);
     filter: blur(1px);
     transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1.5s ease-out, filter 1.5s ease-out;
 }
-.horizon-rise.visible { opacity: 1; transform: translateY(0); filter: blur(0px); }
+.horizon-rise.visible { 
+    opacity: 1; 
+    transform: 
+    translateY(0); 
+    filter: blur(0px); }
+
+/*reveal-section animation*/
+.reveal-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease-out;
+}
+.reveal-section.visible { 
+    opacity: 1;
+    transform: translateY(0); 
+}
 
 /*********************************
 **********HOME CONTAINER**********
@@ -76,6 +97,7 @@
     text-align: center;
 }
 
+/*home banner logo*/
 .home-banner-logo {
     display: flex;
     flex-direction: column;
@@ -85,9 +107,24 @@
     animation: floatSpatial 6s ease-in-out infinite;
 }
 
-.home-banner-logo-simple { height: 340px; width: auto; object-fit: contain; max-width: 90%; margin-top: -10px; }
-.home-banner-logo-name { height: 200px; width: auto; object-fit: contain; max-width: 80%; margin-top: -120px; margin-bottom: -40px; }
+.home-banner-logo-simple { 
+    height: 340px; 
+    width: auto; 
+    object-fit: contain; 
+    max-width: 90%; 
+    margin-top: -10px; 
+}
 
+.home-banner-logo-name { 
+    height: 200px; 
+    width: auto; 
+    object-fit: contain;
+    max-width: 80%; 
+    margin-top: -120px; 
+    margin-bottom: -40px; 
+}
+
+/*home banner texts*/
 .home-banner-texts {
     width: 100%; 
     max-width: 1300px; 
@@ -98,12 +135,33 @@
     padding: 0 1.5rem;
     box-sizing: border-box;
 }
-.home-banner-texts h1 { font-size: 3.5rem; filter: drop-shadow(0px 0px 20px rgb(255, 255, 255)); font-weight: bold; width: 100%; }
-.home-banner-texts h2 { width: 75%; max-width: 1000px; font-size: 1.5rem; font-weight: bold; margin-bottom: 1.2rem; line-height: 1.6; opacity: 0.9; }
-.home-banner-texts h3 { width: 60%; max-width: 900px; text-shadow: 0px 0px 10px var(--color-abyssal-blue); font-size: 1.3rem; font-weight: bold; color: var(--color-abyssal-blue); }
+.home-banner-texts h1 { 
+    font-size: 3.5rem; 
+    filter: drop-shadow(0px 0px 20px rgb(255, 255, 255)); 
+    font-weight: bold; 
+    width: 100%; 
+}
 
-/*********************************
-****** STRUCTURE DES SECTIONS ****
+.home-banner-texts h2 { 
+    width: 75%; 
+    max-width: 1000px; 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    margin-bottom: 1.2rem; 
+    line-height: 1.6; 
+    opacity: 0.9; 
+}
+.home-banner-texts h3 { 
+    width: 60%; 
+    max-width: 900px; 
+    text-shadow: 0px 0px 10px var(--color-abyssal-blue); 
+    font-size: 1.3rem; 
+    font-weight: bold; 
+    color: var(--color-abyssal-blue); 
+}
+
+/**********************************
+******** every Home section *******
 /*********************************/
 .home-section {
     position: relative;
@@ -116,21 +174,18 @@
     align-items: center;
 }
 
+
 .section-content-wrapper, 
-.cta-box, 
-.geo-content {
+.cta-box {
     position: relative;
     z-index: 2;
     width: 100%;
-    background: radial-gradient(circle at 25% 25%, rgba(32, 67, 115, 0.65) 0%, rgba(18, 49, 83, 0.55) 50%, rgba(9, 18, 31, 0.85) 100%);
-    border: 2px solid rgba(110, 185, 233, 0.45);
-    border-radius: 80px; 
+    background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
+    border: 1.5px solid var(--color-light-blue);
+    border-radius: 40px; 
     padding: 65px 75px;  
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45), 
-                inset 0 0 40px rgba(110, 185, 233, 0.25),
-                0 0 20px rgba(110, 185, 233, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 0 40px rgba(110, 185, 233, 0.15), 
+                0 15px 35px rgba(0, 0, 0, 0.7);
     box-sizing: border-box;
 }
 
@@ -152,12 +207,7 @@
 .section-subtitle { display: block; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2.5px; color: var(--color-light-blue); font-weight: bold; margin-bottom: 12px; }
 .section-title { font-size: 2.4rem; color: var(--color-white); font-weight: 800; margin: 0; text-shadow: 0 0 15px rgba(110, 185, 233, 0.3); }
 
-.reveal-section {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease-out;
-}
-.reveal-section.visible { opacity: 1; transform: translateY(0); }
+
 
 /*************************************************
 ********* INTERNES ET COINCEES DANS LE CADRE *****
@@ -196,7 +246,6 @@
     transform: translate(-50%, -50%);
     width: 70%;
     height: 70%;
-    background: radial-gradient(circle, rgba(110, 185, 233, 0.12) 0%, transparent 70%);
     z-index: -1;
 }
 
@@ -209,10 +258,26 @@
     box-shadow: inset 0 0 20px rgba(110, 185, 233, 0.1), 0 0 10px rgba(110, 185, 233, 0.1);
 }
 
+/* L'élément de base sert de conteneur transparent pour appliquer le GLOW */
 .home-star-decoration {
     position: absolute;
-    width: 18px;
-    height: 18px;
+    background: transparent !important; /* Crucial : pas de fond ici pour que le shadow épouse la forme enfant */
+    /* Le glow est posé une bonne fois pour toutes (gros halo + halo de cœur) */
+    filter: drop-shadow(0 0 15px var(--star-glow)) 
+            drop-shadow(0 0 5px var(--star-glow));
+    /* On booste les performances en prévenant le navigateur */
+    will-change: transform, opacity;
+}
+
+/* C'est ce pseudo-élément enfant qui prend le clip-path pour dessiner la forme */
+.home-star-decoration::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--star-color); /* Utilise la variable de couleur dédiée */
     clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
 }
 
@@ -222,18 +287,20 @@
     animation: followOrbit 20s linear infinite, pulseHomeStar 3s infinite ease-in-out;
 }
 
+/* Configuration des tailles et des variables de couleur/glow */
 .ost-1 {
-    background-color: var(--color-light-blue);
-    width: 28px;
-    height: 28px;
+    width: 48px;
+    height: 48px;
+    --star-color: var(--color-light-blue);
+    --star-glow: #6EB9E9;
 }
 
 .ost-2 {
-    background-color: var(--color-abyssal-blue);
-    border: 2px solid var(--color-light-blue);
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     animation-delay: -10s, -1.5s;
+    --star-color: var(--color-abyssal-blue);
+    --star-glow: #ffffff; /* Glow blanc pour détacher le cœur sombre du fond */
 }
 
 /*********************************
@@ -267,6 +334,7 @@
 ******* SERVICES PREVIEW *********
 /*********************************/
 .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin-bottom: 40px; width: 100%; }
+
 .service-card { 
     background: rgba(24, 49, 83, 0.55); 
     border: 1px solid rgba(110, 185, 233, 0.25); 
@@ -274,15 +342,36 @@
     border-radius: 14px; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligne l'icône et le texte à gauche */
+    text-align: left;
 }
+
+/* Style de la nouvelle icône */
+.service-icon {
+    font-size: 2rem;
+    color: var(--color-light-blue);
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 8px rgba(110, 185, 233, 0.3));
+    transition: transform 0.3s ease, filter 0.3s ease, color 0.3s ease;
+}
+
 .service-card:hover { 
     transform: translateY(-4px); 
     box-shadow: 0 12px 25px rgba(110, 185, 233, 0.15); 
     border-color: var(--color-light-blue); 
 }
+
+/* Réaction de l'icône au survol de sa carte */
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(3deg);
+    color: var(--color-white);
+    filter: drop-shadow(0 0 12px rgba(110, 185, 233, 0.6));
+}
+
 .service-card h3 { margin: 0 0 12px 0; color: var(--color-light-blue); font-size: 1.4rem; font-weight: 700; }
 .service-card p { margin: 0; color: rgba(255, 255, 255, 0.85); font-size: 0.98rem; line-height: 1.6; }
-.section-actions { text-align: center; margin-top: 20px; }
 
 /*********************************
 ******* STRENGTHS SECTION ********
@@ -314,6 +403,7 @@
     border:solid var(--color-light-blue) 1px;
     border-radius:50px;
     transform:scale(1.02);
+    box-shadow: 0 12px 25px rgba(110, 185, 233, 0.15); 
 }
 
 .strength-item:hover .strength-icon {
@@ -337,14 +427,98 @@
 }
 
 /*********************************
-********* GEO SECTION ************
+********* NEW GEO SECTION *********
 /*********************************/
 .geo-section { padding-top: 40px; padding-bottom: 40px; }
-.geo-content { display: flex; align-items: center; gap: 40px; }
-.geo-text-side { flex: 1; }
-.geo-text-side h2 { color: var(--color-white); font-size: 2.2rem; margin: 0 0 18px 0; text-shadow: 0 0 10px rgba(110, 185, 233, 0.2); }
-.geo-text-side p { color: rgba(255, 255, 255, 0.85); font-size: 1.05rem; line-height: 1.6; }
-.geo-badge-side { display: flex; justify-content: center; align-items: center; flex: 0 0 300px; }
+
+.geo-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    min-height: 550px; 
+    
+    border: 1.5px solid var(--color-light-blue);
+    border-radius: 40px; 
+    padding: 65px 75px;  
+    box-shadow: 0 0 40px rgba(110, 185, 233, 0.15), 
+                0 15px 35px rgba(0, 0, 0, 0.7);
+    box-sizing: border-box;
+
+    /* NETTOYAGE : S'assurer qu'il n'y a pas de background ici */
+    background: none;
+    
+
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    overflow: hidden; 
+}
+
+/* Filtre bleu + Image à droite bien proportionnée */
+.geo-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* 1. Déclaration des deux calques (le gradient au-dessus, l'image en dessous) */
+    background-image: 
+        /* LE FILTRE ACTIF : Opaque à gauche (100% flou), dégrade vers transparent à droite (0% flou) */
+        linear-gradient(to right, rgba(24, 49, 83, 1) 35%, rgba(24, 49, 83, 0.7) 45%, rgba(24, 49, 83, 0) 100%), 
+        /* TON IMAGE satellite */
+        url('../assets/img/WebUniv_zone_geographique.png');
+    
+    /* 2. Position : le filtre prend tout, l'image se cale au centre à droite */
+    background-position: top 30% right;
+    
+    /* 3. Répétition : aucune pour les deux */
+    background-repeat: no-repeat, no-repeat;
+    
+    
+    /* NOUVEAU : On floute uniquement ce qui est COUVERT par le gradient opaque (la gauche) */
+    backdrop-filter: blur(5px); 
+    z-index: 1;
+}
+
+/* Le cadre opaque qui flotte au-dessus de la carte */
+.geo-text-side {
+    position: relative;
+    z-index: 3; 
+    max-width: 550px; 
+    background: linear-gradient(135deg, rgba(24, 49, 83, 0.75) 0%, rgba(32, 67, 115, 0.4) 100%);
+    backdrop-filter: blur(8px); 
+    border: 1px solid rgba(110, 185, 233, 0.3);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.geo-text-side h2 {
+    color: var(--color-white);
+    font-size: 2.2rem;
+    margin: 0 0 18px 0;
+    text-shadow: 0 0 10px rgba(110, 185, 233, 0.2);
+}
+
+.geo-text-side p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Le badge déporté qui flotte directement sur la carte */
+.geo-badge-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: none;
+    position: relative;
+    z-index: 3; /* Reste bien au-dessus du ::before */
+    margin-left: auto; 
+    margin-right: 20px;
+}
 
 .cosmic-badge { 
     position: relative;
@@ -362,8 +536,6 @@
     will-change: transform;
     animation: planetaryFloat 4s infinite ease-in-out;
 }
-
-
 
 .cosmic-badge::before {
     content: '';
@@ -402,7 +574,7 @@
 /*********************************
 ******** CONTACT SECTION *********
 /*********************************/
- .cta-section { text-align: center; padding-top: 40px; padding-bottom: 40px; }
+.cta-section { text-align: center; padding-top: 40px; padding-bottom: 40px; }
 
 .cta-box { border-style: solid; border-width: 2px; }
 
@@ -433,6 +605,16 @@
     --inverse-skew: skew(20deg) rotate(-15deg);
 }
 
+.contact-icon-wrapper .ost-1 {
+    background-color: var(--color-light-blue);
+    width: 28px;
+    height: 28px;
+}
+
+.contact-icon-wrapper .ost-2 {
+    width: 20px;
+    height: 20px;
+}
 .contact-globe-icon {
     font-size: 10rem;
     color: var(--color-light-blue);
@@ -456,7 +638,7 @@
     .home-banner { min-height: 70vh; padding-bottom: 25px; }
     .home-banner-texts h2 { width: 95%; }
     .home-banner-texts h3 { width: 90%; }
-    .section-content-wrapper, .cta-box, .geo-content { padding: 45px 30px; }
+    .section-content-wrapper, .cta-box { padding: 45px 30px; }
     .bg-orbit-system-centered { display: none; }
     .contact-icon-wrapper .bg-orbit-system-centered{
         display:block;
@@ -465,14 +647,27 @@
 
 @media (max-width: 900px) {
     .services-grid { grid-template-columns: 1fr; }
-    .geo-content { flex-direction: column; text-align: center; gap: 60px; }
-    .geo-badge-side { flex: none; }
+    .geo-content { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 60px; 
+        justify-content: center;
+        background-position: center center; /* Recentrer la carte sur mobile */
+    }
+    .geo-text-side {
+        max-width: 100%;
+        padding: 30px;
+    }
+    .geo-badge-side { 
+        flex: none; 
+        margin-left: 0;
+        margin-right: 0;
+    }
     .section-title { font-size: 1.9rem; }
     .bg-orbit-system-centered { display: none; }
     .contact-icon-wrapper .bg-orbit-system-centered{
         display:block;
     }
-    
 }
 
 @media (max-width: 899px) and (orientation: landscape) {
@@ -494,7 +689,7 @@
     .home-banner-texts h2 { font-size: 1.05rem; margin-bottom: 1rem; }
     .home-banner-texts h3 { font-size: 1rem; }
     .home-section { padding: 60px 12px; }
-    .section-content-wrapper, .cta-box, .geo-content { 
+    .section-content-wrapper, .cta-box { 
         padding: 45px 24px; 
         border-radius: 40px; 
     }
@@ -512,7 +707,4 @@
         transform: scale(0.85);
         animation: planetaryFloatMobile 4s infinite ease-in-out;
     }
-
-
-
 }

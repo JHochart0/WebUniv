@@ -6,14 +6,21 @@ import '../css/Home.css';
 
 // Importation de FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { 
     faRocket, 
     faPalette, 
     faComments, 
     faShieldHalved, 
     faGem,
-    faGlobe // Ajout du Globe
-} from '@fortawesome/free-solid-svg-icons'; 
+    faGlobe,
+    faDisplay,          // Pour Sites Vitrines
+    faUserAstronaut,    // Pour Portfolios (clin d'œil spatial !)
+    faLaptopCode,       // Pour Applications Web
+    faCloudArrowUp,     // Pour Mise en ligne
+    faArrowsRotate,     // Pour Refonte
+    faSatellite         // Pour le SEO (Google / Satellite... tu l'as ?)
+} from '@fortawesome/free-solid-svg-icons';
 
 import logoBright from '../assets/img/WebUniv_logo_simple_bright.png';
 import logoNameBright from '../assets/img/WebUniv_logo_name_only_bright.png';
@@ -28,7 +35,7 @@ function Home() {
     return (
         <div className="home-container">
             
-            {/* 1. HERO BANNER */}
+            {/* HOME BANNER */}
             <div className="home-banner horizon-rise">
                 <div className="home-banner-logo">
                     <img src={logoBright} alt="Logo WebUniv Simple Brillant" className="home-banner-logo-simple" />
@@ -41,10 +48,10 @@ function Home() {
                 </div>
             </div>
 
-            {/* 2. SECTION CALL TO ACTION (CTA) */}
+            {/* Call to action contact section */}
             <div className="home-section reveal-section cta-section">
                 <div className="cta-box">
-                    {/* NOUVEAU : Icône Globe avec Anneau Stellaire */}
+
                     <div className="contact-icon-wrapper">
                         <div className="bg-orbit-system-centered">
                             <div className="bg-orbit-ring">
@@ -55,15 +62,16 @@ function Home() {
                         <FontAwesomeIcon icon={faGlobe} className="contact-globe-icon" />
                     </div>
 
-                    <h2>Prêt à façonner votre Univers Digital ?</h2>
-                    <p>Qu'il s'agisse d'un projet immédiat ou d'une vision à explorer, nous vous invitons à planifier une première consultation gratuite afin de cartographier votre trajectoire numérique.</p>
+                    <h2>Prêt à créer votre Univers Digital ?</h2>
+                    <p>Qu'il s'agisse d'un projet immédiat ou d'une vision à explorer, nous vous invitons à planifier une première consultation afin de plannifier la naissance de votre monde digital !</p>
                     <NavLink to="/contact">Prendre rendez-vous</NavLink>
                 </div>
             </div>
 
-            {/* 3. SECTION PRESTATIONS */}
+            {/*Services section */}
             <div className="home-section reveal-section services-preview">
                 <div className="section-content-wrapper">
+
                     <div className="bg-orbit-system-centered">
                         <div className="bg-orbit-ring">
                             <div className="home-star-decoration orbiting-star ost-1"></div>
@@ -73,33 +81,39 @@ function Home() {
 
                     <div className="section-header">
                         <span className="section-subtitle">Nos Services</span>
-                        <h2 className="section-title">Des solutions web taillées pour vos ambitions</h2>
+                        <h2 className="section-title">Des solutions web adaptées à vos ambitions</h2>
                     </div>
                     
                     <div className="services-grid">
                         <div className="service-card">
+                            <FontAwesomeIcon icon={faDisplay} className="service-icon" />
                             <h3>Sites Vitrines</h3>
-                            <p>Déployez une vitrine numérique percutante pour captiver votre audience et ancrer solidement votre marque dans le cyber-espace.</p>
+                            <p>Déployez une vitrine numérique percutante pour captiver votre audience et ancrer solidement votre marque dans l'univers du numérique.</p>
                         </div>
                         <div className="service-card">
+                            <FontAwesomeIcon icon={faUserAstronaut} className="service-icon" />
                             <h3>Portfolios Professionnels</h3>
                             <p>Mettez en lumière vos plus belles réalisations à travers un univers visuel unique, interactif et mémorable.</p>
                         </div>
                         <div className="service-card">
+                            <FontAwesomeIcon icon={faLaptopCode} className="service-icon" />
                             <h3>Applications Web Sur-Mesure</h3>
-                            <p>Des outils avancés et des plateformes dynamiques développés spécifiquement pour étendre les frontières de votre monde digital.</p>
+                            <p>Des outils avancés et des interfaces dynamiques développés spécifiquement pour étendre les frontières de votre monde digital.</p>
                         </div>
                         <div className="service-card">
+                            <FontAwesomeIcon icon={faCloudArrowUp} className="service-icon" />
                             <h3>Mise en ligne & Domaines</h3>
-                            <p>Déploiement hautement sécurisé, configuration de votre nom de domaine et de vos messageries professionnelles.</p>
+                            <p>Mise en ligne protégée de votre monde numérique et attribution de son nom de domaine sur-mesure.</p>
                         </div>
                         <div className="service-card">
-                            <h3>Refonte & Modernisation</h3>
-                            <p>Donnez une nouvelle impulsion à votre plateforme actuelle en optimisant son design, sa vélocité et sa compatibilité mobile.</p>
+                            <FontAwesomeIcon icon={faArrowsRotate} className="service-icon" />
+                            <h3>Modernisation, Refonte & Maintenance ponctuelle</h3>
+                            <p>Transformez votre site existant en un univers moderne et performant. Optimisation visuelle complète, passage à la vitesse supérieure et maintenance ponctuelle pour garantir la stabilité de votre plateforme numérique ou corriger les failles.</p>
                         </div>
                         <div className="service-card">
-                            <h3>Visibilité sur Google (SEO)</h3>
-                            <p>Alignement technique et sémantique de votre structure web pour maximiser votre classement et dominer les moteurs de recherche.</p>
+                            <FontAwesomeIcon icon={faSatellite} className="service-icon" />
+                            <h3>Visibilité & Référencement (SEO)</h3>
+                            <p>Devenez l'étoile la plus brillante de votre secteur. Nous alignons votre contenu sur les requêtes des utilisateurs pour attirer naturellement la bonne audience dans votre orbite.</p>
                         </div>
                     </div>
 
@@ -109,9 +123,10 @@ function Home() {
                 </div>
             </div>
 
-            {/* 4. SECTION ATOUTS */}
+            {/* Strengths section */}
             <div className="home-section reveal-section strengths-section">
                 <div className="section-content-wrapper">
+
                     <div className="bg-orbit-system-centered">
                         <div className="bg-orbit-ring">
                             <div className="home-star-decoration orbiting-star ost-1"></div>
@@ -130,7 +145,7 @@ function Home() {
                                 <FontAwesomeIcon icon={faRocket} />
                             </div>
                             <h3>Accompagnement de A à Z</h3>
-                            <p>Vous n'êtes jamais seul. De la feuille blanche jusqu'au déploiement final, nous pilotons chaque étape technique pour guider votre projet vers sa réussite.</p>
+                            <p>Vous n'êtes jamais seul. De la simple imagination jusqu'au déploiement final, nous pilotons chaque étape technique pour guider votre projet vers sa réussite.</p>
                         </div>
                         <div className="strength-item">
                             <div className="strength-icon">
@@ -144,14 +159,14 @@ function Home() {
                                 <FontAwesomeIcon icon={faComments} />
                             </div>
                             <h3>À votre écoute</h3>
-                            <p>Une collaboration transparente, réactive et sans jargon. We co-construisons une architecture web qui s'adapte parfaitement à vos objectifs.</p>
+                            <p>Une collaboration transparente, réactive et adaptative. Nous co-construisons une architecture web qui s'adapte parfaitement à vos objectifs et à vos ambitions.</p>
                         </div>
                         <div className="strength-item">
                             <div className="strength-icon">
                                 <FontAwesomeIcon icon={faShieldHalved} />
                             </div>
                             <h3>Suivi Post-Projet</h3>
-                            <p>Le voyage ne s'arrête pas au lancement. Nous assurons une maintenance rigoureuse et un suivi évolutif pour pérenniser vos performances.</p>
+                            <p>Le voyage ne s'arrête pas au lancement. Nous assurons une maintenance rigoureuse et un suivi évolutif pendant <strong>deux mois gratuitement</strong> à la suite de votre réalisation pour pérenniser vos performances.</p>
                         </div>
                         <div className="strength-item">
                             <div className="strength-icon">
