@@ -27,7 +27,7 @@ function Home() {
                 <div className="home-banner-texts">
                     <h1>Votre propre Univers Digital créé sur-mesure</h1>
                     <h2>De la création de sites vitrines à l'application web, WebUniv vous accompagne du début à la fin d'un projet pour élaborer votre propre monde digital personnalisé.</h2>
-                    <h3>Propulsez votre présence en ligne grâce à notre expertise en conceptualisation et développement web.</h3>
+                    <h3>Propulsez votre présence en ligne grâce à notre expertise en conception et développement web !</h3>
                 </div>
             </div>
             <p>Accueil / Work In Progress...</p>
