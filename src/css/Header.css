@@ -73,7 +73,7 @@
 /* full header */
 .header-container {
     width: 100%;
-    position: sticky;
+    position: sticky; /* Reste collé en haut */
     top: 0;
     left: 0;
     right: 0;
@@ -84,6 +84,16 @@
     align-items: center;
     flex-wrap: wrap; 
     border-bottom: 1px solid #1f1f1f1f;
+    
+    /* AJOUTS POUR L'ANIMATION */
+    transform: translateY(0); /* Position normale */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Transition ultra fluide */
+}
+
+/* CLASSE COMPLÉMENTAIRE POUR CACHER LE HEADER */
+.header-container.header-hidden {
+    transform: translateY(-100%); /* Propulse le header hors de l'écran vers le haut */
+    box-shadow: none; /* Enlève l'ombre pour éviter une ligne noire résiduelle */
 }
 
 /* header wrap */
