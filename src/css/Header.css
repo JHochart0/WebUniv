@@ -85,15 +85,15 @@
     flex-wrap: wrap; 
     border-bottom: 1px solid #1f1f1f1f;
     
-    /* AJOUTS POUR L'ANIMATION */
-    transform: translateY(0); /* Position normale */
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Transition ultra fluide */
+   
+    transform: translateY(0); 
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1); /* Transition ultra fluide */
 }
 
-/* CLASSE COMPLÉMENTAIRE POUR CACHER LE HEADER */
+/* hiding the header when scrolling down */
 .header-container.header-hidden {
-    transform: translateY(-100%); /* Propulse le header hors de l'écran vers le haut */
-    box-shadow: none; /* Enlève l'ombre pour éviter une ligne noire résiduelle */
+    transform: translateY(-100%);
+    box-shadow: none;
 }
 
 /* header wrap */

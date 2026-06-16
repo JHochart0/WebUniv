@@ -186,7 +186,7 @@ function Home() {
                     <div className="geo-text-side">
                         <span className="section-subtitle">Zone d'intervention</span>
                         <h2>Un ancrage local, une portée nationale</h2>
-                        <p>Ancrés à <strong>Calais</strong>, nous intervenons directement dans l’ensemble de la région des <strong>Hauts-de-France</strong> pour structurer votre architecture numérique lors de réunions de cadrage physiques.</p>
+                        <p>Disposés à <strong>Calais</strong>, nous intervenons directement dans l’ensemble de la région des <strong>Hauts-de-France</strong> pour structurer votre architecture numérique lors de réunions de cadrage physiques.</p>
                         <p>Afin d'étendre notre expertise à l'échelle nationale, nous gérons également vos projets intégralement à distance grâce à des méthodes collaboratives éprouvées, garantissant la même rigueur dans le déploiement de votre monde digital.</p>
                     </div>
                     <div className="geo-badge-side">
