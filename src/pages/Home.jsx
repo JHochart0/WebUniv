@@ -4,30 +4,31 @@ import useRevealOnScroll from "../hooks/useRevealOnScroll";
 import NavLink from "../components/NavLink.jsx";
 import '../css/Home.css';
 
-// Importation de FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { 
-    faRocket, 
-    faPalette, 
-    faComments, 
-    faShieldHalved, 
+    faRocket,
+    faPalette,
+    faComments,
+    faShieldHalved,
     faGem,
     faGlobe,
-    faDisplay,          // Pour Sites Vitrines
-    faUserAstronaut,    // Pour Portfolios (clin d'œil spatial !)
-    faLaptopCode,       // Pour Applications Web
-    faCloudArrowUp,     // Pour Mise en ligne
-    faArrowsRotate,     // Pour Refonte
-    faSatellite         // Pour le SEO (Google / Satellite... tu l'as ?)
+    faDisplay,
+    faUserAstronaut,
+    faLaptopCode,
+    faCloudArrowUp,
+    faArrowsRotate,
+    faSatellite
 } from '@fortawesome/free-solid-svg-icons';
 
 import logoBright from '../assets/img/WebUniv_logo_simple_bright.png';
 import logoNameBright from '../assets/img/WebUniv_logo_name_only_bright.png';
 
+// home page
 function Home() {
-    useRevealOnScroll(".horizon-rise, .reveal-section");
+    useRevealOnScroll(".horizon-rise-animation, .reveal-section-animation");
 
+    // change the title
     useEffect(() => {
         document.title = "WebUniv - Votre Univers Digital";
     }, []);
@@ -36,7 +37,7 @@ function Home() {
         <div className="home-container">
             
             {/* HOME BANNER */}
-            <div className="home-banner horizon-rise">
+            <div className="home-banner horizon-rise-animation">
                 <div className="home-banner-logo">
                     <img src={logoBright} alt="Logo WebUniv Simple Brillant" className="home-banner-logo-simple" />
                     <img src={logoNameBright} alt="Logo WebUniv Nom Brillant" className="home-banner-logo-name" />
@@ -49,33 +50,33 @@ function Home() {
             </div>
 
             {/* Call to action contact section */}
-            <div className="home-section reveal-section cta-section">
+            <div className="home-section reveal-section-animation cta-section">
                 <div className="cta-box">
 
-                    <div className="contact-icon-wrapper">
-                        <div className="bg-orbit-system-centered">
+                    <div className="cta-icon-wrapper">
+                        <div className="bg-orbit-system">
                             <div className="bg-orbit-ring">
-                                <div className="home-star-decoration orbiting-star ost-1"></div>
-                                <div className="home-star-decoration orbiting-star ost-2"></div>
+                                <div className="home-star-decoration ost-1"></div>
+                                <div className="home-star-decoration ost-2"></div>
                             </div>
                         </div>
-                        <FontAwesomeIcon icon={faGlobe} className="contact-globe-icon" />
+                        <FontAwesomeIcon icon={faGlobe} className="cta-globe-icon" />
                     </div>
 
                     <h2>Prêt à créer votre Univers Digital ?</h2>
                     <p>Qu'il s'agisse d'un projet immédiat ou d'une vision à explorer, nous vous invitons à planifier une première consultation afin de plannifier la naissance de votre monde digital !</p>
-                    <NavLink to="/contact">Prendre rendez-vous</NavLink>
+                    <NavLink to="/cta">Prendre rendez-vous</NavLink>
                 </div>
             </div>
 
             {/*Services section */}
-            <div className="home-section reveal-section services-preview">
+            <div className="home-section reveal-section-animation services-preview">
                 <div className="section-content-wrapper">
 
-                    <div className="bg-orbit-system-centered">
+                    <div className="bg-orbit-system">
                         <div className="bg-orbit-ring">
-                            <div className="home-star-decoration orbiting-star ost-1"></div>
-                            <div className="home-star-decoration orbiting-star ost-2"></div>
+                            <div className="home-star-decoration ost-1"></div>
+                            <div className="home-star-decoration ost-2"></div>
                         </div>
                     </div>
 
@@ -84,34 +85,34 @@ function Home() {
                         <h2 className="section-title">Des solutions web adaptées à vos ambitions</h2>
                     </div>
                     
-                    <div className="services-grid">
-                        <div className="service-card">
-                            <FontAwesomeIcon icon={faDisplay} className="service-icon" />
+                    <div className="home-services-grid">
+                        <div className="home-service-card">
+                            <FontAwesomeIcon icon={faDisplay} className="home-service-icon" />
                             <h3>Sites Vitrines</h3>
                             <p>Déployez une vitrine numérique percutante pour captiver votre audience et ancrer solidement votre marque dans l'univers du numérique.</p>
                         </div>
-                        <div className="service-card">
-                            <FontAwesomeIcon icon={faUserAstronaut} className="service-icon" />
+                        <div className="home-service-card">
+                            <FontAwesomeIcon icon={faUserAstronaut} className="home-service-icon" />
                             <h3>Portfolios Professionnels</h3>
                             <p>Mettez en lumière vos plus belles réalisations à travers un univers visuel unique, interactif et mémorable.</p>
                         </div>
-                        <div className="service-card">
-                            <FontAwesomeIcon icon={faLaptopCode} className="service-icon" />
+                        <div className="home-service-card">
+                            <FontAwesomeIcon icon={faLaptopCode} className="home-service-icon" />
                             <h3>Applications Web Sur-Mesure</h3>
                             <p>Des outils avancés et des interfaces dynamiques développés spécifiquement pour étendre les frontières de votre monde digital.</p>
                         </div>
-                        <div className="service-card">
-                            <FontAwesomeIcon icon={faCloudArrowUp} className="service-icon" />
+                        <div className="home-service-card">
+                            <FontAwesomeIcon icon={faCloudArrowUp} className="home-service-icon" />
                             <h3>Mise en ligne & Domaines</h3>
                             <p>Mise en ligne protégée de votre monde numérique et attribution de son nom de domaine sur-mesure.</p>
                         </div>
-                        <div className="service-card">
-                            <FontAwesomeIcon icon={faArrowsRotate} className="service-icon" />
+                        <div className="home-service-card">
+                            <FontAwesomeIcon icon={faArrowsRotate} className="home-service-icon" />
                             <h3>Modernisation, Refonte & Maintenance ponctuelle</h3>
                             <p>Transformez votre site existant en un univers moderne et performant. Optimisation visuelle complète, passage à la vitesse supérieure et maintenance ponctuelle pour garantir la stabilité de votre plateforme numérique ou corriger les failles.</p>
                         </div>
-                        <div className="service-card">
-                            <FontAwesomeIcon icon={faSatellite} className="service-icon" />
+                        <div className="home-service-card">
+                            <FontAwesomeIcon icon={faSatellite} className="home-service-icon" />
                             <h3>Visibilité & Référencement (SEO)</h3>
                             <p>Devenez l'étoile la plus brillante de votre secteur. Nous alignons votre contenu sur les requêtes des utilisateurs pour attirer naturellement la bonne audience dans votre orbite.</p>
                         </div>
@@ -124,13 +125,13 @@ function Home() {
             </div>
 
             {/* Strengths section */}
-            <div className="home-section reveal-section strengths-section">
+            <div className="home-section reveal-section-animation strengths-section">
                 <div className="section-content-wrapper">
 
-                    <div className="bg-orbit-system-centered">
+                    <div className="bg-orbit-system">
                         <div className="bg-orbit-ring">
-                            <div className="home-star-decoration orbiting-star ost-1"></div>
-                            <div className="home-star-decoration orbiting-star ost-2"></div>
+                            <div className="home-star-decoration ost-1"></div>
+                            <div className="home-star-decoration ost-2"></div>
                         </div>
                     </div>
 
@@ -166,7 +167,7 @@ function Home() {
                                 <FontAwesomeIcon icon={faShieldHalved} />
                             </div>
                             <h3>Suivi Post-Projet</h3>
-                            <p>Le voyage ne s'arrête pas au lancement. Nous assurons une maintenance rigoureuse et un suivi évolutif pendant <strong>un mois gratuitement</strong> à la suite de votre réalisation pour assurer la pérennité de votre projet.</p>
+                            <p>Le voyage ne s'arrête pas au lancement. Nous assurons une maintenance rigoureuse et un suivi évolutif pendant <strong>un mois gratuitement</strong> à la suite de votre réalisation pour assurer la pérennité de votre projet web.</p>
                         </div>
                         <div className="strength-item">
                             <div className="strength-icon">
@@ -179,8 +180,8 @@ function Home() {
                 </div>
             </div>
 
-            {/* 5. SECTION GÉOGRAPHIQUE */}
-            <div className="home-section reveal-section geo-section">
+            {/* Geography section */}
+            <div className="home-section reveal-section-animation geo-section">
                 <div className="geo-content">
                     <div className="geo-text-side">
                         <span className="section-subtitle">Zone d'intervention</span>
