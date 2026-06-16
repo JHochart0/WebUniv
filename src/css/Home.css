@@ -40,21 +40,21 @@
 }
 
 .horizon-rise {
-    opacity: 0.5; /* Baissé à 0 pour éviter le flash bizarre au reload */
-    transform: translateY(60px); /* Utiliser des pixels plutôt que des % évite les sauts de layout majeurs */
+    opacity:0.5;
+    transform: translateY(70%);
     filter: blur(1px);
-  
-    will-change: transform, opacity, filter; 
     transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), 
                 opacity 1.5s ease-out,
                 filter 1.5s ease-out;
 }
 
 .horizon-rise.visible {
-    opacity: 1;
+    opacity:1;
     transform: translateY(0);
     filter: blur(0px);
 }
+
+
 /*********************************
 **********home container**********
 *********************************/
