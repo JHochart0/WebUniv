@@ -70,7 +70,7 @@ function Home() {
             </div>
 
             {/*Services section */}
-            <div className="home-section reveal-section-animation services-preview">
+            <div className="home-section reveal-section-animation home-services-preview">
                 <div className="section-content-wrapper">
 
                     <div className="bg-orbit-system">

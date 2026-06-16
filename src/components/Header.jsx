@@ -27,7 +27,7 @@ function Header() {
             if (isMenuOpen) return;
 
             // Si on scrolle vers le bas de plus de 10px (petite tolérance)
-            if (currentScrollY > lastScrollY.current && currentScrollY > 10) {
+            if (currentScrollY > lastScrollY.current && currentScrollY > 200) {
                 setIsVisible(false); // Cache le header
             } else {
                 setIsVisible(true); // Montre le header (scroll vers le haut)
