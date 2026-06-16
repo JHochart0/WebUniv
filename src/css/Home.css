@@ -1,63 +1,50 @@
 :root {
-  /* Colors used for WebUniv */
   --color-abyssal-blue: #183153;
   --color-light-blue: #6EB9E9;
   --color-white: #FFFFFF;
   --color-dark-gray: #1F1F1F;
-
-  /* main font */
   --font-main: 'Arial', 'Helvetica', sans-serif;
 }
 
 /*********************************
 ************ ANIMATIONS **********
-*********************************/
+/*********************************/
 @keyframes floatSpatial {
-    0% {
-        transform: translateY(0px) scale(1);
-        filter: drop-shadow(0 10px 10px #183153e7);
-    }
-    50% {
-        transform: translateY(-15px) scale(1.03);
-        filter: drop-shadow(0 30px 22px #1831538a);
-    }
-    100% {
-        transform: translateY(0px) scale(1);
-        filter: drop-shadow(0 10px 10px #183153e7);
-    }
+    0%, 100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 10px 10px #183153e7); }
+    50% { transform: translateY(-15px) scale(1.03); filter: drop-shadow(0 30px 22px #1831538a); }
 }
 
-.nebula-bloom {
-    opacity: 0;
-    transform: scale(0.3);
-    filter: blur(20px) brightness(3);
-    transition: all 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+@keyframes pulseHomeStar {
+    0%, 100% { transform: var(--inverse-skew) scale(1); opacity: 0.7; filter: drop-shadow(0 0 5px rgba(110, 185, 233, 0.5)); }
+    50% { transform: var(--inverse-skew) scale(1.3); opacity: 1; filter: drop-shadow(0 0 15px rgba(110, 185, 233, 1)); }
 }
-.nebula-bloom.visible {
-    opacity: 1;
-    transform: scale(1);
-    filter: blur(0px) brightness(1);
+
+@keyframes followOrbit {
+    from { offset-distance: 0%; }
+    to { offset-distance: 100%; }
+}
+
+@keyframes planetaryFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes planetaryFloatMobile {
+    0%, 100% { transform: scale(0.85) translateY(0); }
+    50% { transform: scale(0.85) translateY(-10px); }
 }
 
 .horizon-rise {
-    opacity:0.5;
+    opacity: 0.5;
     transform: translateY(70%);
     filter: blur(1px);
-    transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), 
-                opacity 1.5s ease-out,
-                filter 1.5s ease-out;
+    transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1.5s ease-out, filter 1.5s ease-out;
 }
-
-.horizon-rise.visible {
-    opacity:1;
-    transform: translateY(0);
-    filter: blur(0px);
-}
-
+.horizon-rise.visible { opacity: 1; transform: translateY(0); filter: blur(0px); }
 
 /*********************************
-**********home container**********
-*********************************/
+**********HOME CONTAINER**********
+/*********************************/
 .home-container {
     min-height: 150vh;
     display: flex;
@@ -67,11 +54,12 @@
     line-height: 1.6;
     color: var(--color-dark-gray);
     font-family: var(--font-main);
+    overflow-x: hidden;
 }
 
 /*********************************
-************home banner***********
-*********************************/
+************HOME BANNER***********
+/*********************************/
 .home-banner {
     width: 100%;
     min-height: 80vh;
@@ -88,9 +76,6 @@
     text-align: center;
 }
 
-/*********************************
-*********home banner logo*********
-*********************************/
 .home-banner-logo {
     display: flex;
     flex-direction: column;
@@ -100,29 +85,8 @@
     animation: floatSpatial 6s ease-in-out infinite;
 }
 
-
-.home-banner-logo-simple {
-    height: 340px; 
-    width: auto;
-    object-fit: contain;
-    max-width: 90%; 
-    margin-top: -10px;
-}
-
-
-.home-banner-logo-name {
-    height: 200px; 
-    width: auto;
-    object-fit: contain;
-    max-width: 80%; 
-
-    margin-top: -120px; 
-    margin-bottom: -40px;
-}
-
-/*********************************
-*********home banner texts********
-*********************************/
+.home-banner-logo-simple { height: 340px; width: auto; object-fit: contain; max-width: 90%; margin-top: -10px; }
+.home-banner-logo-name { height: 200px; width: auto; object-fit: contain; max-width: 80%; margin-top: -120px; margin-bottom: -40px; }
 
 .home-banner-texts {
     width: 100%; 
@@ -134,135 +98,421 @@
     padding: 0 1.5rem;
     box-sizing: border-box;
 }
+.home-banner-texts h1 { font-size: 3.5rem; filter: drop-shadow(0px 0px 20px rgb(255, 255, 255)); font-weight: bold; width: 100%; }
+.home-banner-texts h2 { width: 75%; max-width: 1000px; font-size: 1.5rem; font-weight: bold; margin-bottom: 1.2rem; line-height: 1.6; opacity: 0.9; }
+.home-banner-texts h3 { width: 60%; max-width: 900px; text-shadow: 0px 0px 10px var(--color-abyssal-blue); font-size: 1.3rem; font-weight: bold; color: var(--color-abyssal-blue); }
 
-.home-banner-texts h1 {
-    font-size: 3.5rem;
-    filter: drop-shadow(0px 0px 20px rgb(255, 255, 255));
-    font-weight: bold;
+/*********************************
+****** STRUCTURE DES SECTIONS ****
+/*********************************/
+.home-section {
+    position: relative;
+    width: 100%;
+    max-width: 1600px;
+    padding: 100px 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-content-wrapper, 
+.cta-box, 
+.geo-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    background: radial-gradient(circle at 25% 25%, rgba(32, 67, 115, 0.65) 0%, rgba(18, 49, 83, 0.55) 50%, rgba(9, 18, 31, 0.85) 100%);
+    border: 2px solid rgba(110, 185, 233, 0.45);
+    border-radius: 80px; 
+    padding: 65px 75px;  
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45), 
+                inset 0 0 40px rgba(110, 185, 233, 0.25),
+                0 0 20px rgba(110, 185, 233, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-sizing: border-box;
+}
+
+.section-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-header, 
+.services-grid, 
+.strengths-grid, 
+.section-actions {
+    position: relative;
+    z-index: 3; 
+}
+
+.section-header { text-align: center; margin-bottom: 50px; }
+.section-subtitle { display: block; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2.5px; color: var(--color-light-blue); font-weight: bold; margin-bottom: 12px; }
+.section-title { font-size: 2.4rem; color: var(--color-white); font-weight: 800; margin: 0; text-shadow: 0 0 15px rgba(110, 185, 233, 0.3); }
+
+.reveal-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease-out;
+}
+.reveal-section.visible { opacity: 1; transform: translateY(0); }
+
+/*************************************************
+********* INTERNES ET COINCEES DANS LE CADRE *****
+/*************************************************/
+.bg-orbit-system-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.services-preview .bg-orbit-system-centered {
+    width: 120%;   
+    height: 600px; 
+    transform: translate(-50%, -50%) rotate(-12deg) skew(-15deg);
+}
+.services-preview .orbiting-star {
+    --inverse-skew: skew(15deg) rotate(12deg);
+}
+
+.strengths-section .bg-orbit-system-centered {
+    width: 120%;   
+    height: 300px; 
+    transform: translate(-50%, -50%) rotate(10deg) skew(20deg);
+}
+.strengths-section .orbiting-star {
+    --inverse-skew: skew(-20deg) rotate(-10deg);
+}
+
+.bg-orbit-system-centered::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(circle, rgba(110, 185, 233, 0.12) 0%, transparent 70%);
+    z-index: -1;
+}
+
+.bg-orbit-ring {
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(110, 185, 233, 0.45);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(110, 185, 233, 0.1), 0 0 10px rgba(110, 185, 233, 0.1);
+}
+
+.home-star-decoration {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+}
+
+.orbiting-star {
+    offset-path: border-box; 
+    offset-rotate: 0deg; 
+    animation: followOrbit 20s linear infinite, pulseHomeStar 3s infinite ease-in-out;
+}
+
+.ost-1 {
+    background-color: var(--color-light-blue);
+    width: 28px;
+    height: 28px;
+}
+
+.ost-2 {
+    background-color: var(--color-abyssal-blue);
+    border: 2px solid var(--color-light-blue);
+    width: 20px;
+    height: 20px;
+    animation-delay: -10s, -1.5s;
+}
+
+/*********************************
+********* INTERACTION BUTTONS ****
+/*********************************/
+.cta-box .navLink,
+.section-actions .navLink {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
+    border: 2px solid var(--color-light-blue);
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(110, 185, 233, 0.25);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    color: var(--color-white) !important;
+    text-decoration: none;
+}
+
+.cta-box .navLink:hover,
+.section-actions .navLink:hover {
+    color: var(--color-white) !important;
+    background: linear-gradient(135deg, #204373 0%, var(--color-light-blue) 100%);
+    box-shadow: 0 0 25px rgba(110, 185, 233, 0.6);
+    border-color: var(--color-white);
+    transform: translateY(-2px);
+    filter: drop-shadow(0 0 15px rgba(110, 185, 233, 0.8));
+}
+
+/*********************************
+******* SERVICES PREVIEW *********
+/*********************************/
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin-bottom: 40px; width: 100%; }
+.service-card { 
+    background: rgba(24, 49, 83, 0.55); 
+    border: 1px solid rgba(110, 185, 233, 0.25); 
+    padding: 30px; 
+    border-radius: 14px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+}
+.service-card:hover { 
+    transform: translateY(-4px); 
+    box-shadow: 0 12px 25px rgba(110, 185, 233, 0.15); 
+    border-color: var(--color-light-blue); 
+}
+.service-card h3 { margin: 0 0 12px 0; color: var(--color-light-blue); font-size: 1.4rem; font-weight: 700; }
+.service-card p { margin: 0; color: rgba(255, 255, 255, 0.85); font-size: 0.98rem; line-height: 1.6; }
+.section-actions { text-align: center; margin-top: 20px; }
+
+/*********************************
+******* STRENGTHS SECTION ********
+/*********************************/
+.strengths-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 30px; 
     width: 100%; 
 }
 
-.home-banner-texts h2 {
-    width: 75%; 
-    max-width: 1000px; 
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1.2rem;
-    line-height: 1.6;
-    opacity: 0.9;
-}
-
-.home-banner-texts h3 {
-    width: 60%;
-    max-width: 900px; 
-    text-shadow: 0px 0px 10px var(--color-abyssal-blue);
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: var(--color-abyssal-blue); 
-}
-
-/********************************
-****** Responsive Rules ********
-********************************/
-
-/* tablets */
-@media (max-width: 1024px) {
-    .horizon-rise{
-        transform: translateY(50%);
-    }
-    .home-banner{
-        min-height: 70vh;
-        padding-bottom:25px;
-    }
+.strength-item { 
+    text-align: center; 
+    padding: 20px; 
+    border:none;
+    transition: transform 0.5s ease;
     
-    .home-banner-texts h2 {
-        width: 95%;
-    }
-    
-    .home-banner-texts h3 {
-        width: 90%;
-    }
+}
 
+.strength-icon { 
+    font-size: 2.5rem; 
+    margin-bottom: 20px; 
+    color: var(--color-light-blue); 
+    filter: drop-shadow(0 0 12px rgba(110, 185, 233, 0.4)); 
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.strength-item:hover{ 
+    border:solid var(--color-light-blue) 1px;
+    border-radius:50px;
+    transform:scale(1.02);
+}
+
+.strength-item:hover .strength-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 18px rgba(110, 185, 233, 0.7));
+    color: var(--color-white);
+}
+
+.strength-item h3 { 
+    color: var(--color-light-blue); 
+    font-size: 1.25rem; 
+    margin: 0 0 10px 0; 
+    font-weight: 700; 
+}
+
+.strength-item p { 
+    margin: 0; 
+    color: rgba(255, 255, 255, 0.85); 
+    font-size: 0.92rem; 
+    line-height: 1.6; 
+}
+
+/*********************************
+********* GEO SECTION ************
+/*********************************/
+.geo-section { padding-top: 40px; padding-bottom: 40px; }
+.geo-content { display: flex; align-items: center; gap: 40px; }
+.geo-text-side { flex: 1; }
+.geo-text-side h2 { color: var(--color-white); font-size: 2.2rem; margin: 0 0 18px 0; text-shadow: 0 0 10px rgba(110, 185, 233, 0.2); }
+.geo-text-side p { color: rgba(255, 255, 255, 0.85); font-size: 1.05rem; line-height: 1.6; }
+.geo-badge-side { display: flex; justify-content: center; align-items: center; flex: 0 0 300px; }
+
+.cosmic-badge { 
+    position: relative;
+    z-index: 1;
+    width: 250px; 
+    height: 250px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    padding: 20px; 
+    box-sizing: border-box;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+    animation: planetaryFloat 4s infinite ease-in-out;
 }
 
 
-/* Mobiles */
-@media (max-width: 599px) {
-    .horizon-rise{
-        transform: translateY(50%);
-    }
-    .home-banner-texts h1 {
-        font-size: 1.7rem;
-        margin-bottom:20px;
-    }
 
-
-    .home-banner-logo-simple {
-        height: 200px;
-    }
-
-    .home-banner-logo-name {
-        height: 120px;
-        margin-top: -60px;
-        margin-bottom:10px;
-    }
-
-    .home-banner-texts h2 {
-        font-size: 1.05rem;
-        margin-bottom: 1rem;
-    }
-
-    .home-banner-texts h3 {
-        font-size: 1rem;
-    }
-
+.cosmic-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; 
+    background: var(--color-abyssal-blue); 
+    box-shadow: 0 0 30px rgba(110, 185, 233, 0.3), inset 0 0 20px rgba(110, 185, 233, 0.4); 
+    border: 2.5px solid var(--color-light-blue);
+    box-sizing: border-box;
+    z-index: -1;
 }
 
-/*tablets landscape */
+.cosmic-badge::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) skew(-10deg) rotate(20deg);
+    width: 380px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid var(--color-light-blue); 
+    background: var(--color-abyssal-blue);
+    box-shadow: 0 0 20px rgba(110, 185, 233, 0.4);
+    z-index: -2;
+    pointer-events: none;
+}
+
+.badge-main { font-size: 1.9rem; font-weight: 800; letter-spacing: 1px; color: var(--color-white); z-index: 10; }
+.badge-sub { font-size: 0.75rem; color: var(--color-light-blue); text-transform: uppercase; margin-top: 8px; font-weight: bold; letter-spacing: 1px; z-index: 10; }
+
+/*********************************
+******** CONTACT SECTION *********
+/*********************************/
+ .cta-section { text-align: center; padding-top: 40px; padding-bottom: 40px; }
+
+.cta-box { border-style: solid; border-width: 2px; }
+
+.cta-box h2 { color: var(--color-white); font-size: 2.3rem; margin: 0 0 18px 0; text-shadow: 0 0 15px rgba(110, 185, 233, 0.2); }
+
+.cta-box p { color: rgba(255, 255, 255, 0.9); font-size: 1.15rem; max-width: 750px; margin: 0 auto 35px auto; } 
+
+.contact-icon-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 40px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: planetaryFloat 4s infinite ease-in-out;
+}
+
+/* L'anneau stellaire spécifique au Globe */
+.contact-icon-wrapper .bg-orbit-system-centered {
+    width: 280px; 
+    height: 100px;
+    transform: translate(-50%, -50%) rotate(15deg) skew(-20deg);
+}
+
+/* Annulation de la déformation pour les étoiles du Globe */
+.contact-icon-wrapper .orbiting-star {
+    --inverse-skew: skew(20deg) rotate(-15deg);
+}
+
+.contact-globe-icon {
+    font-size: 10rem;
+    color: var(--color-light-blue);
+    z-index: 5;
+    position: relative;
+}
+
+/*********************************
+****** RESPONSIVE RULES *********
+/*********************************/
 @media (max-width: 1500px) and (orientation: landscape) {
-    .horizon-rise{
-        transform: translateY(50%);
-    }
-    .home-banner{
-        padding-bottom:25px;
-    }
-
-    .home-banner-texts h2 {
-        width: 95%;
-    }
-    
-    .home-banner-texts h3 {
-        width: 90%;
+    .home-banner { padding-bottom: 25px; }
+    .home-banner-texts h2, .home-banner-texts h3 { width: 95%; }
+    .bg-orbit-system-centered { display: none; }
+    .contact-icon-wrapper .bg-orbit-system-centered{
+        display:block;
     }
 }
 
-/*mobile landscape*/
+@media (max-width: 1024px) {
+    .home-banner { min-height: 70vh; padding-bottom: 25px; }
+    .home-banner-texts h2 { width: 95%; }
+    .home-banner-texts h3 { width: 90%; }
+    .section-content-wrapper, .cta-box, .geo-content { padding: 45px 30px; }
+    .bg-orbit-system-centered { display: none; }
+    .contact-icon-wrapper .bg-orbit-system-centered{
+        display:block;
+    }
+}
+
+@media (max-width: 900px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .geo-content { flex-direction: column; text-align: center; gap: 60px; }
+    .geo-badge-side { flex: none; }
+    .section-title { font-size: 1.9rem; }
+    .bg-orbit-system-centered { display: none; }
+    .contact-icon-wrapper .bg-orbit-system-centered{
+        display:block;
+    }
+    
+}
+
 @media (max-width: 899px) and (orientation: landscape) {
-    .horizon-rise{
-        transform: translateY(50%);
+    .home-banner-logo-simple { height: 140px; }
+    .home-banner-logo-name { height: 85px; margin-top: -45px; margin-bottom: 0px; }
+    .home-banner-texts h1 { font-size: 2rem; margin-bottom: 10px; }
+    .home-banner-texts h2 { font-size: 1.1rem; }
+    .home-banner-texts h3 { font-size: 1rem; width: 90%; }
+    .bg-orbit-system-centered { display: none; }
+    .contact-icon-wrapper .bg-orbit-system-centered{
+        display:block;
+    }
+}
+
+@media (max-width: 599px) {
+    .home-banner-texts h1 { font-size: 1.7rem; margin-bottom: 20px; }
+    .home-banner-logo-simple { height: 200px; }
+    .home-banner-logo-name { height: 120px; margin-top: -60px; margin-bottom: 10px; }
+    .home-banner-texts h2 { font-size: 1.05rem; margin-bottom: 1rem; }
+    .home-banner-texts h3 { font-size: 1rem; }
+    .home-section { padding: 60px 12px; }
+    .section-content-wrapper, .cta-box, .geo-content { 
+        padding: 45px 24px; 
+        border-radius: 40px; 
+    }
+    .cta-box h2 { font-size: 1.7rem; }
+    .bg-orbit-system-centered { display: none; }
+    .contact-icon-wrapper .bg-orbit-system-centered{
+        display:block;
     }
 
-    .home-banner-logo-simple {
-        height: 140px;
+    .contact-icon-wrapper {
+        animation: planetaryFloatMobile 4s infinite ease-in-out;
     }
 
-    .home-banner-logo-name {
-        height: 85px;
-        margin-top: -45px;
-        margin-bottom: 00px;
+    .cosmic-badge {
+        transform: scale(0.85);
+        animation: planetaryFloatMobile 4s infinite ease-in-out;
     }
 
-    .home-banner-texts h1 {
-        font-size: 2rem;
-        margin-bottom:10px;
-    }
 
-    .home-banner-texts h2 {
-        font-size: 1.1rem;
-    }
 
-    .home-banner-texts h3 {
-        font-size: 1rem;
-        width: 90%;
-    }
 }
