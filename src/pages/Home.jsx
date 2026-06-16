@@ -166,7 +166,7 @@ function Home() {
                                 <FontAwesomeIcon icon={faShieldHalved} />
                             </div>
                             <h3>Suivi Post-Projet</h3>
-                            <p>Le voyage ne s'arrête pas au lancement. Nous assurons une maintenance rigoureuse et un suivi évolutif pendant <strong>deux mois gratuitement</strong> à la suite de votre réalisation pour pérenniser vos performances.</p>
+                            <p>Le voyage ne s'arrête pas au lancement. Nous assurons une maintenance rigoureuse et un suivi évolutif pendant <strong>un mois gratuitement</strong> à la suite de votre réalisation pour assurer la pérennité de votre projet.</p>
                         </div>
                         <div className="strength-item">
                             <div className="strength-icon">
