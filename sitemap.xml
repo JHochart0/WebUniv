@@ -31,4 +31,10 @@
         <priority>0.3</priority>
     </url>
 
+    <!-- Page CGV -->
+    <url>
+        <loc>https://webuniv.fr/gtc</loc>
+        <priority>0.4</priority>
+    </url>
+
 </urlset>
