@@ -701,6 +701,11 @@
 
 /*tablets*/
 @media (max-width: 1024px) {
+
+    .horizon-rise-animation {
+        transform: translateY(60%);
+    }
+
     .home-banner { 
         min-height: 70vh; 
         padding-bottom: 25px; 
@@ -932,6 +937,12 @@
 
 /*mobile landscape*/
 @media (max-width: 899px) and (orientation: landscape) {
+
+    .horizon-rise-animation {
+        
+        transform: translateY(40%);
+       
+    }
     .home-banner-logo-simple { 
         height: 140px; 
     }
