@@ -3,37 +3,38 @@ import '../css/Header.css';
 import Navbar from './Navbar';
 import Logo from './Logo';
 
+// Component for the header on every page of the website
 function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isVisible, setIsVisible] = useState(true); // Gère la visibilité du header
+    const [isVisible, setIsVisible] = useState(true); // Manage the header visibility
     
     const headerRef = useRef(null);
-    const lastScrollY = useRef(0); // Stocke la dernière position du scroll sans déclencher de re-render
+    const lastScrollY = useRef(0); // Stores the last scroll position without triggering a re-render
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);
 
-    // Effet pour bloquer le scroll quand le menu mobile est ouvert
+    // Effect to disable page scrolling when the mobile menu is open
     useEffect(() => {
         document.body.style.overflow = isMenuOpen ? 'hidden' : 'auto';
     }, [isMenuOpen]);
 
-    // Effet pour masquer/afficher le header au scroll
+    // Effect to hide/show the header on scroll
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
 
-            // Si le menu mobile est ouvert, on ne cache pas le header
+            // If the mobile menu is open, do not hide the header
             if (isMenuOpen) return;
 
-            // Si on scrolle vers le bas de plus de 10px (petite tolérance)
+            // If scrolling down by more than 10px (small tolerance threshold)
             if (currentScrollY > lastScrollY.current && currentScrollY > 200) {
-                setIsVisible(false); // Cache le header
+                setIsVisible(false); // Hide the header
             } else {
-                setIsVisible(true); // Montre le header (scroll vers le haut)
+                setIsVisible(true); // Show the header (scrolling up)
             }
 
-            // Met à jour la position du dernier scroll
+            // Update the last scroll position
             lastScrollY.current = currentScrollY;
         };
 
@@ -44,7 +45,7 @@ function Header() {
         };
     }, [isMenuOpen]);
 
-    // Effet pour fermer le menu si on clique en dehors
+    // Effect to close the menu when clicking outside of it
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (isMenuOpen && headerRef.current && !headerRef.current.contains(event.target)) {
@@ -60,7 +61,7 @@ function Header() {
     }, [isMenuOpen]);
 
     return (
-        /* Ajout dynamique de la classe 'header-hidden' si isVisible est faux */
+        /* Dynamically add the 'header-hidden' class if isVisible is false */
         <header className={`header-container ${!isVisible ? 'header-hidden' : ''}`} ref={headerRef}>
             <div className="header-wrap">
                 <div className="star-decoration star-left"></div>

@@ -803,10 +803,9 @@
         grid-column: span 2;
     }
 
-    /* --- ALTERNATIVE : CÔTE À CÔTE SANS COLLISION --- */
     .geo-content {
         display: flex;
-        justify-content: space-between; /* Pousse le texte à gauche et le badge à droite */
+        justify-content: space-between;
         align-items: center;
         gap: 30px;
         background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
@@ -817,13 +816,13 @@
     }
 
     .geo-text-side {
-        max-width: 55%; /* On réduit la place du texte pour laisser respirer le badge */
+        max-width: 55%;
     }
 
     .geo-badge-side {
         margin-left: auto;
         margin-right: 0;
-        flex-shrink: 0; /* Empêche le badge de se déformer ou de rétrécir */
+        flex-shrink: 0;
     }
 }
 
@@ -883,7 +882,6 @@
         display:block;
     }
 
-        /*buttons in home page*/
     .cta-box .navLink,
     .section-actions .navLink{
         font-size:0.9rem;
@@ -962,8 +960,6 @@
         display: none; 
     }
 
-
-
     .cta-icon-wrapper .bg-orbit-system{
         display:block;
     }
@@ -981,7 +977,6 @@
 
     .strengths-grid > * {
         grid-column: auto !important;
-       
     }
 
     .strengths-grid > *:nth-child(5) {

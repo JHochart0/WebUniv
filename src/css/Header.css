@@ -22,12 +22,10 @@
         transform: scale(1) translateY(0);
     }
     50% {
-        /* Flotte légèrement vers le haut et tangue à droite */
         transform: scale(1.05) translateY(-5px);
     }
 
     100% {
-        /* Retour parfait au point de départ */
         transform: scale(1.00) translateY(0);
     }
 }
@@ -38,13 +36,12 @@
 
 /* stars decoration */
 .star-decoration {
-    position: absolute; /* Absolu uniquement par rapport au parent direct (.header-logo-link etc) */
-    z-index: 10;
+    position: absolute;
     width: 18px;
     height: 18px;
     clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
     animation: pulseStar 4s infinite ease-in-out;
-    pointer-events: none; /* Empêche l'étoile de bloquer le clic sur l'élément en dessous */
+    pointer-events: none;
 }
 
 /*first star on the left*/
@@ -73,7 +70,7 @@
 /* full header */
 .header-container {
     width: 100%;
-    position: sticky; /* Reste collé en haut */
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
@@ -87,7 +84,7 @@
     
    
     transform: translateY(0); 
-    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1); /* Transition ultra fluide */
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* hiding the header when scrolling down */
