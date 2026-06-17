@@ -603,8 +603,6 @@
 }
 
 .geo-text-side h2 {
-    color: var(--color-white);
-    font-size: 2.2rem;
     margin: 0 0 18px 0;
     text-shadow: 0 0 10px rgba(110, 185, 233, 0.2);
 }
@@ -727,6 +725,11 @@
         display:block;
     }
 
+    .home-service-card{
+        text-align:center;
+        align-items:center;
+    }
+
     .strengths-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -781,6 +784,11 @@
         display:block;
     }
 
+    .home-service-card{
+        text-align:center;
+        align-items:center;
+    }
+    
     .strengths-grid {
         display: grid;
         grid-template-columns: repeat(6, 1fr); 
@@ -795,16 +803,27 @@
         grid-column: span 2;
     }
 
+    /* --- ALTERNATIVE : CÔTE À CÔTE SANS COLLISION --- */
     .geo-content {
-        background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%); /* Même fond */
+        display: flex;
+        justify-content: space-between; /* Pousse le texte à gauche et le badge à droite */
+        align-items: center;
+        gap: 30px;
+        background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
     }
 
     .geo-content::before {
         display: none;
     }
 
-    .geo-badge-side{
-        margin-right:20px;
+    .geo-text-side {
+        max-width: 55%; /* On réduit la place du texte pour laisser respirer le badge */
+    }
+
+    .geo-badge-side {
+        margin-left: auto;
+        margin-right: 0;
+        flex-shrink: 0; /* Empêche le badge de se déformer ou de rétrécir */
     }
 }
 
@@ -838,6 +857,14 @@
         padding: 60px 12px; 
     }
 
+    .section-title{
+        font-size : 1.7rem;
+    }
+
+    .geo-text-side h2{
+       font-size: 1.7rem;
+    }
+
     .section-content-wrapper, .cta-box { 
         padding: 45px 24px; 
         border-radius: 40px; 
@@ -846,6 +873,7 @@
     .cta-box h2 { 
         font-size: 1.7rem; 
     }
+    
 
     .bg-orbit-system { 
         display: none; 
@@ -853,6 +881,12 @@
 
     .cta-icon-wrapper .bg-orbit-system{
         display:block;
+    }
+
+        /*buttons in home page*/
+    .cta-box .navLink,
+    .section-actions .navLink{
+        font-size:0.9rem;
     }
 
     .cta-icon-wrapper {
@@ -864,9 +898,21 @@
         animation: planetaryFloatMobile 4s infinite ease-in-out;
     }
 
-    .home-services-grid { 
-      grid-template-columns: 1fr; 
+    .home-service-card{
+        text-align:center;
+        align-items:center;
     }
+
+    .home-services-grid { 
+        grid-template-columns: 1fr; 
+    }
+
+    .strengths-grid { 
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+    }
+    
 
     .geo-content {
         padding: 40px 20px;
@@ -916,8 +962,37 @@
         display: none; 
     }
 
+
+
     .cta-icon-wrapper .bg-orbit-system{
         display:block;
+    }
+
+    .home-service-card{
+        text-align:center;
+        align-items:center;
+    }
+
+    .strengths-grid {
+        display: grid !important;
+        margin:auto;
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .strengths-grid > * {
+        grid-column: auto !important;
+       
+    }
+
+    .strengths-grid > *:nth-child(5) {
+        grid-column: 1 / span 2 !important;
+        justify-self: center;
+        width: 40%;
+    }
+
+
+    .geo-badge-side{
+        margin:auto;
     }
 
     .geo-content { 
