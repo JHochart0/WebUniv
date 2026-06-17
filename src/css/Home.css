@@ -834,7 +834,7 @@
     .horizon-rise-animation {
         transform: translateY(60%);
     }
-    
+
     .home-banner-texts h1 { 
         font-size: 1.7rem; 
         margin-bottom: 20px; 
@@ -940,11 +940,10 @@
 /*mobile landscape*/
 @media (max-width: 899px) and (orientation: landscape) {
 
-    .horizon-rise-animation {
-        
-        transform: translateY(40%);
-       
+    .horizon-rise-animation {   
+        transform: translateY(30%);
     }
+
     .home-banner-logo-simple { 
         height: 140px; 
     }
