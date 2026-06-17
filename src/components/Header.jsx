@@ -14,18 +14,10 @@ function Header() {
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);
 
-    // Effect to disable page scrolling when the mobile menu is open
-    useEffect(() => {
-        document.body.style.overflow = isMenuOpen ? 'hidden' : 'auto';
-    }, [isMenuOpen]);
-
     // Effect to hide/show the header on scroll
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-
-            // If the mobile menu is open, do not hide the header
-            if (isMenuOpen) return;
 
             // If scrolling down by more than 10px (small tolerance threshold)
             if (currentScrollY > lastScrollY.current && currentScrollY > 200) {
