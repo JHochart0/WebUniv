@@ -280,6 +280,23 @@
 /* Tablets + Mobiles / Tablets landscape */
 @media (max-width: 1024px), (max-width: 1500px) and (orientation: landscape) {
 
+    .header-nav.nav-open {
+        max-height: calc(100vh - 100px) !important; 
+        overflow-y: auto !important; 
+        overflow-x: hidden; 
+    }
+    
+    .header-nav.nav-open::-webkit-scrollbar {
+        width: 6px;
+    }
+    .header-nav.nav-open::-webkit-scrollbar-track {
+        background: rgba(16, 37, 66, 0.95);
+    }
+    .header-nav.nav-open::-webkit-scrollbar-thumb {
+        background-color: var(--color-light-blue);
+        border-radius: 10px;
+    }
+    
     /* first star on the left */
     .star-left{
         width:25px;
@@ -392,7 +409,7 @@
         overflow-y: auto !important; 
         overflow-x: hidden; 
     }
- */
+
     .header-nav.nav-open::-webkit-scrollbar {
         width: 6px;
     }
