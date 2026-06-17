@@ -42,15 +42,16 @@
 /*horizon rise animation*/
 .horizon-rise-animation {
     opacity: 0.5;
-    transform: translateY(70%);
+    transform: translateY(90%);
     filter: blur(1px);
+    will-change: transform, opacity;
     transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1.5s ease-out, filter 1.5s ease-out;
 }
 .horizon-rise-animation.visible { 
     opacity: 1; 
-    transform: 
-    translateY(0); 
-    filter: blur(0px); }
+    transform: translateY(0); 
+    filter: blur(0px); 
+}
 
 /*reveal-section animation*/
 .reveal-section-animation {
@@ -67,6 +68,7 @@
 **********HOME CONTAINER**********
 /*********************************/
 .home-container {
+    overflow:hidden;
     min-height: 150vh;
     display: flex;
     flex-direction: column;
@@ -82,19 +84,25 @@
 ************HOME BANNER***********
 /*********************************/
 .home-banner {
+    min-height:70vh;
     width: 100%;
-    min-height: 80vh;
-    background: url('../assets/img/WebUniv_fond_couverture.png') no-repeat center center;
-    background-size: cover;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.445);
     border-bottom: 1px solid rgba(31, 31, 31, 0.1);
-    padding-top: 20px;
+    text-align: center;
+}
+
+.home-banner-wrapper{
+    width:100%;
+    height:100%;
+    background: url('../assets/img/WebUniv_fond_couverture.png') no-repeat center center;
+    background-size: cover;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start; 
     align-items: center;
-    box-sizing: border-box;
-    text-align: center;
+    padding-top: 20px;
+    padding-bottom:40px;
 }
 
 /*home banner logo*/
