@@ -383,7 +383,24 @@
 
 /* Mobile landscape */
 @media (max-width: 899px) and (orientation: landscape) {
-    .header-logo-img{
+    .header-logo-img {
         height: 80px; 
+    }
+
+    .header-nav.nav-open {
+        max-height: calc(100vh - 100px) !important; 
+        overflow-y: auto !important; 
+        overflow-x: hidden; 
+    }
+ */
+    .header-nav.nav-open::-webkit-scrollbar {
+        width: 6px;
+    }
+    .header-nav.nav-open::-webkit-scrollbar-track {
+        background: rgba(16, 37, 66, 0.95);
+    }
+    .header-nav.nav-open::-webkit-scrollbar-thumb {
+        background-color: var(--color-light-blue);
+        border-radius: 10px;
     }
 }
