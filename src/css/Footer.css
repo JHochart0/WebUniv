@@ -536,10 +536,9 @@
 
     .footer-bottom {
         max-width: 90vw;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 25px;
         padding-top: 15px;
         font-size: 0.75rem;
     }
