@@ -5,7 +5,7 @@ import '../css/Services.css';
 function Services() {
     // Change the tab title
     useEffect(() => {
-        document.title = "WebUniv - Découvrez nos prestations";
+        document.title = "WebUniv | Découvrez nos prestations";
     }, []);
 
     return (

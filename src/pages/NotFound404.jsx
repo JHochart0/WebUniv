@@ -4,7 +4,7 @@ import '../css/NotFound404.css';
 
 function NotFound404() {
     useEffect(() => {
-        document.title = "WebUniv - Page non trouvée";
+        document.title = "WebUniv | Page non trouvée";
     }, []);
 
     return (

@@ -14,7 +14,7 @@ function Contact() {
     useRevealOnScroll(".stellar-orbit-left, .stellar-orbit-right");
 
     useEffect(() => {
-        document.title = "WebUniv - Contactez-nous !";
+        document.title = "WebUniv | Contactez-nous !";
     }, []);
 
     const [formData, setFormData] = useState({

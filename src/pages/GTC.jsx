@@ -7,7 +7,7 @@ function GTC() {
 
     // Change the tab title
     useEffect(() => {
-        document.title = "WebUniv - Conditions générales de prestation de service";
+        document.title = "WebUniv | Conditions générales de prestation de service";
     }, []);
     
     return (

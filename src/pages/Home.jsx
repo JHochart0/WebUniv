@@ -30,7 +30,7 @@ function Home() {
 
     // change the title
     useEffect(() => {
-        document.title = "WebUniv - Votre Univers Digital";
+        document.title = "WebUniv | Votre Univers Digital";
     }, []);
 
     return (
