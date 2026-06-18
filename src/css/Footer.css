@@ -44,6 +44,7 @@
     padding: 40px 20px 20px 20px;
     font-family: var(--font-main);
     border-top: 1px solid rgba(110, 185, 233, 0.2);
+    overflow: hidden;
 }
 
 
@@ -377,7 +378,7 @@
 /* Tablets*/
 @media (max-width: 1024px) {
     .footer-top {
-        
+        max-width: 100%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -427,6 +428,16 @@
 
 /*Mobiles*/
 @media (max-width: 599px) {
+
+    .footer-top {
+        max-width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+        padding-bottom: 40px;
+    }
+
     .footer-top {
         gap: 45px;
     }
