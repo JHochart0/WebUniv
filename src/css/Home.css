@@ -193,8 +193,8 @@
     border: 1.5px solid var(--color-light-blue);
     border-radius: 40px; 
     padding: 65px 75px;  
-    box-shadow: 0 0 40px rgba(110, 185, 233, 0.15), 
-                0 15px 35px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.25), 
+                0 0 40px rgba(255, 255, 255, 0.2);
     box-sizing: border-box;
 }
 
@@ -513,7 +513,8 @@
     border:solid var(--color-light-blue) 1px;
     border-radius:50px;
     transform:scale(1.02);
-    box-shadow: 0 12px 25px rgba(110, 185, 233, 0.15); 
+    box-shadow: 0 0 20px rgb(110, 185, 233, 0.5), 
+                0 0 40px rgb(110, 185, 233, 0.3);
 }
 
 /*strength icon*/
@@ -530,6 +531,7 @@
     transform: scale(1.1);
     filter: drop-shadow(0 0 18px rgba(110, 185, 233, 0.7));
     color: var(--color-white);
+    
 }
 
 /*strength texts*/
@@ -567,8 +569,8 @@
     border: 1.5px solid var(--color-light-blue);
     border-radius: 40px; 
     padding: 65px 75px;  
-    box-shadow: 0 0 40px rgba(110, 185, 233, 0.15), 
-                0 15px 35px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.25), 
+                0 0 40px rgba(255, 255, 255, 0.2);
     box-sizing: border-box;
     background: none;
 
@@ -608,7 +610,8 @@
     border: 1px solid rgba(110, 185, 233, 0.3);
     border-radius: 30px;
     padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 
+                0 0 20px rgba(255, 255, 255, 0.2);
 }
 
 .geo-text-side h2 {
@@ -632,6 +635,7 @@
     z-index: 3;
     margin-left: auto; 
     margin-right: 20px;
+    
 }
 
 .cosmic-badge { 
@@ -648,7 +652,7 @@
     box-sizing: border-box;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform;
-    animation: planetaryFloat 4s infinite ease-in-out;
+    animation: planetaryFloat 4s infinite ease-in-out; 
 }
 
 /*geography badge planet*/
@@ -665,6 +669,8 @@
     border: 2.5px solid var(--color-light-blue);
     box-sizing: border-box;
     z-index: -1;
+    box-shadow: 0 0 5px var(--color-light-blue), 
+                0 0 10px var(--color-light-blue);
 }
 
 /*geography badge stellar ring*/
@@ -679,9 +685,11 @@
     border-radius: 50%;
     border: 2px solid var(--color-light-blue); 
     background: var(--color-abyssal-blue);
-    box-shadow: 0 0 20px rgba(110, 185, 233, 0.4);
+    box-shadow: 0 0 20px var(--color-light-blue), 
+                0 0 40px var(--color-light-blue);
     z-index: -2;
     pointer-events: none;
+    
 }
 
 /*geography badge texts*/

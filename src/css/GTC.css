@@ -41,7 +41,7 @@
 .gtc-section {
     min-width: 50vw;
     width: 100%;
-    background: var(--color-white);
+    background: rgba(255, 255, 255, 0.85);
     border-radius: 1rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     padding: 2rem;
