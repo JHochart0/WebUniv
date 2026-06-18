@@ -38,4 +38,8 @@ body{
 .content{
     overflow : hidden;
     min-height:80vh;
+    background: radial-gradient(
+        rgba(110, 185, 233) 0%, 
+        var(--color-abyssal-blue) 80% /* Une nuance un poil plus sombre pour accentuer l'effet de bord */
+    );
 }

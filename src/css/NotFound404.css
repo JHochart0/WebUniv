@@ -28,8 +28,7 @@
 *********notfound container ******
 *********************************/
 .notfound-container {
-    min-height: 70vh;
-    background-color: var(--color-white);
+    min-height: 100vh;
     color: var(--color-dark-gray);
     font-family: var(--font-main);
     display: flex;
@@ -148,23 +147,48 @@
     box-shadow: 0 0 15px rgba(110, 185, 233, 0.15);
 }
 
+/* Base commune pour les conteneurs d'étoiles (gèrent la lueur) */
 .notfound-star1, .notfound-star2 {
     position: absolute;
     top: 50%;
     z-index: 5;
+}
+
+/* Pseudo-élément commun (gère la forme de l'étoile) */
+.notfound-star1::before, .notfound-star2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
 }
 
+/* Étoile 1 (Sombre - Halo blanc pour le contraste) */
 .notfound-star1 {
-    background-color: var(--color-abyssal-blue);
-    width: 38px; height: 38px; left: 0;
+    width: 38px; 
+    height: 38px; 
+    left: 0;
+    filter: drop-shadow(0 0 15px var(--color-white)) 
+            drop-shadow(0 0 5px var(--color-white));
     animation: pulseStarLeft404 4s infinite ease-in-out;
 }
+.notfound-star1::before {
+    background-color: var(--color-abyssal-blue);
+}
 
+/* Étoile 2 (Claire - Halo bleu clair) */
 .notfound-star2 {
-    background-color: var(--color-light-blue);
-    width: 28px; height: 28px; right: 0;
+    width: 28px; 
+    height: 28px; 
+    right: 0;
+    filter: drop-shadow(0 0 15px var(--color-light-blue)) 
+            drop-shadow(0 0 5px var(--color-light-blue));
     animation: pulseStarRight404 4s infinite ease-in-out;
+}
+.notfound-star2::before {
+    background-color: var(--color-light-blue);
 }
 
 

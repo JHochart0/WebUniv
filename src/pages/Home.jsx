@@ -37,8 +37,8 @@ function Home() {
         <div className="home-container">
             
             {/* HOME BANNER */}
-            <div className="home-banner ">
-                <div className="home-banner-wrapper horizon-rise-animation">
+            <div className="home-banner horizon-rise-animation">
+ 
                     <div className="home-banner-logo">
                         <img src={logoBright} alt="Logo WebUniv Simple Brillant" className="home-banner-logo-simple" />
                         <img src={logoNameBright} alt="Logo WebUniv Nom Brillant" className="home-banner-logo-name" />
@@ -48,8 +48,7 @@ function Home() {
                         <h2>De la création de votre vitrine numérique à l'application web complexe, WebUniv vous accompagne de bout en bout pour concevoir et structurer votre propre monde digital personnalisé.</h2>
                         <h3>Propulsez votre présence en ligne grâce à notre expertise en conception et développement web !</h3>
                     </div>
-                </div>
-                
+
             </div>
 
             {/* Call to action contact section */}

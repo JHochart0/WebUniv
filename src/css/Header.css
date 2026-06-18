@@ -34,33 +34,53 @@
 *********Stars decorations****
 *****************************/
 
-/* stars decoration */
 .star-decoration {
     position: absolute;
     width: 18px;
     height: 18px;
-    clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
     animation: pulseStar 4s infinite ease-in-out;
     pointer-events: none;
 }
 
-/*first star on the left*/
+
+.star-decoration::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+}
+
+
 .star-left {
-    background-color: var(--color-abyssal-blue);
     width: 40px;
     height: 40px;
     top: 10px;
     left: -20px;
+    filter: drop-shadow(0 0 15px var(--color-white)) 
+            drop-shadow(0 0 5px var(--color-white));
+    
 }
 
-/* second star on the right */
+.star-left::before {
+    background-color: var(--color-abyssal-blue);
+}
+
+
 .star-right {
-    background-color: var(--color-light-blue);
     animation-delay: 1.5s;
     width: 30px;
     height: 30px;
     bottom: 10px;
     right: -20px;
+    filter: drop-shadow(0 0 15px var(--color-light-blue)) 
+            drop-shadow(0 0 5px var(--color-light-blue));
+}
+
+.star-right::before {
+    background-color: var(--color-light-blue);
 }
 
 /**************************
