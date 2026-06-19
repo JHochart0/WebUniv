@@ -220,7 +220,7 @@ function GTC() {
                     <p>
                         En tant qu'auteur du code informatique personnalisé et des créations graphiques originales, le Prestataire bénéficie de la législation sur les droits d'auteur. 
                         L'exploitation, la reproduction ou la modification du code source par le Client ou un tiers en dehors du cadre strict du site livré nécessite notre accord exprès écrit. 
-                        La cession des droits d'exploitation sur le site internet finalisé au profit du Client n'intervient qu'au jour du paiement intégral et effectif du solde de la facture, 96.
+                        La cession des droits d'exploitation sur le site internet finalisé au profit du Client n'intervient qu'au jour du paiement intégral et effectif du solde de la facture.
                     </p>
 
                     <h3>Article 19 - Référencement</h3>
@@ -234,8 +234,8 @@ function GTC() {
                         et à défaut d'accord amiable préalable, seul sera compétent le <strong>Tribunal de Commerce de Lille</strong>, nonobstant pluralité de défendeurs ou appel en garantie0.
                     </p>
                     <p className="gtc-consumer-note">
-                        <strong>Note pour les cas d'exceptions de clients consommateurs (le cas échéant) :</strong> Conformément à l'article L. 612-1 du Code de la consommation, le consommateur a la faculté d'introduire une demande de résolution amiable par voie de médiation1. 
-                        Le prestataire a désigné la <strong>SAS Médiation Solution</strong> comme entité de médiation (adhésion n° 70293/RV/2306)2. Saisine par écrit à : SAS Médiation Solution - 222 chemin de la bergerie - 01800 Saint Jean de Niost, ou en ligne sur leur site internet dédié3.
+                        <strong>Note pour les cas d'exceptions de clients consommateurs (le cas échéant) :</strong> Conformément à l'article L. 612-1 du Code de la consommation, le consommateur a la faculté d'introduire une demande de résolution amiable par voie de médiation. 
+                        Le prestataire a désigné la <strong>SAS Médiation Solution</strong> comme entité de médiation (adhésion n° 70293/RV/2306). Saisine par écrit à : SAS Médiation Solution - 222 chemin de la bergerie - 01800 Saint Jean de Niost, ou en ligne sur leur site internet dédié.
                     </p>
                 </div>
             </div>
