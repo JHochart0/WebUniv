@@ -1012,6 +1012,9 @@
         width: 40%;
     }
 
+    .geo-text-side{
+        max-width:100%;
+    }
 
     .geo-badge-side{
         margin:auto;
