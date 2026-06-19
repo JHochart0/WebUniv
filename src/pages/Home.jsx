@@ -67,7 +67,7 @@ function Home() {
 
                     <h2>Prêt à créer votre Univers Digital ?</h2>
                     <p>Qu'il s'agisse d'un projet immédiat ou d'une vision à explorer, nous vous invitons à planifier une première consultation afin de plannifier la naissance de votre monde digital !</p>
-                    <NavLink to="/cta">Prendre rendez-vous</NavLink>
+                    <NavLink to="/contact">Prendre rendez-vous</NavLink>
                 </div>
             </div>
 
