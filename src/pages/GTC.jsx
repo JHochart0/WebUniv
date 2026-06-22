@@ -230,7 +230,7 @@ function GTC() {
 
                     <h3>Article 20 - Compétence et droit applicable</h3>
                     <p>
-                        Les présentes conditions sont soumises à la loi française0. Pour toutes les contestations ou litiges relatifs aux prestations et contrats de WebUniv entre professionnels, 
+                        Les présentes conditions sont soumises à la loi française. Pour toutes les contestations ou litiges relatifs aux prestations et contrats de WebUniv entre professionnels, 
                         et à défaut d'accord amiable préalable, seul sera compétent le <strong>Tribunal de Commerce de Lille</strong>, nonobstant pluralité de défendeurs ou appel en garantie0.
                     </p>
                     <p className="gtc-consumer-note">
