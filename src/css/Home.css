@@ -653,6 +653,9 @@
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform;
     animation: planetaryFloat 4s infinite ease-in-out; 
+    filter: drop-shadow(0 0 10px var(--color-light-blue))
+            drop-shadow(0 0 15px var(--color-light-blue));
+    
 }
 
 /*geography badge planet*/
@@ -665,12 +668,10 @@
     height: 100%;
     border-radius: 50%; 
     background: var(--color-abyssal-blue); 
-    box-shadow: 0 0 30px rgba(110, 185, 233, 0.3), inset 0 0 20px rgba(110, 185, 233, 0.4); 
-    border: 2.5px solid var(--color-light-blue);
+
     box-sizing: border-box;
     z-index: -1;
-    box-shadow: 0 0 5px var(--color-light-blue), 
-                0 0 10px var(--color-light-blue);
+    
 }
 
 /*geography badge stellar ring*/
@@ -685,8 +686,7 @@
     border-radius: 50%;
     border: 2px solid var(--color-light-blue); 
     background: var(--color-abyssal-blue);
-    box-shadow: 0 0 20px var(--color-light-blue), 
-                0 0 40px var(--color-light-blue);
+    
     z-index: -2;
     pointer-events: none;
     
