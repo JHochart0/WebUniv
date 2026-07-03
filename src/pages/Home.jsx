@@ -30,7 +30,7 @@ import logoNameBright from '../assets/img/WebUniv_logo_name_only_bright.webp';
 
 // home page
 function Home() {
-    useRevealOnScroll(".horizon-rise-animation, .reveal-section-animation");
+    useRevealOnScroll(".reveal-section-animation");
 
     // change the title
     useEffect(() => {

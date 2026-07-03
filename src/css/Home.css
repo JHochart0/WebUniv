@@ -56,7 +56,7 @@
 /*horizon rise animation*/
 .horizon-rise-animation {
     will-change: transform, opacity;
-    animation: horizonRiseOnLoad 0.1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation: horizonRiseOnLoad 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 /*reveal-section animation*/
