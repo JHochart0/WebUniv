@@ -2,7 +2,7 @@ import React from 'react';
 
 import { NavLink } from 'react-router-dom';
 
-import logo from '../assets/img/WebUniv_logo_full_circle.png';
+import logo from '../assets/img/WebUniv_logo_full_circle.webp';
 
 //this component is the logo of the website that brings to the homepage when clicked on
 function Logo() {

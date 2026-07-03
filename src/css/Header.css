@@ -96,7 +96,7 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    background: url('../assets/img/WebUniv_fond_couverture.png') no-repeat center center;
+    background: url('../assets/img/WebUniv_fond_couverture.webp') no-repeat center center;
     background-size: cover;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.445);
     align-items: center;

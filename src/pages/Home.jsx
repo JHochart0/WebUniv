@@ -25,8 +25,8 @@ import {
     faHandshakeAngle
 } from '@fortawesome/free-solid-svg-icons';
 
-import logoBright from '../assets/img/WebUniv_logo_simple_bright.png';
-import logoNameBright from '../assets/img/WebUniv_logo_name_only_bright.png';
+import logoBright from '../assets/img/WebUniv_logo_simple_bright.webp';
+import logoNameBright from '../assets/img/WebUniv_logo_name_only_bright.webp';
 
 // home page
 function Home() {
