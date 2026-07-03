@@ -256,6 +256,17 @@
     z-index: 1;
 }
 
+/* cta icon orbit system */
+.cta-icon-wrapper .bg-orbit-system {
+    width: 280px; 
+    height: 100px;
+    transform: translate(-50%, -50%) rotate(15deg) skew(-20deg);
+}
+
+.cta-icon-wrapper .home-star-decoration {
+    --inverse-skew: skew(20deg) rotate(-15deg);
+}
+
 /*home-services-preview orbit system*/
 .home-services-preview .bg-orbit-system {
     width: 120%;   
@@ -278,16 +289,19 @@
     --inverse-skew: skew(-20deg) rotate(-10deg);
 }
 
-/* cta icon orbit system */
-.cta-icon-wrapper .bg-orbit-system {
-    width: 280px; 
-    height: 100px;
-    transform: translate(-50%, -50%) rotate(15deg) skew(-20deg);
+
+
+/*process orbit system*/
+.process-section .bg-orbit-system {
+    width: 110%;   
+    height: 750px; 
+    transform: translate(-50%, -50%) rotate(-8deg) skew(10deg);
 }
 
-.cta-icon-wrapper .home-star-decoration {
-    --inverse-skew: skew(20deg) rotate(-15deg);
+.process-section .home-star-decoration {
+    --inverse-skew: skew(-10deg) rotate(8deg);
 }
+
 
 /* orbit ring*/
 .bg-orbit-ring {
@@ -323,6 +337,8 @@
     clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
     
 }
+
+
 
 
 /* each star in orbit system*/
@@ -722,17 +738,7 @@
 ***** HOME PROCESS & METHOD *******
 /*********************************/
 
-.process-section .bg-orbit-system {
-    width: 110%;   
-    height: 750px; 
-    transform: translate(-50%, -50%) rotate(-8deg) skew(10deg);
-}
-
-.process-section .home-star-decoration {
-    --inverse-skew: skew(-10deg) rotate(8deg);
-}
-
-/* Grille des étapes */
+/* process grid */
 .process-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -743,7 +749,7 @@
     z-index: 3;
 }
 
-/* Carte d'étape */
+/* process card */
 .process-card {
     background: rgba(24, 49, 83, 0.55);
     border: 1px solid rgba(110, 185, 233, 0.2);
@@ -764,7 +770,7 @@
     border-color: var(--color-light-blue);
 }
 
-/* Badge Étape */
+/* steps badge */
 .process-step-badge {
     position: absolute;
     top: -12px;
@@ -780,7 +786,7 @@
     box-shadow: 0 0 10px rgba(110, 185, 233, 0.2);
 }
 
-/* Icônes des étapes */
+/* steps icons */
 .process-icon {
     font-size: 2.2rem;
     color: var(--color-light-blue);
@@ -809,7 +815,7 @@
     line-height: 1.6;
 }
 
-/* Bloc d'encadrement Agile & Suivi Post-livraison */
+/* reassurance whole banner */
 .process-reassurance-banner {
     width: 100%;
     background: rgba(16, 33, 56, 0.6);
