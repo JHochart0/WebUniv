@@ -39,18 +39,24 @@
     0%, 100% { transform: scale(0.85) translateY(0); }
     50% { transform: scale(0.85) translateY(-10px); }
 }
+
+@keyframes horizonRiseOnLoad {
+    0% {
+        opacity: 0.5;
+        transform: translateY(90%);
+        filter: blur(1px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0px);
+    }
+}
+
 /*horizon rise animation*/
 .horizon-rise-animation {
-    opacity: 0.5;
-    transform: translateY(90%);
-    filter: blur(1px);
     will-change: transform, opacity;
-    transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1.5s ease-out, filter 1.5s ease-out;
-}
-.horizon-rise-animation.visible { 
-    opacity: 1; 
-    transform: translateY(0); 
-    filter: blur(0px); 
+    animation: horizonRiseOnLoad 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 /*reveal-section animation*/
@@ -712,6 +718,133 @@
     z-index: 10; 
 }
 
+/**********************************
+***** HOME PROCESS & METHOD *******
+/*********************************/
+
+.process-section .bg-orbit-system {
+    width: 110%;   
+    height: 750px; 
+    transform: translate(-50%, -50%) rotate(-8deg) skew(10deg);
+}
+
+.process-section .home-star-decoration {
+    --inverse-skew: skew(-10deg) rotate(8deg);
+}
+
+/* Grille des étapes */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 45px;
+    width: 100%;
+    position: relative;
+    z-index: 3;
+}
+
+/* Carte d'étape */
+.process-card {
+    background: rgba(24, 49, 83, 0.55);
+    border: 1px solid rgba(110, 185, 233, 0.2);
+    padding: 35px 25px 25px 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.process-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(110, 185, 233, 0.2);
+    border-color: var(--color-light-blue);
+}
+
+/* Badge Étape */
+.process-step-badge {
+    position: absolute;
+    top: -12px;
+    background: linear-gradient(135deg, #204373 0%, var(--color-abyssal-blue) 100%);
+    border: 1px solid var(--color-light-blue);
+    color: var(--color-light-blue);
+    padding: 3px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(110, 185, 233, 0.2);
+}
+
+/* Icônes des étapes */
+.process-icon {
+    font-size: 2.2rem;
+    color: var(--color-light-blue);
+    margin-bottom: 18px;
+    filter: drop-shadow(0 0 8px rgba(110, 185, 233, 0.3));
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.process-card:hover .process-icon {
+    transform: scale(1.1);
+    color: var(--color-white);
+    filter: drop-shadow(0 0 12px rgba(110, 185, 233, 0.6));
+}
+
+.process-card h3 {
+    margin: 0 0 12px 0;
+    color: var(--color-light-blue);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.process-card p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Bloc d'encadrement Agile & Suivi Post-livraison */
+.process-reassurance-banner {
+    width: 100%;
+    background: rgba(16, 33, 56, 0.6);
+    border: 1.5px dashed rgba(110, 185, 233, 0.4);
+    border-radius: 24px;
+    padding: 35px;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    text-align: left;
+    position: relative;
+    z-index: 3;
+}
+
+.reassurance-block h4 {
+    margin: 0 0 10px 0;
+    color: var(--color-light-blue);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(110, 185, 233, 0.2);
+}
+
+.reassurance-icon{
+    margin-right:10px;
+}
+
+.reassurance-block p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
 
 /*********************************
 ****** RESPONSIVE RULES *********
@@ -719,7 +852,6 @@
 
 /*tablets*/
 @media (max-width: 1024px) {
-
     .home-banner { 
         min-height: 70vh; 
         padding-bottom: 25px; 
@@ -760,7 +892,6 @@
     .strengths-grid > *:nth-child(5) {
         grid-column: 2 / span 2;
     }
-
     
     .geo-content {
         flex-direction: column; 
@@ -782,6 +913,16 @@
         margin: 0 auto; 
     }
     
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .process-reassurance-banner {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 25px;
+    }
 
 }
 
@@ -847,10 +988,6 @@
 
 /*mobile*/
 @media (max-width: 599px) {
-    .horizon-rise-animation {
-        transform: translateY(60%);
-    }
-
     .home-banner-texts h1 { 
         font-size: 1.7rem; 
         margin-bottom: 20px; 
@@ -950,16 +1087,23 @@
         padding: 25px;
         text-align: center;
     }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .process-card {
+        padding: 30px 20px 20px 20px;
+    }
+    
+    .reassurance-block h4 {
+        font-size: 1.1rem;
+    }
 }
 
 
 /*mobile landscape*/
 @media (max-width: 899px) and (orientation: landscape) {
-
-    .horizon-rise-animation {   
-        transform: translateY(30%);
-    }
-
     .home-banner-logo-simple { 
         height: 140px; 
     }
