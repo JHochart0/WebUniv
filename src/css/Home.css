@@ -613,7 +613,7 @@
 
     background-image: 
         linear-gradient(to right, rgba(24, 49, 83, 1) 40%, rgba(24, 49, 83, 0.2) 55%, rgba(24, 49, 83, 0) 100%), 
-        url('../assets/img/WebUniv_zone_geographique.png');
+        url('../assets/img/WebUniv_zone_geographique.webp');
     
     background-position: top 30% right -20%;
     background-repeat: no-repeat, no-repeat;
