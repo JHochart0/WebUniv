@@ -9,6 +9,14 @@
 /*********************************
 ********* ANIMATIONS *************
 *********************************/
+@keyframes planetBgFloat {
+    0%, 100% { 
+        transform: translate(-50%, -50%) translateY(0); 
+    }
+    50% { 
+        transform: translate(-50%, -50%) translateY(-20px);
+    }
+}
 @keyframes pulseStarLeft404 {
     0%, 100% { transform: translate(-50%, -50%) skew(25deg) rotate(-15deg) scale(0.85); opacity: 0.6; }
     50% { transform: translate(-50%, -50%) skew(25deg) rotate(-15deg) scale(1.15) rotate(15deg); opacity: 1; }
@@ -62,6 +70,7 @@
         inset -10px -10px 30px rgba(24, 49, 83, 0.2),
         0 15px 35px rgba(24, 49, 83, 0.1);
     z-index: 1;
+    animation: planetBgFloat 5s infinite ease-in-out;
 }
 
 /*********************************

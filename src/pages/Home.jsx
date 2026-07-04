@@ -30,7 +30,7 @@ import logoNameBright from '../assets/img/WebUniv_logo_name_only_bright.webp';
 
 // home page
 function Home() {
-    useRevealOnScroll(".reveal-section-animation");
+    useRevealOnScroll(".fade-in-up, .fade-in-side-left, .fade-in-side-right, .zoom-animation");
 
     // change the title
     useEffect(() => {
@@ -41,12 +41,12 @@ function Home() {
         <div className="home-container">
             
             {/* HOME BANNER */}
-            <div className="home-banner horizon-rise-animation">
-                    <div className="home-banner-logo">
-                        <img src={logoBright} alt="Logo WebUniv Simple Brillant" className="home-banner-logo-simple" />
-                        <img src={logoNameBright} alt="Logo WebUniv Nom Brillant" className="home-banner-logo-name" />
+            <div className="home-banner ">
+                    <div className="home-banner-logo ">
+                        <img src={logoBright} alt="Logo WebUniv Simple Brillant" className="home-banner-logo-simple zoom-animation" />
+                        <img src={logoNameBright} alt="Logo WebUniv Nom Brillant" className="home-banner-logo-name zoom-animation" />
                     </div>
-                    <div className="home-banner-texts">
+                    <div className="home-banner-texts fade-in-up">
                         <h1>Votre propre Univers Digital créé sur-mesure</h1>
                         <h2>De la création de votre site web vitrine à l'application web complexe, WebUniv vous accompagne de bout en bout pour concevoir et structurer votre propre monde digital personnalisé.</h2>
                         <h3>Propulsez votre présence en ligne grâce à notre expertise en conception et développement web !</h3>
@@ -55,31 +55,33 @@ function Home() {
             </div>
 
             {/* Call to action contact section */}
-            <div className="home-section reveal-section-animation cta-section">
+            <div className="home-section fade-in-up cta-section">
                 <div className="cta-box">
 
                     <div className="cta-icon-wrapper">
                         <div className="bg-orbit-system">
-                            <div className="bg-orbit-ring">
+                            <div className="bg-orbit-ring zoom-animation">
                                 <div className="home-star-decoration ost-1"></div>
                                 <div className="home-star-decoration ost-2"></div>
                             </div>
                         </div>
-                        <FontAwesomeIcon icon={faGlobe} className="cta-globe-icon" />
+                        <FontAwesomeIcon icon={faGlobe} className="cta-globe-icon zoom-animation" />
                     </div>
-
-                    <h2>Prêt à créer votre Univers Digital ?</h2>
-                    <p>Contactez-nous pour analyser vos besoins lors d’un premier rendez-vous et concevoir votre <strong>devis gratuit sur-mesure</strong> !</p>
-                    <NavLink to="/contact">Prendre rendez-vous</NavLink>
+                    <div className="cta-text-content fade-in-up">
+                        <h2>Prêt à créer votre Univers Digital ?</h2>
+                        <p>Contactez-nous pour analyser vos besoins lors d’un premier rendez-vous et concevoir votre <strong>devis gratuit sur-mesure</strong> !</p>
+                        <NavLink to="/contact">Prendre rendez-vous</NavLink>
+                    </div>
+                    
                 </div>
             </div>
 
             {/*Services section */}
-            <div className="home-section reveal-section-animation home-services-preview">
+            <div className="home-section fade-in-up home-services-preview">
                 <div className="section-content-wrapper">
 
                     <div className="bg-orbit-system">
-                        <div className="bg-orbit-ring">
+                        <div className="bg-orbit-ring zoom-animation">
                             <div className="home-star-decoration ost-1"></div>
                             <div className="home-star-decoration ost-2"></div>
                         </div>
@@ -91,32 +93,32 @@ function Home() {
                     </div>
                     
                     <div className="home-services-grid">
-                        <div className="home-service-card">
+                        <div className="home-service-card fade-in-side-left">
                             <FontAwesomeIcon icon={faDisplay} className="home-service-icon" />
                             <h3>Sites Vitrines</h3>
                             <p>Création d’une vitrine numérique percutante pour captiver votre audience et ancrer solidement votre marque dans l’univers du numérique.</p>
                         </div>
-                        <div className="home-service-card">
+                        <div className="home-service-card fade-in-side-right">
                             <FontAwesomeIcon icon={faUserAstronaut} className="home-service-icon" />
                             <h3>Portfolios Professionnels</h3>
                             <p>Mise en lumière de vos plus belles réalisations à travers un univers visuel unique, interactif et mémorable.</p>
                         </div>
-                        <div className="home-service-card">
+                        <div className="home-service-card fade-in-side-left">
                             <FontAwesomeIcon icon={faLaptopCode} className="home-service-icon" />
                             <h3>Applications Web Sur-Mesure</h3>
                             <p>Des outils avancés et des interfaces dynamiques développés spécifiquement pour étendre les frontières de votre monde digital.</p>
                         </div>
-                        <div className="home-service-card">
+                        <div className="home-service-card fade-in-side-right">
                             <FontAwesomeIcon icon={faCloudArrowUp} className="home-service-icon" />
                             <h3>Mise en ligne & Domaines</h3>
                             <p>Mise en ligne protégée et sécurisée de votre projet numérique et attribution de son nom de domaine sur-mesure.</p>
                         </div>
-                        <div className="home-service-card">
+                        <div className="home-service-card fade-in-side-left">
                             <FontAwesomeIcon icon={faArrowsRotate} className="home-service-icon" />
                             <h3>Modernisation, Refonte & Maintenance ponctuelle</h3>
                             <p>Transformez votre site web actuel en un univers moderne et performant. Refonte visuelle, passage à la vitesse supérieure et maintenance ponctuelle pour garantir sa stabilité et corriger les failles.</p>
                         </div>
-                        <div className="home-service-card">
+                        <div className="home-service-card fade-in-side-right">
                             <FontAwesomeIcon icon={faSatellite} className="home-service-icon" />
                             <h3>Visibilité & Référencement (SEO)</h3>
                             <p>Devenez l’étoile la plus brillante de votre secteur et attirez naturellement la bonne audience dans votre orbite grâce à un contenu aligné sur leurs requêtes.</p>
@@ -130,11 +132,11 @@ function Home() {
             </div>
 
             {/* Strengths section */}
-            <div className="home-section reveal-section-animation strengths-section">
+            <div className="home-section fade-in-up strengths-section">
                 <div className="section-content-wrapper">
 
                     <div className="bg-orbit-system">
-                        <div className="bg-orbit-ring">
+                        <div className="bg-orbit-ring zoom-animation">
                             <div className="home-star-decoration ost-1"></div>
                             <div className="home-star-decoration ost-2"></div>
                         </div>
@@ -146,35 +148,35 @@ function Home() {
                     </div>
 
                     <div className="strengths-grid">
-                        <div className="strength-item">
+                        <div className="strength-item fade-in-up">
                             <div className="strength-icon">
                                 <FontAwesomeIcon icon={faRocket} />
                             </div>
                             <h3>Accompagnement de A à Z</h3>
                             <p>Vous n'êtes jamais seul. De la simple imagination jusqu'au déploiement final, nous pilotons chaque étape technique pour guider votre projet vers sa réussite.</p>
                         </div>
-                        <div className="strength-item">
+                        <div className="strength-item fade-in-up">
                             <div className="strength-icon">
                                 <FontAwesomeIcon icon={faPalette} />
                             </div>
                             <h3>100% Personnalisé</h3>
                             <p>Aucun modèle préconçu ou impersonnel. Votre Univers Digital est entièrement modélisé selon votre identité et vos exigences uniques.</p>
                         </div>
-                        <div className="strength-item">
+                        <div className="strength-item fade-in-up">
                             <div className="strength-icon">
                                 <FontAwesomeIcon icon={faComments} />
                             </div>
                             <h3>À votre écoute</h3>
                             <p>Une collaboration transparente, réactive et adaptative. Nous co-construisons une architecture web qui s'adapte parfaitement à vos objectifs et à vos ambitions.</p>
                         </div>
-                        <div className="strength-item">
+                        <div className="strength-item fade-in-up">
                             <div className="strength-icon">
                                 <FontAwesomeIcon icon={faShieldHalved} />
                             </div>
                             <h3>Suivi Post-Projet</h3>
-                            <p>Le voyage ne s'arrête pas au lancement. WebyUniv assure un suivi rigoureux pour garantir la pérennité de votre projet web.</p>
+                            <p>Le voyage ne s'arrête pas au lancement. WebUniv assure un suivi rigoureux pour garantir la pérennité de votre projet web.</p>
                         </div>
-                        <div className="strength-item">
+                        <div className="strength-item fade-in-up">
                             <div className="strength-icon">
                                 <FontAwesomeIcon icon={faGem} />
                             </div>
@@ -186,15 +188,15 @@ function Home() {
             </div>
 
             {/* Geography section */}
-            <div className="home-section reveal-section-animation geo-section">
+            <div className="home-section fade-in-up geo-section">
                 <div className="geo-content">
-                    <div className="geo-text-side">
+                    <div className="geo-text-side fade-in-side-left">
                         <span className="section-subtitle">Zone d'intervention</span>
                         <h2 className="section-title">Un ancrage local, une portée nationale</h2>
                         <p>Disposés à <strong>Calais</strong>, nous intervenons directement dans l’ensemble de la région des <strong>Hauts-de-France</strong> pour structurer votre architecture numérique lors de réunions de cadrage physiques.</p>
                         <p>Afin d'étendre notre expertise à l'échelle nationale, nous gérons également vos projets intégralement à distance grâce à des méthodes collaboratives éprouvées, garantissant la même rigueur dans le déploiement de votre monde digital.</p>
                     </div>
-                    <div className="geo-badge-side">
+                    <div className="geo-badge-side zoom-animation">
                         <div className="cosmic-badge">
                             <span className="badge-main">Calais</span>
                             <span className="badge-sub">Hauts-de-France & Distanciel</span>
@@ -204,11 +206,11 @@ function Home() {
             </div>
 
             {/* PROCESS SECTION */}
-            <div className="home-section reveal-section-animation process-section">
+            <div className="home-section fade-in-up process-section">
                 <div className="section-content-wrapper">
                     
                     <div className="bg-orbit-system">
-                        <div className="bg-orbit-ring">
+                        <div className="bg-orbit-ring zoom-animation">
                             <div className="home-star-decoration ost-1"></div>
                             <div className="home-star-decoration ost-2"></div>
                         </div>
@@ -219,43 +221,43 @@ function Home() {
                         <h2 className="section-title">La trajectoire de votre projet étape par étape</h2>
                     </div>
 
-                    <div className="process-grid">
-                        <div className="process-card">
+                    <div className="process-grid ">
+                        <div className="process-card fade-in-up">
                             <div className="process-step-badge">Étape 1</div>
                             <FontAwesomeIcon icon={faComments} className="process-icon" />
                             <h3>Analyse du besoin</h3>
                             <p>Lors d'un premier rendez-vous (physique ou distanciel), nous cadrons vos objectifs pour définir précisément le cahier des charges.</p>
                         </div>
 
-                        <div className="process-card">
+                        <div className="process-card fade-in-up">
                             <div className="process-step-badge">Étape 2</div>
                             <FontAwesomeIcon icon={faFileContract} className="process-icon" />
                             <h3>Signature du devis</h3>
                             <p>Validation de notre proposition sur-mesure. Les fondations juridiques et tarifaires sont posées en toute transparence.</p>
                         </div>
 
-                        <div className="process-card">
+                        <div className="process-card fade-in-up">
                             <div className="process-step-badge">Étape 3</div>
                             <FontAwesomeIcon icon={faPalette} className="process-icon" />
                             <h3>Conception graphique</h3>
                             <p>Création et ajustement de maquettes adaptées pour chaque type d'écran. Nous validons ensemble le visuel et l'organisation des contenus avant le code.</p>
                         </div>
 
-                        <div className="process-card">
+                        <div className="process-card fade-in-up">
                             <div className="process-step-badge">Étape 4</div>
                             <FontAwesomeIcon icon={faLaptopCode} className="process-icon" />
                             <h3>Développement Web</h3>
                             <p>Écriture d'un code propre et performant, structuré sur-mesure pour donner vie aux maquettes validées, en assurant l'expertise technique.</p>
                         </div>
 
-                        <div className="process-card">
+                        <div className="process-card fade-in-up">
                             <div className="process-step-badge">Étape 5</div>
                             <FontAwesomeIcon icon={faListCheck} className="process-icon" />
                             <h3>Référencement (SEO), Tests & Debug</h3>
                             <p>Optimisation des structures techniques pour le référencement naturel et exécution de tests internes rigoureux afin de garantir un écosystème stable, fluide et performant.</p>
                         </div>
 
-                        <div className="process-card">
+                        <div className="process-card fade-in-up">
                             <div className="process-step-badge">Étape 6</div>
                             <FontAwesomeIcon icon={faRocket} className="process-icon" />
                             <h3>Déploiement & Livraison</h3>
@@ -264,7 +266,7 @@ function Home() {
                     </div>
 
                     {/* Flexible Agile approach & Post-delivery support callout box */}
-                    <div className="process-reassurance-banner">
+                    <div className="process-reassurance-banner fade-in-side-right">
                         <div className="reassurance-block">
                             <h4>
                                 <FontAwesomeIcon icon={faSliders} className="reassurance-icon"/>

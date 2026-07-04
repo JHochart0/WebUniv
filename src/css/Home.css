@@ -9,6 +9,11 @@
 /*********************************
 ************ ANIMATIONS **********
 /*********************************/
+@keyframes starFlicker {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 1; }
+}
+
 @keyframes floatSpatial {
     0%, 100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 10px 10px #183153e7); }
     50% { transform: translateY(-15px) scale(1.03); filter: drop-shadow(0 30px 22px #1831538a); }
@@ -40,34 +45,43 @@
     50% { transform: scale(0.85) translateY(-10px); }
 }
 
-@keyframes horizonRiseOnLoad {
-    0% {
-        opacity: 0.5;
-        transform: translateY(90%);
-        filter: blur(1px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0px);
-    }
-}
 
-/*horizon rise animation*/
-.horizon-rise-animation {
-    will-change: transform, opacity;
-    animation: horizonRiseOnLoad 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-
-/*reveal-section animation*/
-.reveal-section-animation {
+/*fade-in-up animation*/
+.fade-in-up {
     opacity: 0;
-    transform: translateY(40px);
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease-out;
+    transform: translateY(100px);
+    transition: all 1.2s ease-out;
 }
-.reveal-section-animation.visible { 
+.fade-in-side-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 1.2s ease-out;
+}
+
+.fade-in-side-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 1.2s ease-out;
+}
+
+
+.fade-in-up.visible, .fade-in-side-left.visible, .fade-in-side-right.visible {
     opacity: 1;
-    transform: translateY(0); 
+    transform: translateX(0) translateY(0);
+}
+
+.zoom-animation{
+    opacity: 0;
+    transform:scale(0.1);
+    filter: blur(4px);
+    transition: opacity 1.5s ease-out, transform 1.2s ease-out, filter 1.2s ease-out;
+    
+}
+
+.zoom-animation.visible{
+    opacity: 1;
+    transform: scale(1);
+    filter:blur(0);
 }
 
 /*********************************
@@ -98,8 +112,13 @@
     text-align: center;
     width:100%;
     height:100%;
+    overflow:hidden;
     background: url('../assets/img/WebUniv_fond_couverture.webp') no-repeat center center;
     background-size: cover;
+
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-abyssal-blue);
 
     display: flex;
     flex-direction: column;
@@ -111,6 +130,35 @@
 
     margin-bottom:50px;
 }
+
+
+/* star field in banner */
+.home-banner::before {
+    content: '';
+    position: absolute;
+    width:4px;
+    height: 4px;
+    background: transparent;
+ 
+    box-shadow: 
+        15vw 12vh #fff, 35vw 25vh rgba(255,255,255,0.6), 55vw 15vh var(--color-light-blue), 
+        75vw 40vh #fff, 85vw 10vh rgba(110, 185, 233, 0.4), 25vw 60vh #fff, 
+        45vw 75vh var(--color-light-blue), 65vw 55vh rgba(255,255,255,0.7), 90vw 70vh #fff,
+        10vw 85vh rgba(255,255,255,0.3), 50vw 90vh #fff, 80vw 85vh var(--color-light-blue);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    animation: starFlicker 4s infinite ease-in-out;
+}
+
+
+.home-banner-logo, .home-banner-texts {
+    position: relative;
+    z-index: 2;
+}
+
 
 /*home banner logo*/
 .home-banner-logo {
@@ -734,6 +782,8 @@
     z-index: 10; 
 }
 
+
+
 /**********************************
 ***** HOME PROCESS & METHOD *******
 /*********************************/
@@ -818,8 +868,8 @@
 /* reassurance whole banner */
 .process-reassurance-banner {
     width: 100%;
-    background: rgba(16, 33, 56, 0.6);
-    border: 1.5px dashed rgba(110, 185, 233, 0.4);
+    background-color: rgba(16, 33, 56, 0.6);
+    border: none;
     border-radius: 24px;
     padding: 35px;
     margin-bottom: 50px;
@@ -830,6 +880,10 @@
     text-align: left;
     position: relative;
     z-index: 3;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%236EB9E9' stroke-width='1.5' stroke-dasharray='8%208'%3E%3Canimate attributeName='stroke-dashoffset' values='16%3B0' dur='0.8s' repeatCount='indefinite'/%3E%3C/rect%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 .reassurance-block h4 {

@@ -9,6 +9,15 @@
 /*********************************
 ********* ANIMATIONS *************
 *********************************/
+@keyframes planetBgFloat {
+    0%, 100% { 
+        transform: translate(-50%, -50%) translateY(0); 
+    }
+    50% { 
+        transform: translate(-50%, -50%) translateY(-35px);
+    }
+}
+
 @keyframes pulseStarLeftContact {
     0%, 100% { transform: translate(-50%, -50%) skew(25deg) rotate(-15deg) scale(0.85); opacity: 0.6; }
     50% { transform: translate(-50%, -50%) skew(25deg) rotate(-15deg) scale(1.15) rotate(15deg); opacity: 1; }
@@ -29,18 +38,6 @@
     50% { transform: scale(0.85) translateY(-10px); }
 }
 
-
-.stellar-orbit-left {
-    opacity: 0;
-}
-
-
-.stellar-orbit-left.visible {
-    opacity: 1;
-    pointer-events: auto;
-    animation: stellar-arc-in-left 1.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-}
-
 @keyframes stellar-arc-in-left {
     0% {
        
@@ -55,17 +52,6 @@
         opacity: 1;
         filter: blur(0px);
     }
-}
-
-.stellar-orbit-right {
-    opacity: 0;
-}
-
-
-.stellar-orbit-right.visible {
-    opacity: 1;
-    pointer-events: auto; 
-    animation: stellar-arc-in-right 1.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
 @keyframes stellar-arc-in-right {
@@ -83,6 +69,31 @@
         filter: blur(0px);
     }
 }
+
+
+.stellar-orbit-left {
+    opacity: 0;
+}
+
+
+.stellar-orbit-left.visible {
+    opacity: 1;
+    pointer-events: auto;
+    animation: stellar-arc-in-left 1.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.stellar-orbit-right {
+    opacity: 0;
+}
+
+
+.stellar-orbit-right.visible {
+    opacity: 1;
+    pointer-events: auto; 
+    animation: stellar-arc-in-right 1.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+
 
 /*********************************
 ********* CONTACT CONTAINER ******
@@ -122,6 +133,7 @@
         inset -10px -10px 30px rgba(24, 49, 83, 0.2),
         0 15px 35px rgba(24, 49, 83, 0.1);
     z-index: 1;
+    animation: planetBgFloat 5s infinite ease-in-out;
 }
 
 /*********************************
@@ -514,6 +526,7 @@
     transform-origin: center center;
     pointer-events: none;
     z-index: 2;
+    
 }
 
 .contact-star-deco::before {
@@ -526,6 +539,7 @@
     border-radius: 50%;
     border: 2px solid rgba(110, 185, 233, 0.5); 
     box-shadow: 0 0 15px rgba(110, 185, 233, 0.15);
+    
 }
 
 
