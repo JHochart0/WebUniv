@@ -9,17 +9,802 @@
   --font-main: 'Arial', 'Helvetica', sans-serif;
 }
 
+/**********************************
+********ANIMATIONS*****************
+**********************************/
+@keyframes floatSpatial {
+    0%, 100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 10px 10px #000000e7); }
+    50% { transform: translateY(-15px) scale(1.03); filter: drop-shadow(0 30px 22px #0000008a); }
+}
+
+@keyframes orbit-spin-clockwise {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes orbit-spin-counter-clockwise {
+    from { transform: translate(-50%, -50%) rotate(360deg); }
+    to { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+/* Contre-rotations adaptées avec prise en compte du scale dynamique */
+@keyframes keep-upright-clockwise {
+    from { transform: rotate(0deg) scale(var(--node-scale, 1)); }
+    to { transform: rotate(-360deg) scale(var(--node-scale, 1)); }
+}
+
+@keyframes keep-upright-counter-clockwise {
+    from { transform: rotate(-360deg) scale(var(--node-scale, 1)); }
+    to { transform: rotate(0deg) scale(var(--node-scale, 1)); }
+}
+
+/* Pulsation de la planète centrale aux couleurs de WebUniv */
+@keyframes center-pulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 10px rgba(110, 185, 233, 0.4));
+    }
+    50% {
+        transform: scale(1.03);
+        filter: drop-shadow(0 0 25px rgba(110, 185, 233, 0.7));
+    }
+}
+
+@keyframes pulseCosmicStar {
+    0%, 100% { 
+        transform: translate(-50%, -50%) scale(0.85); 
+        filter: drop-shadow(0 0 6px var(--color-light-blue));
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(1.2); 
+        filter: drop-shadow(0 0 18px var(--color-white)); 
+    }
+}
+
+/*fade-in-up animation*/
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 1.2s ease-out;
+}
+
+.fade-in-side-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 1.2s ease-out;
+}
+
+.fade-in-side-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 1.2s ease-out;
+}
+
+.fade-in-up.visible, .fade-in-side-left.visible, .fade-in-side-right.visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+.zoom-animation{
+    opacity: 0;
+    transform:scale(0.1);
+    filter: blur(4px);
+    transition: opacity 1.5s ease-out, transform 1.2s ease-out, filter 1.2s ease-out;
+}
+
+.zoom-animation.visible{
+    opacity: 1;
+    transform: scale(1);
+    filter:blur(0);
+}
+
 /*********************************
 **********home container**********
 *********************************/
+
+/* Container global */
 .services-container {
+    overflow:hidden;
+    min-height: 150vh;
     display: flex;
     flex-direction: column;
     align-items: center;  
-    max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding-bottom:100px;
     line-height: 1.6;
-    color: var(--color-white);
+    color: var(--color-dark-gray);
     font-family: var(--font-main);
+    overflow-x: hidden;
+}
+
+/*********************************
+********* Services BANNER ************
+*********************************/
+.services-banner {
+    position: relative;
+    background: url('../assets/img/WebUniv_fond_couverture.webp') no-repeat center center;
+    background-size: cover;
+    text-align: center;
+    color: var(--color-white);
+    min-height: 70vh;
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+}
+
+/* star field in services banner */
+.services-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 4px;
+    height: 4px;
+    background: transparent;
+    box-shadow: 
+        15vw 12vh #fff, 35vw 25vh rgba(255,255,255,0.6), 55vw 15vh var(--color-light-blue), 
+        75vw 40vh #fff, 85vw 10vh rgba(110, 185, 233, 0.4), 25vw 60vh #fff, 
+        45vw 75vh var(--color-light-blue), 65vw 55vh rgba(255,255,255,0.7), 90vw 70vh #fff,
+        10vw 85vh rgba(255,255,255,0.3);
+    z-index: 1;
+    animation: starFlicker 6s infinite ease-in-out;
+}
+
+.services-banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.services-banner-subtitle {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-abyssal-blue);
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 0px 0px 10px var(--color-white);
+}
+
+.services-banner-texts h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+    filter: drop-shadow(0px 0px 20px rgb(255, 255, 255)); 
+}
+
+.services-banner-texts p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/********************************************
+********SOLAR SYSTEM IN SERVICES BANNER******
+********************************************/
+
+.presta-solar-system {
+    position: relative;
+    width: 440px; 
+    height: 440px;
+    margin: 0 auto 2.5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Centre du système : La planète principale (WebUniv Core) */
+.solar-center {
+    position: absolute;
+    width: 158px; 
+    height: 158px; 
+    background: radial-gradient(circle, var(--color-abyssal-blue) 0%, #0b1727 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0px 0px 20px var(--color-light-blue), 
+                inset 0 0 20px var(--color-light-blue);
+    animation: floatSpatial 6s ease-in-out infinite;
+}
+
+.center-planet {
+    font-size: 8rem; 
+    color: var(--color-light-blue);
+    z-index: 5;
+    position: relative;
+}
+
+/* Tracés des orbites */
+.orbit {
+    position: absolute;
+    border: 2px dashed var(--color-abyssal-blue);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Orbite Interne (Les 3 Piliers) */
+.orbit-internal {
+    width: 324px; 
+    height: 324px;
+    animation: orbit-spin-clockwise 30s linear infinite;
+    z-index: 5;
+}
+
+/* Orbite Externe (Les Satellites) */
+.orbit-external {
+    width: 432px; 
+    height: 432px;
+    animation: orbit-spin-counter-clockwise 45s linear infinite;
+    z-index: 1;
+}
+
+/* Noeuds (Icônes sur les orbites) */
+.orbit-node {
+    position: absolute;
+    width: 44px; 
+    height: 44px;
+    background: var(--color-abyssal-blue);
+    border: 1px solid rgba(110, 185, 233, 0.4);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-white);
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(0 0 15px rgb(255, 255, 255));
+    transition: all 0.7s ease;
+}
+
+/* Effets au survol d'une prestation orbitale */
+.orbit-node:hover {
+    color: var(--color-white);
+    border-color: var(--color-light-blue);
+    box-shadow: 0 0 15px var(--color-light-blue);
+    background: var(--color-light-blue);
+    scale: 1.2;
+    font-size: 1.2rem;
+}
+
+/* --- Positionnement des 3 Piliers (120° sur orbite interne 324px) --- */
+.orbit-internal .orbit-node {
+    animation: keep-upright-clockwise 30s linear infinite;
+}
+
+.node-vitrine {
+    top: -20px; 
+    left: calc(50% - 20px);
+}
+
+.node-portfolio {
+    bottom: 60px; 
+}
+
+.node-app {
+    bottom: 60px; 
+    right: 0px;
+}
+
+/* --- Positionnement des 3 Satellites (120° sur orbite externe 432px) --- */
+.orbit-external .orbit-node {
+    animation: keep-upright-counter-clockwise 45s linear infinite;
+}
+
+.node-refonte {
+    top: 91px;
+    right: 3px;
+}
+
+.node-seo {
+    top: 91px;
+    left: 0px;
+}
+
+.node-hosting {
+    bottom: -25px;
+    left: calc(50% - 20px);
+}
+
+/*********************************
+******* SECTIONS COMMUNES ********
+*********************************/
+.services-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.services-section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.services-section-header h2 {
+    font-size: 2.2rem;
+    color: var(--color-light-blue);
+    margin-bottom: 15px;
+    color: var(--color-white);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    filter: drop-shadow(0px 0px 20px rgb(255, 255, 255)); 
+}
+
+.services-section-header p {
+    font-size: 1.1rem;
+    color: var(--color-white);
+    max-width: 600px;
+    color: rgb(255, 255, 255);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 60px auto;
+}
+
+/*********************************
+*******  Services pillars ********
+*********************************/
+/* Grille des cartes */
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Style de base des cartes */
+.pillar-card {
+    background: rgba(24, 49, 83, 0.74);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(110, 185, 233, 0.15); /* Bordure subtile en bleu clair */
+    border-radius: 16px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Petite distinction subtile pour la carte "Populaire" (Site Vitrine) même sans survol */
+.pillar-vitrine {
+    border-color: rgba(110, 185, 233, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(110, 185, 233, 0.05);
+}
+
+
+/* --- Effets au survol unifiés et chartés --- */
+.pillar-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-light-blue);
+    box-shadow: 0 15px 40px rgba(110, 185, 233, 0.15), 0 0 20px rgba(110, 185, 233, 0.1);
+}
+
+/* L'icône s'illumine en bleu clair de la charte au survol */
+.pillar-card:hover .pillar-main-icon {
+    color: var(--color-light-blue);
+    filter: drop-shadow(0 0 8px rgba(110, 185, 233, 0.5));
+    transform: scale(1.1) rotate(5deg);
+}
+
+
+/* En-tête des icônes */
+.pillar-icon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.pillar-main-icon {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    transition: transform 0.4s ease, color 0.4s ease;
+}
+
+
+
+/* Badge "Populaire" (Dégradé de Bleu clair à Bleu abyssal) */
+.pillar-badge {
+    background: var(--color-light-blue);
+    color: var(--color-white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 10px rgb(110, 186, 233);
+}
+
+/* Textes de la carte */
+.pillar-card h3 {
+    font-size: 1.5rem;
+    color: var(--color-light-blue);
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.pillar-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    min-height: 72px; /* Maintient l'alignement de la grille */
+}
+
+/* Section Prix */
+.pillar-price {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 15px 0;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.price-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+/* Liste des fonctionnalités */
+.pillar-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 35px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-grow: 1; /* Pousse naturellement le bouton vers le bas */
+}
+
+.pillar-features li {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.4;
+}
+
+.check-icon {
+    color: var(--color-light-blue);
+    font-size: 0.95rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+/* Boutons d'action */
+#pillar-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
+    border: 2px solid var(--color-light-blue);
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(110, 185, 233, 0.25);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    color: var(--color-white) !important;
+    text-decoration: none;
+    text-align:center;
+}
+
+/* Transition du bouton au survol de sa carte parent */
+.pillar-card #pillar-btn:hover {
+    color: var(--color-white) !important;
+    background: linear-gradient(135deg, #204373 0%, var(--color-light-blue) 100%);
+    box-shadow: 0 0 25px rgba(110, 185, 233, 0.6);
+    border-color: var(--color-white);
+    transform: translateY(-2px);
+    filter: drop-shadow(0 0 15px rgba(110, 185, 233, 0.8));
+}
+
+/* Style pour la note de bas de page des piliers */
+.pillars-footnote {
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgb(255, 255, 255); /* Blanc semi-transparent pour rester discret */
+    max-width: 850px;
+    margin: 40px auto 0 auto;
+    line-height: 1.6;
+    font-style: italic;
+    letter-spacing: 0.2px;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+    border-top: 1px dashed rgba(110, 185, 233, 0.2); /* Rappel discret de la couleur bleu clair */
+    padding-top: 20px;
+}
+
+/*********************************
+****** SÉPARATEUR COSMIQUE *******
+*********************************/
+.cosmic-divider {
+    width: 60%;
+    max-width: 1000px;
+    height: 1.5px;
+    margin: 40px auto;
+    background: linear-gradient(90deg, transparent, var(--color-white), transparent);
+    position: relative;
+}
+
+.cosmic-divider::after {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-abyssal-blue);
+    font-size: 2rem;
+    text-shadow: 0 0 15px var(--color-white);
+
+    will-change: transform, filter, opacity;
+    animation: pulseCosmicStar 4s infinite ease-in-out;
+}
+
+
+
+
+/*********************************
+****** SECONDARY SERVICES *********
+*********************************/
+.services-secondary-section {
+    max-width: 100%;
+}
+
+.services-secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-secondary-card {
+    background: rgba(24, 49, 83, 0.74);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(110, 185, 233, 0.12);
+    border-radius: 16px;
+    padding: 35px 25px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    text-align: left; /* Alignement propre à gauche */
+}
+
+.services-secondary-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-light-blue);
+    box-shadow: 0 12px 35px rgba(110, 185, 233, 0.15);
+}
+
+/* En-tête de la mini carte */
+.secondary-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.services-secondary-icon {
+    font-size: 1.6rem;
+    color: var(--color-white);
+    transition: transform 0.4s ease;
+    flex-shrink: 0;
+}
+
+.services-secondary-card:hover .services-secondary-icon {
+    color: var(--color-light-blue);
+    filter: drop-shadow(0 0 8px rgba(110, 185, 233, 0.5));
+    transform: scale(1.1) rotate(5deg);
+}
+
+.services-secondary-card h4 {
+    font-size: 1.25rem;
+    color: var(--color-light-blue);
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.secondary-desc {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+    margin: 0 0 20px 0;
+    min-height: 54px;
+}
+
+/* Liste des bénéfices spécifiques */
+.secondary-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 35px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-grow: 1; /* Permet d'aligner le bas des cartes proprement sans élément footer */
+}
+
+.secondary-features li {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.4;
+}
+
+.check-icon-mini {
+    color: var(--color-light-blue);
+    font-size: 0.8rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+#services-secondary-btn{
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
+    border: 2px solid var(--color-light-blue);
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(110, 185, 233, 0.25);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    color: var(--color-white) !important;
+    text-decoration: none;
+    text-align:center;
+}
+
+/* Transition du bouton au survol de sa carte parent */
+#services-secondary-btn:hover {
+    color: var(--color-white) !important;
+    background: linear-gradient(135deg, #204373 0%, var(--color-light-blue) 100%);
+    box-shadow: 0 0 25px rgba(110, 185, 233, 0.6);
+    border-color: var(--color-white);
+    transform: translateY(-2px);
+    filter: drop-shadow(0 0 15px rgba(110, 185, 233, 0.8));
+}
+
+
+
+/*********************************
+***** CHARTE DE REASSURANCE ******
+*********************************/
+
+.reassurance-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+.reassurance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 40px;
+}
+
+.reassurance-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.reassurance-icon {
+    font-size: 2rem;
+    color: var(--color-light-blue);
+    margin-right: 20px;
+    margin-top: 5px;
+    flex-shrink: 0;
+}
+
+.reassurance-item h3 {
+    font-size: 1.2rem;
+    color: var(--color-abyssal-blue);
+    margin: 0 0 8px 0;
+}
+
+.reassurance-item p {
+    font-size: 0.95rem;
+    color: #4A5568;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/*********************************
+*********** FINAL CTA ************
+*********************************/
+.services-cta-section {
+    background-color: var(--color-abyssal-blue);
+    padding: 80px 20px;
+    text-align: center;
+    color: var(--color-white);
+}
+
+.services-cta-box {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.services-cta-box h2 {
+    font-size: 2.2rem;
+    margin: 0 0 15px 0;
+}
+
+.services-cta-box p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 30px;
+}
+
+#cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
+    border: 2px solid var(--color-light-blue);
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(110, 185, 233, 0.25);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    color: var(--color-white) !important;
+    text-decoration: none;
+    text-align:center;
+}
+
+#cta-btn:hover {
+    background-color: var(--color-white);
+    color: var(--color-abyssal-blue);
+    transform: translateY(-2px);
+}
+
+/*********************************
+********* RESPONSIVE *************
+*********************************/
+@media (max-width: 768px) {
+    .services-banner h1 {
+        font-size: 2rem;
+    }
+    
+    .reassurance-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .presta-solar-system {
+        transform: scale(0.7);
+        margin-bottom: 0rem;
+    }
+}
+
+/* Responsive pour mobile */
+@media (max-width: 480px) {
+    .presta-solar-system {
+        transform: scale(0.55);
+        margin-bottom: -5rem;
+    }
 }
