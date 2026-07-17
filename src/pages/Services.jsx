@@ -67,7 +67,7 @@ function Services() {
                     <div className="services-banner-texts fade-in-up">
                         <h2 className="services-banner-subtitle">Nos prestations</h2>
                         <h1>Explorez les Possibilités de votre Univers Digital</h1>
-                        <p>Des solutions web sur-mesure, structurées with rigueur et à votre écoute pour propulser votre activité en ligne.</p>
+                        <p>Des solutions web sur-mesure, structurées avec rigueur et à votre écoute pour propulser votre activité en ligne.</p>
                     </div>
                     
                 </div>
