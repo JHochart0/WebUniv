@@ -61,6 +61,23 @@
     }
 }
 
+@keyframes followOrbit {
+    from { offset-distance: 0%; }
+    to { offset-distance: 100%; }
+}
+
+@keyframes pulseServicesStar {
+    0%, 100% { 
+        transform: var(--inverse-skew) scale(0.85); 
+        opacity: 0.55;
+    }
+    50% { 
+        transform: var(--inverse-skew) scale(1.15); 
+        opacity: 1; 
+    }
+}
+
+
 /*fade-in-up animation*/
 .fade-in-up {
     opacity: 0;
@@ -698,40 +715,58 @@
 ***** CHARTE DE REASSURANCE ******
 *********************************/
 
-.reassurance-content {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-
 .reassurance-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
 }
 
 .reassurance-item {
+    background: rgba(24, 49, 83, 0.74);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(110, 185, 233, 0.12);
+    border-radius: 16px;
+    padding: 35px 25px;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    text-align: center; 
+    align-items:center;
+}
+
+.reassurance-item:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-light-blue);
+    box-shadow: 0 12px 35px rgba(110, 185, 233, 0.15);
+}
+
+.reassurance-item:hover .reassurance-icon {
+    color: var(--color-light-blue);
+    filter: drop-shadow(0 0 8px rgba(110, 185, 233, 0.5));
+    transform: scale(1.1) rotate(5deg);
 }
 
 .reassurance-icon {
     font-size: 2rem;
-    color: var(--color-light-blue);
+    color: var(--color-white);
     margin-right: 20px;
     margin-top: 5px;
-    flex-shrink: 0;
+    margin-bottom:20px;
+
 }
 
 .reassurance-item h3 {
     font-size: 1.2rem;
-    color: var(--color-abyssal-blue);
-    margin: 0 0 8px 0;
+    color: var(--color-light-blue);
+    margin: 0 0 15px 0;
 }
 
 .reassurance-item p {
-    font-size: 0.95rem;
-    color: #4A5568;
+    font-size: 1rem;
+    color: var(--color-white);
     line-height: 1.5;
     margin: 0;
 }
@@ -740,10 +775,92 @@
 *********** FINAL CTA ************
 *********************************/
 .services-cta-section {
-    background-color: var(--color-abyssal-blue);
     padding: 80px 20px;
     text-align: center;
     color: var(--color-white);
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, var(--color-abyssal-blue) 0%, #204373 100%);
+    border: 1.5px solid var(--color-light-blue);
+    border-radius: 40px;  
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.25), 
+                0 0 40px rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+}
+
+
+/*orbit system box*/
+.bg-orbit-system {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+/* orbit ring*/
+.bg-orbit-ring {
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(110, 185, 233, 0.45);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(110, 185, 233, 0.1), 0 0 10px rgba(110, 185, 233, 0.1);
+}
+
+/* cta icon orbit system */
+.cta-icon-wrapper .bg-orbit-system {
+    width: 280px; 
+    height: 100px;
+    transform: translate(-50%, -50%) rotate(15deg) skew(-20deg);
+}
+
+.cta-icon-wrapper .services-star-decoration {
+    --inverse-skew: skew(20deg) rotate(-15deg);
+}
+
+
+/* orbit stars*/
+.services-star-decoration {
+    position: absolute;
+    background: transparent !important; 
+    filter: drop-shadow(0 0 15px var(--star-glow)) 
+            drop-shadow(0 0 5px var(--star-glow));
+    will-change: transform, opacity;
+    offset-path: border-box; 
+    offset-rotate: 0deg; 
+    animation: followOrbit 20s linear infinite, pulseServicesStar 3s infinite ease-in-out;
+}
+
+/* orbit stars shape*/
+.services-star-decoration::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--star-color);
+    clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+    
+}
+
+/*each star in cta section orbit system*/
+.cta-icon-wrapper .ost-1 {
+    background-color: var(--color-light-blue);
+    width: 28px;
+    height: 28px;
+    --star-color: var(--color-light-blue);
+    --star-glow: #6EB9E9;
+}
+
+.cta-icon-wrapper .ost-2 {
+    width: 20px;
+    height: 20px;
+    animation-delay: -10s, -1.5s;
+    --star-color: var(--color-abyssal-blue);
+    --star-glow: #ffffff;
 }
 
 .services-cta-box {

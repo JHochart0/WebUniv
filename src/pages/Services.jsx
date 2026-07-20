@@ -69,7 +69,6 @@ function Services() {
                         <h1>Explorez les Possibilités de votre Univers Digital</h1>
                         <p>Des solutions web sur-mesure, structurées avec rigueur et à votre écoute pour propulser votre activité en ligne.</p>
                     </div>
-                    
                 </div>
             </div>
 
@@ -215,6 +214,77 @@ function Services() {
                         <NavLink to="/contact" id="services-secondary-btn">Propulser mon site</NavLink>
                     </div>
 
+                </div>
+            </div>
+
+            {/* DEUXIÈME SÉPARATEUR COSMIQUE */}
+            <div className="cosmic-divider zoom-animation" />
+
+            {/* SECTION 3 : LA CHARTE DE REASSURANCE */}
+            <div className="services-section reassurance-section">
+                <div className="reassurance-content fade-in-up">
+                    <div className="services-section-header fade-in-up">
+                        <h2>La Charte d'Engagement WebUniv</h2>
+                        <p>Parce qu'un projet web réussi repose d'abord sur une relation de confiance transparente et durable.</p>
+                    </div>
+
+                    <div className="reassurance-grid">
+                        <div className="reassurance-item">
+                            <FontAwesomeIcon icon={faShieldHalved} className="reassurance-icon" />
+                            <div>
+                                <h3>Propriété Intégrale</h3>
+                                <p>Le code vous appartient à 100%. Aucun abonnement captif ne vous lie à nous. Vous êtes et resterez maître de votre Univers Digital.</p>
+                            </div>
+                        </div>
+
+                        <div className="reassurance-item">
+                            <FontAwesomeIcon icon={faCircleCheck} className="reassurance-icon" />
+                            <div>
+                                <h3>Zéro Frais Caché</h3>
+                                <p>Chaque étape est budgétisée de manière limpide sur notre devis initial. Pas de mauvaise surprise en cours de route.</p>
+                            </div>
+                        </div>
+
+                        <div className="reassurance-item">
+                            <FontAwesomeIcon icon={faHandshakeAngle} className="reassurance-icon" />
+                            <div>
+                                <h3>Accompagnement Post-Livraison</h3>
+                                <p>Une fois le site déployé, nous assurons un suivi de maintenance gratuit pendant un délai adapté pour corriger le moindre bug technique résiduel.</p>
+                            </div>
+                        </div>
+
+                        <div className="reassurance-item">
+                            <FontAwesomeIcon icon={faFileSignature} className="reassurance-icon" />
+                            <div>
+                                <h3>Cadrage Physique / Visioconférence</h3>
+                                <p>
+                                    Nous prenons le temps d'échanger de vive voix lors de rendez-vous réguliers physiques dans les Hauts-de-France, 
+                                    ou en visioconférence pour vous accompagner du début à la fin d'un projet selon vos besoins réels.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* PREMIER SÉPARATEUR COSMIQUE */}
+            <div className="cosmic-divider zoom-animation" />
+
+            {/* FINAL CTA */}
+            <div className="services-cta-section">
+                <div className="services-cta-box fade-in-up">
+                    <div className="cta-icon-wrapper">
+                        <div className="bg-orbit-system">
+                            <div className="bg-orbit-ring zoom-animation">
+                                <div className="services-star-decoration ost-1"></div>
+                                <div className="services-star-decoration ost-2"></div>
+                            </div>
+                        </div>
+                        <FontAwesomeIcon icon={faGlobe} className="cta-globe-icon zoom-animation" />
+                    </div>
+                    <h2>Un projet web en tête ?</h2>
+                    <p>Discutons-en lors d'un premier échange gratuit pour définir la meilleure trajectoire pour votre projet.</p>
+                    <NavLink to="/contact" id="cta-btn">Prendre rendez-vous</NavLink>
                 </div>
             </div>
 
