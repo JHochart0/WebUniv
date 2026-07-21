@@ -50,21 +50,20 @@
 .fade-in-up {
     opacity: 0;
     transform: translateY(100px);
-    transition: all 1.2s ease-out;
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 
 .fade-in-side-left {
     opacity: 0;
     transform: translateX(-100px);
-    transition: all 1.2s ease-out;
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 
 .fade-in-side-right {
     opacity: 0;
     transform: translateX(100px);
-    transition: all 1.2s ease-out;
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
-
 
 .fade-in-up.visible, .fade-in-side-left.visible, .fade-in-side-right.visible {
     opacity: 1;
@@ -332,13 +331,11 @@
 .strengths-section .bg-orbit-system {
     width: 120%;   
     height: 300px; 
-    transform: translate(-50%, -50%) rotate(10deg) skew(20deg);
+    transform: translate(-50%, -50%) rotate(17deg) skew(15deg);
 }
 .strengths-section .home-star-decoration {
-    --inverse-skew: skew(-20deg) rotate(-10deg);
+    --inverse-skew: skew(-20deg) rotate(-17deg);
 }
-
-
 
 /*process orbit system*/
 .process-section .bg-orbit-system {
@@ -512,19 +509,23 @@
     padding: 30px; 
     border-radius: 14px; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+    transition: scale 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Aligne l'icône et le texte à gauche */
+    align-items: flex-start;
     text-align: left;
 }
 
+/* Force la transition dynamique rapide de 0.3s une fois la carte apparue */
+.home-service-card.visible {
+    transition: scale 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 1.2s ease-out;
+}
+
 .home-service-card:hover { 
-    transform: translateY(-4px); 
+    scale:1.02;
     box-shadow: 0 12px 25px rgba(110, 185, 233, 0.15); 
     border-color: var(--color-light-blue); 
 }
-
 
 /*home service icon*/
 .home-service-icon {
@@ -573,16 +574,20 @@
 .strength-item { 
     text-align: center; 
     padding: 20px; 
-    border:none;
-    transition: transform 0.5s ease;
+    border: 1px solid transparent; /* Prépare la bordure pour éviter le saut de layout */
+    border-radius: 50px;
+    transition: scale 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.strength-item:hover{ 
-    border:solid var(--color-light-blue) 1px;
-    border-radius:50px;
-    transform:scale(1.02);
-    box-shadow: 0 0 20px rgb(110, 185, 233, 0.5), 
-                0 0 40px rgb(110, 185, 233, 0.3);
+.strength-item.visible {
+    transition: scale 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 1.2s ease-out;
+}
+
+.strength-item:hover { 
+    border-color: var(--color-light-blue);
+    scale:1.05;
+    box-shadow: 0 0 20px rgba(110, 185, 233, 0.5), 
+                0 0 40px rgba(110, 185, 233, 0.3);
 }
 
 /*strength icon*/
@@ -804,7 +809,7 @@
     padding: 35px 25px 25px 25px;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: scale 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -812,8 +817,12 @@
     position: relative;
 }
 
+.process-card.visible {
+    transition: scale 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 1.2s ease-out;
+}
+
 .process-card:hover {
-    transform: translateY(-5px);
+    scale:1.02;
     box-shadow: 0 12px 25px rgba(110, 185, 233, 0.2);
     border-color: var(--color-light-blue);
 }
