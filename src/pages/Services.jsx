@@ -12,7 +12,7 @@ import {
     faArrowsRotate, 
     faSatellite, 
     faCloudArrowUp,
-    faCircleCheck,
+    faLayerGroup,
     faShieldHalved,
     faHandshakeAngle,
     faFileSignature,
@@ -33,7 +33,7 @@ function Services() {
             <div className="services-banner">
                 <div className="services-banner-content">
                     
-                    {/* LOGO SYSTÈME SOLAIRE DE PRESTATIONS */}
+                    {/* solar system logo */}
                     <div className="presta-solar-system zoom-animation">
                         <div className="solar-center">
                             <FontAwesomeIcon icon={faGlobe} className="center-planet" />
@@ -72,7 +72,7 @@ function Services() {
                 </div>
             </div>
 
-            {/* SECTION 1 : LES 3 PILIERS */}
+            {/* SECTION 1 : main services (pillars) */}
             <div className="services-section pillars-section">
                 <div className="services-section-header fade-in-up">
                     <h2>Les Piliers de votre Monde Digital</h2>
@@ -152,15 +152,15 @@ function Services() {
                     </article>
                 </div>
 
-                <p className="pillars-footnote fade-in-up">
+                <p className="pillars-footnote fade-in-side-left">
                     * Les tarifs sont fournis à titre indicatif et peuvent varier selon la nature, l'ampleur et les fonctionnalités de votre projet lors de l'établissement du devis final. Chez WebUniv, nous plaçons l'honnêteté et l'écoute au cœur de nos échanges pour vous proposer la solution la plus adaptée et la plus juste pour votre budget.
                 </p>
             </div>
 
-            {/* PREMIER SÉPARATEUR COSMIQUE */}
+            {/* Separator */}
             <div className="cosmic-divider zoom-animation" />
 
-            {/* SECTION 2 : LES SATELLITES (SERVICES SECONDAIRES) */}
+            {/* SECTION 2 : Secondary services */}
             <div className="services-section services-secondary-section">
                 <div className="services-section-header fade-in-up">
                     <h2>Modules de Propulsion & Optimisation</h2>
@@ -217,10 +217,10 @@ function Services() {
                 </div>
             </div>
 
-            {/* DEUXIÈME SÉPARATEUR COSMIQUE */}
+            {/* Separator */}
             <div className="cosmic-divider zoom-animation" />
 
-            {/* SECTION 3 : LA CHARTE DE REASSURANCE */}
+            {/* SECTION 3 : Reassurance */}
             <div className="services-section reassurance-section">
                 <div className="reassurance-content fade-in-up">
                     <div className="services-section-header fade-in-up">
@@ -229,7 +229,7 @@ function Services() {
                     </div>
 
                     <div className="reassurance-grid">
-                        <div className="reassurance-item">
+                        <div className="reassurance-item fade-in-side-left">
                             <FontAwesomeIcon icon={faShieldHalved} className="reassurance-icon" />
                             <div>
                                 <h3>Propriété Intégrale</h3>
@@ -237,15 +237,15 @@ function Services() {
                             </div>
                         </div>
 
-                        <div className="reassurance-item">
-                            <FontAwesomeIcon icon={faCircleCheck} className="reassurance-icon" />
+                        <div className="reassurance-item fade-in-side-right">
+                            <FontAwesomeIcon icon={faLayerGroup} className="reassurance-icon" />
                             <div>
-                                <h3>Zéro Frais Caché</h3>
-                                <p>Chaque étape est budgétisée de manière limpide sur notre devis initial. Pas de mauvaise surprise en cours de route.</p>
+                                <h3>Conception Authentique & Sur-Mesure</h3>
+                                <p>Aucun template générique, ni thème préconçu. Votre solution est développée sur-mesure en code pur pour vous démarquer avec une identité visuelle propre et des performances optimales.</p>
                             </div>
                         </div>
 
-                        <div className="reassurance-item">
+                        <div className="reassurance-item fade-in-side-left">
                             <FontAwesomeIcon icon={faHandshakeAngle} className="reassurance-icon" />
                             <div>
                                 <h3>Accompagnement Post-Livraison</h3>
@@ -253,7 +253,7 @@ function Services() {
                             </div>
                         </div>
 
-                        <div className="reassurance-item">
+                        <div className="reassurance-item fade-in-side-right">
                             <FontAwesomeIcon icon={faFileSignature} className="reassurance-icon" />
                             <div>
                                 <h3>Cadrage Physique / Visioconférence</h3>
@@ -267,10 +267,10 @@ function Services() {
                 </div>
             </div>
 
-            {/* PREMIER SÉPARATEUR COSMIQUE */}
+            {/* Separator */}
             <div className="cosmic-divider zoom-animation" />
 
-            {/* FINAL CTA */}
+            {/* CTA */}
             <div className="services-cta-section">
                 <div className="services-cta-box fade-in-up">
                     <div className="cta-icon-wrapper">
