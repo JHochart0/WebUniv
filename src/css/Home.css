@@ -881,10 +881,9 @@
     padding: 35px;
     margin-bottom: 50px;
     box-sizing: border-box;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
     gap: 40px;
-    text-align: left;
+
     position: relative;
     z-index: 3;
 
@@ -894,11 +893,14 @@
 }
 
 .reassurance-block h4 {
+    display:flex;
+    align-items:center;
     margin: 0 0 10px 0;
     color: var(--color-light-blue);
     font-size: 1.2rem;
     font-weight: 700;
     text-shadow: 0 0 10px rgba(110, 185, 233, 0.2);
+
 }
 
 .reassurance-icon{
@@ -911,6 +913,7 @@
     font-size: 0.95rem;
     line-height: 1.6;
 }
+
 
 
 /*********************************
