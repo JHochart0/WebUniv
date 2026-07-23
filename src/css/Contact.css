@@ -438,14 +438,14 @@
 }
 
 .contact-privacy-text a {
-    color: var(--color-light-blue);
+    color: var(--color-abyssal-blue);
     text-decoration: underline;
     font-weight: 600;
     transition: color 0.2s ease;
 }
 
 .contact-privacy-text a:hover {
-    color: var(--color-abyssal-blue);
+    color: var(--color-light-blue);
 }
 
 /*********************************
