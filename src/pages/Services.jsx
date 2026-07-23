@@ -26,6 +26,22 @@ function Services() {
         document.title = "WebUniv | Découvrez nos prestations";
     }, []);
 
+    // Fonction pour scroller fluidement vers la carte sélectionnée et déclencher l'animation
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Ajout dynamique de la classe d'effet
+            element.classList.add('card-highlight');
+
+            // Retrait de la classe après l'animation
+            setTimeout(() => {
+                element.classList.remove('card-highlight');
+            }, 4100);
+        }
+    };
+
     return (
         <div className="services-container">
             
@@ -33,32 +49,56 @@ function Services() {
             <div className="services-banner">
                 <div className="services-banner-content">
                     
-                    {/* solar system logo */}
+                    {/* Solar system logo */}
                     <div className="presta-solar-system zoom-animation">
                         <div className="solar-center">
                             <FontAwesomeIcon icon={faGlobe} className="center-planet" />
                         </div>
 
                         <div className="orbit orbit-internal">
-                            <div className="orbit-node node-vitrine" title="Site Vitrine">
+                            <div 
+                                className="orbit-node node-vitrine" 
+                                title="Site Vitrine"
+                                onClick={() => scrollToSection('service-vitrine')}
+                            >
                                 <FontAwesomeIcon icon={faDisplay} />
                             </div>
-                            <div className="orbit-node node-portfolio" title="Portfolio">
+                            <div 
+                                className="orbit-node node-portfolio" 
+                                title="Portfolio"
+                                onClick={() => scrollToSection('service-portfolio')}
+                            >
                                 <FontAwesomeIcon icon={faUserAstronaut} />
                             </div>
-                            <div className="orbit-node node-app" title="Application Web">
+                            <div 
+                                className="orbit-node node-app" 
+                                title="Application Web"
+                                onClick={() => scrollToSection('service-app')}
+                            >
                                 <FontAwesomeIcon icon={faLaptopCode} />
                             </div>
                         </div>
 
                         <div className="orbit orbit-external">
-                            <div className="orbit-node node-refonte" title="Refonte & Modernisation">
+                            <div 
+                                className="orbit-node node-refonte" 
+                                title="Refonte & Modernisation"
+                                onClick={() => scrollToSection('service-refonte')}
+                            >
                                 <FontAwesomeIcon icon={faArrowsRotate} />
                             </div>
-                            <div className="orbit-node node-seo" title="SEO & Visibilité">
+                            <div 
+                                className="orbit-node node-seo" 
+                                title="SEO & Visibilité"
+                                onClick={() => scrollToSection('service-seo')}
+                            >
                                 <FontAwesomeIcon icon={faSatellite} />
                             </div>
-                            <div className="orbit-node node-hosting" title="Mise en ligne & Domaines">
+                            <div 
+                                className="orbit-node node-hosting" 
+                                title="Mise en ligne & Domaines"
+                                onClick={() => scrollToSection('service-hosting')}
+                            >
                                 <FontAwesomeIcon icon={faCloudArrowUp} />
                             </div>
                         </div>
@@ -72,15 +112,17 @@ function Services() {
                 </div>
             </div>
 
-            {/* SECTION 1 : main services (pillars) */}
+            {/* SECTION 1 : Main services (Pillars) */}
             <div className="services-section pillars-section">
                 <div className="services-section-header fade-in-up">
                     <h2>Les Piliers de votre Monde Digital</h2>
                     <p>Trois formules majeures sur-mesure adaptées à la complexité et aux besoins de votre projet web.</p>
                 </div>
-
+                <p className="pillars-footnote fade-in-side-left">
+                    * Les tarifs sont fournis à titre indicatif et peuvent varier selon la nature, l'ampleur et les fonctionnalités de votre projet lors de l'établissement du devis final. Chez WebUniv, nous plaçons l'honnêteté et l'écoute au cœur de nos échanges pour vous proposer la solution la plus adaptée et la plus juste pour votre budget.
+                </p>
                 <div className="pillars-grid">
-                    <article className="pillar-card pillar-vitrine fade-in-up">
+                    <article id="service-vitrine" className="pillar-card pillar-vitrine fade-in-up">
                         <div className="pillar-icon-header">
                             <FontAwesomeIcon icon={faDisplay} className="pillar-main-icon" />
                             <span className="pillar-badge">Populaire</span>
@@ -104,7 +146,30 @@ function Services() {
                         <NavLink to="/contact" id="pillar-btn">Lancer mon site vitrine</NavLink>
                     </article>
 
-                    <article className="pillar-card pillar-portfolio fade-in-up">
+                    <article id="service-app" className="pillar-card pillar-app fade-in-up">
+                        <div className="pillar-icon-header">
+                            <FontAwesomeIcon icon={faLaptopCode} className="pillar-main-icon" />
+                        </div>
+                        <h3>Application Web</h3>
+                        <p className="pillar-desc">Création d'outils ou interfaces spécifiques afin d'automatiser, de gérer et d'optimiser efficacement vos données.</p>
+                        
+                        <div className="pillar-price">
+                            <span className="price-label">À partir de</span>
+                            <span className="price-value">1 400 €*</span>
+                        </div>
+
+                        <ul className="pillar-features">
+                            <li><FontAwesomeIcon icon={faCheck} className="check-icon" /> Développement technique sur-mesure</li>
+                            <li><FontAwesomeIcon icon={faCheck} className="check-icon" /> Base de données sécurisée & performante</li>
+                            <li><FontAwesomeIcon icon={faCheck} className="check-icon" /> Système d'authentification des utilisateurs sécurisé</li>
+                            <li><FontAwesomeIcon icon={faCheck} className="check-icon" /> Intégration d'API tierces (paiements, outils...)</li>
+                            <li><FontAwesomeIcon icon={faCheck} className="check-icon" /> Architecture robuste et évolutive</li>
+                            <li><FontAwesomeIcon icon={faCheck} className="check-icon" /> Interfaces intuitives & simples d'utilisation pour une prise en main immédiate</li>
+                        </ul>
+                        <NavLink to="/contact" id="pillar-btn">Concevoir mon application</NavLink>
+                    </article>
+                    
+                    <article id="service-portfolio" className="pillar-card pillar-portfolio fade-in-up">
                         <div className="pillar-icon-header">
                             <FontAwesomeIcon icon={faUserAstronaut} className="pillar-main-icon" />
                         </div>
@@ -127,34 +192,9 @@ function Services() {
                         </ul>
                         <NavLink to="/contact" id="pillar-btn">Exposer mon savoir-faire</NavLink>
                     </article>
-
-                    <article className="pillar-card pillar-app fade-in-up">
-                        <div className="pillar-icon-header">
-                            <FontAwesomeIcon icon={faLaptopCode} className="pillar-main-icon" />
-                        </div>
-                        <h3>Application Web Sur-Mesure</h3>
-                        <p className="pillar-desc">Conception et développement de plateformes spécifiques, d'espaces membres ou d'outils métiers pour automatiser vos processus et gérer efficacement vos données.</p>
-                        
-                        <div className="pillar-price">
-                            <span className="price-label">À partir de</span>
-                            <span className="price-value">1 400 €*</span>
-                        </div>
-
-                        <ul className="pillar-features">
-                            <li><FontAwesomeIcon icon={faCheck} className="check-icon" /> Développement technique sur-mesure</li>
-                            <li><FontAwesomeIcon icon={faCheck} className="check-icon" /> Base de données sécurisée & performante</li>
-                            <li><FontAwesomeIcon icon={faCheck} className="check-icon" /> Système d'authentification des utilisateurs sécurisé</li>
-                            <li><FontAwesomeIcon icon={faCheck} className="check-icon" /> Intégration d'API tierces (paiements, outils...)</li>
-                            <li><FontAwesomeIcon icon={faCheck} className="check-icon" /> Architecture robuste et évolutive</li>
-                            <li><FontAwesomeIcon icon={faCheck} className="check-icon" /> Interfaces intuitives & simples d'utilisation pour une prise en main immédiate</li>
-                        </ul>
-                        <NavLink to="/contact" id="pillar-btn">Concevoir mon application</NavLink>
-                    </article>
                 </div>
 
-                <p className="pillars-footnote fade-in-side-left">
-                    * Les tarifs sont fournis à titre indicatif et peuvent varier selon la nature, l'ampleur et les fonctionnalités de votre projet lors de l'établissement du devis final. Chez WebUniv, nous plaçons l'honnêteté et l'écoute au cœur de nos échanges pour vous proposer la solution la plus adaptée et la plus juste pour votre budget.
-                </p>
+                
             </div>
 
             {/* Separator */}
@@ -168,7 +208,7 @@ function Services() {
                 </div>
 
                 <div className="services-secondary-grid">
-                    <div className="services-secondary-card fade-in-up">
+                    <div id="service-refonte" className="services-secondary-card fade-in-up">
                         <div className="secondary-card-header">
                             <FontAwesomeIcon icon={faArrowsRotate} className="services-secondary-icon" />
                             <h4>Modernisation, Refonte & Maintenance ponctuelle</h4>
@@ -177,13 +217,13 @@ function Services() {
                         <ul className="secondary-features">
                             <li><FontAwesomeIcon icon={faCheck} className="check-icon-mini" /> Résolution de bugs & corrections techniques rapides</li>
                             <li><FontAwesomeIcon icon={faCheck} className="check-icon-mini" /> Modifications techniques ou visuelles</li>
-                             <li><FontAwesomeIcon icon={faCheck} className="check-icon-mini" /> Ajouts de contenus à la demande</li>
+                            <li><FontAwesomeIcon icon={faCheck} className="check-icon-mini" /> Ajouts de contenus à la demande</li>
                             <li><FontAwesomeIcon icon={faCheck} className="check-icon-mini" /> Refonte & Modernisation de votre outil existant</li>
                         </ul>
                         <NavLink to="/contact" id="services-secondary-btn">Faire évoluer mon site actuel</NavLink>
                     </div>
 
-                    <div className="services-secondary-card fade-in-up">
+                    <div id="service-seo" className="services-secondary-card fade-in-up">
                         <div className="secondary-card-header">
                             <FontAwesomeIcon icon={faSatellite} className="services-secondary-icon" />
                             <h4>Optimisation SEO & Visibilité</h4>
@@ -197,8 +237,7 @@ function Services() {
                         <NavLink to="/contact" id="services-secondary-btn">Booster ma visibilité</NavLink>
                     </div>
 
-                    <div className="services-secondary-card fade-in-up">
-
+                    <div id="service-hosting" className="services-secondary-card fade-in-up">
                         <div className="secondary-card-header">
                             <FontAwesomeIcon icon={faCloudArrowUp} className="services-secondary-icon" />
                             <h4>Mise en ligne & Domaines</h4>
@@ -209,11 +248,8 @@ function Services() {
                             <li><FontAwesomeIcon icon={faCheck} className="check-icon-mini" /> Achat, gestion et routage personnalisé de vos noms de domaine</li>
                             <li><FontAwesomeIcon icon={faCheck} className="check-icon-mini" /> Sécurisation totale HTTPS (Certificat SSL) & protocoles de sécurité</li>
                         </ul>
-                            
-
                         <NavLink to="/contact" id="services-secondary-btn">Propulser mon site</NavLink>
                     </div>
-
                 </div>
             </div>
 
@@ -287,8 +323,6 @@ function Services() {
                     <NavLink to="/contact" id="cta-btn">Prendre rendez-vous</NavLink>
                 </div>
             </div>
-
-            
 
         </div>
     );

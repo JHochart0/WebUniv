@@ -91,21 +91,6 @@
     font-size: 0.95rem;
 }
 
-
-.gtc-section-text a {
-    color: #0077ff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s ease, border-bottom 0.2s ease;
-    border-bottom: 1px dashed transparent;
-}
-
-.gtc-section-text a:hover {
-    color: #0056cc;
-    border-bottom: 1px dashed #0056cc;
-}
-
-
 .gtc-consumer-note {
     font-weight: normal;
     font-style: normal;
@@ -126,13 +111,13 @@
 }
 
 .gtc-link a {
-    color: #0077ff;
+    color: #2d87ee;
     text-decoration: none;
     border-bottom: 1px dashed transparent;
     transition: color 0.2s ease, border-bottom 0.2s ease;
 }
 
 .gtc-link a:hover {
-    color: #0056cc;
-    border-bottom: 1px dashed #0056cc;
+    color: #85b1ee;
+    border-bottom: 1px dashed #85b1ee;
 }
