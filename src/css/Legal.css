@@ -25,6 +25,12 @@
     font-family: var(--font-main);
 }
 
+
+.legal-container,
+.legal-container * {
+    box-sizing: border-box;
+}
+
 /*********************************
 ******Legal page main title*******
 *********************************/

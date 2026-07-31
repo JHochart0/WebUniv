@@ -988,6 +988,7 @@
     }
     
     .process-reassurance-banner {
+        display:grid;
         grid-template-columns: 1fr;
         gap: 25px;
         padding: 25px;
