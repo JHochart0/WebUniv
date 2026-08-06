@@ -11,7 +11,6 @@ function Navbar(props) {
             <NavLink to="/services" content="Nos offres" id="navbar-servicesLink" onClick={onLinkClick}/>
             <NavLink to="/realisations" content="Réalisations" id="navbar-servicesLink" onClick={onLinkClick}/>
             <NavLink to="/contact" content="Contact" id="navbar-contactLink" onClick={onLinkClick}/>
-
         </nav>
     );
 }
