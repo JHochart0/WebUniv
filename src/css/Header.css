@@ -180,7 +180,7 @@
     color: var(--color-white);
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.35rem;
+    font-size: 1.2rem;
     padding: 10px 15px;
     transition: color 0.3s ease, transform 0.3s ease;
     position: relative;
@@ -232,35 +232,6 @@
 }
 
 
-/* Phone button */
-.header-phone-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    border: 2px solid var(--color-light-blue);
-    color: var(--color-white);
-    padding: 16px 20px; 
-    font-size: 0.9rem;
-    font-weight: bold;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    min-width: 200px; 
-    
-}
-
-/* Phone button hover*/
-.header-phone-btn:hover {
-    background: rgba(110, 185, 233, 0.15); 
-    color:#d5e0e6;
-}
-
-/* Phone button icon */
-.header-phone-btn .phone-icon {
-    margin-right: 8px;
-    color: var(--color-light-blue);
-}
 
 /********************************
 ********Menu button for mobile***
@@ -392,12 +363,6 @@
         box-sizing: border-box;
     }
 
-    /*phone button*/
-    .header-phone-btn {
-        margin: 15px auto; 
-        width: 80%; 
-        padding: 12px;
-    }
 }
 
 

@@ -23,7 +23,7 @@ function Services() {
     useRevealOnScroll(".fade-in-up, .fade-in-side-left, .fade-in-side-right, .zoom-animation");
 
     useEffect(() => {
-        document.title = "WebUniv | Découvrez nos prestations";
+        document.title = "WebUniv | Découvrez nos offres de services";
     }, []);
 
     // Fonction pour scroller fluidement vers la carte sélectionnée et déclencher l'animation
