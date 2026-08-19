@@ -231,7 +231,35 @@
     filter: drop-shadow(0 0 15px rgba(110, 185, 233, 0.8));
 }
 
+/*********************************
+******** Active Link States ******
+*********************************/
 
+/* Active state for standard links */
+.header-nav a.active:not(#navbar-contactLink) {
+    color: var(--color-white);
+    filter: drop-shadow(0 0 2px var(--color-abyssal-blue))
+            drop-shadow(0 0 6px var(--color-abyssal-blue))
+            drop-shadow(0 0 15px var(--color-abyssal-blue))
+            drop-shadow(0 0 30px var(--color-abyssal-blue));
+}
+
+/* Keeps the underline permanently visible on active page */
+.header-nav a.active:not(#navbar-contactLink)::after {
+    width: calc(100% - 20px);
+    background-color: var(--color-light-blue);
+}
+
+/* Active state for the contact button */
+.header-nav a#navbar-contactLink.active {
+    color: var(--color-white);
+    background: linear-gradient(135deg, #204373 0%, var(--color-light-blue) 100%);
+    box-shadow: 0 0 25px rgba(110, 185, 233, 0.6);
+    border-color: var(--color-white);
+    transform: translateY(-2px);
+    filter: drop-shadow(0 0 15px rgba(110, 185, 233, 0.8));
+    text-decoration:underline;
+}
 
 /********************************
 ********Menu button for mobile***
@@ -264,7 +292,6 @@
     border-radius: 5px;
     transition: all 0.3s ease;
 }
-
 
 /********************************
 ******** Responsive Rules *******
@@ -344,6 +371,12 @@
     .header-nav a:hover {
         background: rgba(255, 255, 255, 0.1);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Active link display in mobile menu */
+    .header-nav a.active:not(#navbar-contactLink) {
+        background: rgba(110, 185, 233, 0.15);
+        border-left: 4px solid var(--color-light-blue);
     }
 
     /*contact wrapper*/
