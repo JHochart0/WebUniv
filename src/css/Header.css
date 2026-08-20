@@ -238,16 +238,17 @@
 /* Active state for standard links */
 .header-nav a.active:not(#navbar-contactLink) {
     color: var(--color-white);
-    filter: drop-shadow(0 0 2px var(--color-abyssal-blue))
-            drop-shadow(0 0 6px var(--color-abyssal-blue))
-            drop-shadow(0 0 15px var(--color-abyssal-blue))
-            drop-shadow(0 0 30px var(--color-abyssal-blue));
+    filter: 
+            drop-shadow(0 0 20px var(--color-light-blue))
+            drop-shadow(0 0 25px var(--color-white))
+            drop-shadow(0 0 35px var(--color-white))
+            drop-shadow(0 0 35px var(--color-light-blue));
 }
 
 /* Keeps the underline permanently visible on active page */
 .header-nav a.active:not(#navbar-contactLink)::after {
     width: calc(100% - 20px);
-    background-color: var(--color-light-blue);
+    background-color: var(--color-abyssal-blue);
 }
 
 /* Active state for the contact button */
