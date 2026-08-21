@@ -103,9 +103,10 @@
     object-fit: cover;
 }
 
+/* Grille de contenu simplifiée en empilement vertical */
 .detail-info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 1.8rem;
     margin-bottom: 2.5rem;
 }
@@ -119,7 +120,8 @@
 }
 
 .detail-card-box.full-width {
-    grid-column: 1 / -1;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .detail-card-box h3 {

@@ -45,9 +45,9 @@ function ProjectDetails() {
 
             {/* Header du projet */}
             <header className="detail-header-card">
-                <span className="badge-badge">{project.badge}</span>
+                <span className="badge-badge">{project.category}</span>
                 <h1>{project.title}</h1>
-                <p className="detail-subtitle">{project.subtitle}</p>
+                <p className="detail-subtitle">{project.shortDescription}</p>
 
                 <div className="detail-tags-list">
                     {project.tags.map((tag, idx) => (
@@ -64,19 +64,9 @@ function ProjectDetails() {
             {/* Sections d'explication */}
             <section className="detail-info-grid">
                 
-                <div className="detail-card-box">
-                    <h3>01. Le Contexte</h3>
-                    <p>{project.context}</p>
-                </div>
-
-                <div className="detail-card-box">
-                    <h3>02. Le Défi</h3>
-                    <p>{project.problem}</p>
-                </div>
-
                 <div className="detail-card-box full-width">
-                    <h3>03. La Solution WebUniv</h3>
-                    <p>{project.solution}</p>
+                    <h3>Présentation du projet</h3>
+                    <p>{project.overview}</p>
                 </div>
 
                 <div className="detail-card-box full-width">

@@ -1,69 +1,174 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { realisationsData } from '../data/realisationsData.js';
+import useRevealOnScroll from "../hooks/useRevealOnScroll";
 import NavLink from "../components/NavLink.jsx";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDisplay } from '@fortawesome/free-solid-svg-icons';
 import '../css/Realisations.css';
 
 function Realisations() {
+    useRevealOnScroll(".fade-in-up, .fade-in-side-left, .fade-in-side-right, .zoom-animation");
 
     useEffect(() => {
         document.title = "WebUniv | Découvrez nos différentes réalisations";
     }, []);
-    
+
     return (
         <div className="realisations-container">
-            
-            {/* Header / Hero section */}
-            <header className="realisations-hero">
-                <div className="realisations-animation">
-                    <div className="orbit-ring primary"></div>
-                    <div className="orbit-ring secondary"></div>
-                    <div className="core-icon">
-                        <span className="code-symbol">&lt;/&gt;</span>
-                    </div>
-                </div>
+            <div className="realisations-banner">
 
-                <h1>Notre Univers de <span className="highlight-text">Projets</span></h1>
+                {/* REALISATIONS BANNER */}
+                <div className="realisations-banner-content">
 
-                <p className="realisations-subtitle">
-                    Découvrez nos créations web sur-mesure et nos études de cas. 
-                    Chaque projet reflète notre engagement en matière de performance, de design et de visibilité.
-                </p>
-            </header>
+                    {/* Animation propre à Réalisations */}
+                    <div className="realisations-animation zoom-animation">
 
-            {/* Grille des cartes projets */}
-            <main className="realisations-grid">
-                {realisationsData.map((project) => (
-                    <NavLink to={`/realisations/${project.id}`} id="realisation-card-link" key={project.id}>
-                        <article key={project.id} className="project-card">
-                            <div className="card-image-wrapper">
-                                <span className="card-badge">{project.badge}</span>
-                                <img src={project.image} alt={project.title} className="card-image" />
+                        {/* Halo sombre derrière le système */}
+                        <div className="realisations-system-glow"></div>
+
+                        {/* Aperçu projet gauche */}
+                        <div className="realisation-preview realisation-preview-left">
+                            <div className="realisation-preview-top">
+                                <span></span>
+                                <span></span>
+                                <span></span>
                             </div>
 
-                            <div className="card-content">
-                                <span className="card-category">{project.category}</span>
-                                <h2>{project.title}</h2>
-                                <p className="card-description">{project.shortDescription}</p>
-
-                                <div className="card-tags">
-                                    {project.tags.map((tag, idx) => (
-                                        <span key={idx} className="tag">{tag}</span>
-                                    ))}
+                            <div className="realisation-preview-body">
+                                <div className="realisation-preview-visual">
+                                    <FontAwesomeIcon icon={faDisplay} />
                                 </div>
 
+                                <div className="realisation-preview-text">
+                                    <span></span>
+                                    <span></span>
+                                </div>
                             </div>
-                        </article>
-                    </NavLink>
-                ))}
+                        </div>
+
+                        {/* Aperçu projet droit */}
+                        <div className="realisation-preview realisation-preview-right">
+                            <div className="realisation-preview-top">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <div className="realisation-preview-body">
+                                <div className="realisation-preview-visual">
+                                    <FontAwesomeIcon icon={faDisplay} />
+                                </div>
+
+                                <div className="realisation-preview-text">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Aperçu projet inférieur */}
+                        <div className="realisation-preview realisation-preview-bottom">
+                            <div className="realisation-preview-top">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <div className="realisation-preview-body">
+                                <div className="realisation-preview-visual">
+                                    <FontAwesomeIcon icon={faDisplay} />
+                                </div>
+
+                                <div className="realisation-preview-text">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Étoiles */}
+                        <span className="realisation-spark realisation-spark-left">✦</span>
+                        <span className="realisation-spark realisation-spark-right">✦</span>
+
+                        {/* Orbites */}
+                        <div className="orbit-ring primary"></div>
+                        <div className="orbit-ring secondary"></div>
+
+                        {/* Cœur développement */}
+                        <div className="core-icon">
+                            <span className="code-symbol">&lt;/&gt;</span>
+                        </div>
+
+                    </div>
+
+                    {/* Titres et présentation */}
+                    <div className="realisations-banner-texts fade-in-up">
+                        <h2 className="realisations-banner-subtitle">Nos réalisations</h2>
+                        <h1>Notre Univers de Réalisations</h1>
+                        <p>
+                            Découvrez nos différentes créations d'Univers Digitaux sur-mesure et les projets façonnés avec un accompagnement complet et personnalisé pour nos clients.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            {/* MAIN CONTENT : GRILLE DES PROJETS */}
+            <main className="realisations-section">
+                <div className="realisations-grid">
+
+                    {realisationsData.map((project) => (
+                        <NavLink
+                            to={`/realisations/${project.id}`}
+                            id="realisation-card-link"
+                            key={project.id}
+                        >
+                            <article className="project-card fade-in-up">
+
+                                <div className="card-image-wrapper">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="card-image"
+                                    />
+                                </div>
+
+                                <div className="card-content">
+                                    <span className="card-category">{project.category}</span>
+                                    <h2>{project.title}</h2>
+                                    <p className="card-description">{project.shortDescription}</p>
+
+                                    <div className="card-tags">
+                                        {project.tags.map((tag, idx) => (
+                                            <span key={idx} className="tag">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                            </article>
+                        </NavLink>
+                    ))}
+
+                </div>
             </main>
 
-            {/* Section CTA bas de page */}
-            <section className="realisations-cta-box">
-                <h2>Un projet en tête ?</h2>
-                <p>Donnons vie ensemble à votre future plateforme sur-mesure.</p>
-                <NavLink to="/contact" content="Discuter de mon projet" id="btn-realisations-secondary" />
-            </section>
+            {/* SECTION CTA BAS DE PAGE */}
+            <div className="realisations-cta-section">
+                <div className="realisations-cta-box fade-in-up">
+                    <h2>Un projet similaire en tête ?</h2>
+
+                    <p>
+                        Ensemble, concevons la solution web idéale adaptée à vos besoins et à vos objectifs.
+                    </p>
+
+                    <NavLink to="/contact" id="realisations-cta-btn">
+                        Discuter de mon projet
+                    </NavLink>
+                </div>
+            </div>
 
         </div>
     );
