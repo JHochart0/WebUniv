@@ -12,6 +12,11 @@
 /**********************************
 ********ANIMATIONS*****************
 **********************************/
+@keyframes starFlicker {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 1; }
+}
+
 @keyframes floatSpatial {
     0%, 100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 10px 10px #000000e7); }
     50% { transform: translateY(-15px) scale(1.03); filter: drop-shadow(0 30px 22px #0000008a); }
