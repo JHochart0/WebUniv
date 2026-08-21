@@ -2,9 +2,15 @@ import React, { useEffect } from 'react';
 import { realisationsData } from '../data/realisationsData.js';
 import useRevealOnScroll from "../hooks/useRevealOnScroll";
 import NavLink from "../components/NavLink.jsx";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDisplay } from '@fortawesome/free-solid-svg-icons';
 import '../css/Realisations.css';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+    faDisplay,
+    faGlobe 
+
+} from '@fortawesome/free-solid-svg-icons';
+
 
 function Realisations() {
     useRevealOnScroll(".fade-in-up, .fade-in-side-left, .fade-in-side-right, .zoom-animation");
@@ -104,9 +110,9 @@ function Realisations() {
                     {/* Titres et présentation */}
                     <div className="realisations-banner-texts fade-in-up">
                         <h2 className="realisations-banner-subtitle">Nos réalisations</h2>
-                        <h1>Notre Univers de Réalisations</h1>
+                        <h1>Découvrez notre vitrine des Réalisations</h1>
                         <p>
-                            Découvrez nos différentes créations d'Univers Digitaux sur-mesure et les projets façonnés avec un accompagnement complet et personnalisé pour nos clients.
+                            Plongez au cœur des Univers Digitaux créés sur-mesure et des différents projets façonnés avec un accompagnement complet et personnalisé pour nos clients.
                         </p>
                     </div>
 
@@ -155,18 +161,21 @@ function Realisations() {
                 </div>
             </main>
 
-            {/* SECTION CTA BAS DE PAGE */}
+            {/* CTA */}
             <div className="realisations-cta-section">
                 <div className="realisations-cta-box fade-in-up">
-                    <h2>Un projet similaire en tête ?</h2>
-
-                    <p>
-                        Ensemble, concevons la solution web idéale adaptée à vos besoins et à vos objectifs.
-                    </p>
-
-                    <NavLink to="/contact" id="realisations-cta-btn">
-                        Discuter de mon projet
-                    </NavLink>
+                    <div className="cta-icon-wrapper">
+                        <div className="bg-orbit-system">
+                            <div className="bg-orbit-ring zoom-animation">
+                                <div className="realisations-star-decoration ost-1"></div>
+                                <div className="realisations-star-decoration ost-2"></div>
+                            </div>
+                        </div>
+                        <FontAwesomeIcon icon={faGlobe} className="cta-globe-icon zoom-animation" />
+                    </div>
+                    <h2>Un projet web en tête ?</h2>
+                    <p>Discutons-en lors d'un premier échange gratuit pour définir la meilleure trajectoire pour votre projet.</p>
+                    <NavLink to="/contact" id="realisations-cta-btn">Prendre rendez-vous</NavLink>
                 </div>
             </div>
 
