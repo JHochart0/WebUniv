@@ -112,6 +112,9 @@ function Services() {
                 </div>
             </div>
 
+            {/* Separator */}
+            <div className="cosmic-divider zoom-animation" />
+
             {/* SECTION 1 : Main services (Pillars) */}
             <div className="services-section pillars-section">
                 <div className="services-section-header fade-in-up">
