@@ -240,8 +240,8 @@
     color: var(--color-white);
     filter: 
             drop-shadow(0 0 20px var(--color-light-blue))
-            drop-shadow(0 0 25px var(--color-white))
-            drop-shadow(0 0 35px var(--color-white))
+            drop-shadow(0 0 25px #ffffffb2)
+            drop-shadow(0 0 35px #ffffffb2)
             drop-shadow(0 0 35px var(--color-light-blue));
 }
 
