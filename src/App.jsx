@@ -20,13 +20,7 @@ import NotFound404 from "./pages/NotFound404.jsx";
 import GTC from "./pages/GTC.jsx";
 
 function App() {
-    // check if sessionStorage "redirect" exists, then redirect correctly to the NotFound404 page
-    if (sessionStorage.getItem("redirect")) {
-        const redirect = sessionStorage.getItem("redirect");
-        sessionStorage.removeItem("redirect");
-        window.history.replaceState(null, "", redirect);
-    }
-
+    
     return (
         <Router basename="/">
             <ScrollToTop />
