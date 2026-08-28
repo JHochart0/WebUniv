@@ -23,8 +23,8 @@ html{
 
 body{
     font-family: var(--font-main);
-    background-color: var(--color-blanc-pur);
-    color: var(--color-gris-sombre);
+    background-color: var(--color-white);
+    color: var(--color-dark-gray);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height:100vh;
@@ -36,10 +36,67 @@ body{
 
 /*main content of the site*/
 .content{
+    position: relative;
     overflow : hidden;
     min-height:80vh;
     background: radial-gradient(
         rgba(110, 185, 233) 0%, 
         var(--color-abyssal-blue) 80% 
     );
+}
+/* Starfield animation in the background of the site : first layer*/
+.content::before {
+    content: '';
+    position: absolute;
+    inset: 0; 
+    pointer-events: none;
+    z-index: 1;
+
+
+    background-image: 
+        radial-gradient(2px 2px at 40px 60px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2.5px 2.5px at 180px 120px, var(--color-light-blue), rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 310px 240px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 450px 50px, var(--color-light-blue), rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 110px 350px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 290px 480px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+        radial-gradient(2.5px 2.5px at 420px 380px, var(--color-light-blue), rgba(0,0,0,0));
+
+    background-size: 500px 500px;
+    background-repeat: repeat;
+
+    animation: starFlickerPrimary 4s infinite ease-in-out;
+}
+
+.content::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+
+    background-image: 
+        radial-gradient(1.5px 1.5px at 90px 150px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 230px 40px, rgba(110, 185, 233, 0.7), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 360px 190px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 490px 300px, rgba(255,255,255,0.6), rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 150px 420px, var(--color-light-blue), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 270px 290px, #ffffff, rgba(0,0,0,0));
+
+    /* Dimension de répétition différente pour éviter une superposition trop régulière */
+    background-size: 650px 650px;
+    background-repeat: repeat;
+
+    animation: starFlickerSecondary 6s infinite ease-in-out 1.5s;
+}
+
+/* Keyframes croisés pour un scintillement plus organique */
+@keyframes starFlickerPrimary {
+    0%, 100% { opacity: 0.25; }
+    50% { opacity: 0.9; }
+}
+
+@keyframes starFlickerSecondary {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 0.2; }
 }

@@ -196,33 +196,6 @@
     align-items: center;
 }
 
-/* Star field in realisations banner */
-
-.realisations-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 4px;
-    height: 4px;
-    background: transparent;
-    box-shadow:
-        15vw 12vh #fff,
-        35vw 25vh rgba(255,255,255,0.6),
-        55vw 15vh var(--color-light-blue),
-        75vw 40vh #fff,
-        85vw 10vh rgba(110,185,233,0.4),
-        25vw 60vh #fff,
-        45vw 75vh var(--color-light-blue),
-        65vw 55vh rgba(255,255,255,0.7),
-        90vw 70vh #fff,
-        10vw 85vh rgba(255,255,255,0.3);
-    z-index: 1;
-    animation: starFlicker 6s infinite ease-in-out;
-}
-
 .realisations-banner-content {
     position: relative;
     z-index: 2;
