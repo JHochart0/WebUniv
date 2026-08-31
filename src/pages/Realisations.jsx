@@ -26,13 +26,12 @@ function Realisations() {
                 {/* REALISATIONS BANNER */}
                 <div className="realisations-banner-content">
 
-                    {/* Animation propre à Réalisations */}
+                    {/* Animation for realisations */}
                     <div className="realisations-animation zoom-animation">
-
-                        {/* Halo sombre derrière le système */}
+                        {/* glowing effect in the background */}
                         <div className="realisations-system-glow"></div>
 
-                        {/* Aperçu projet gauche */}
+                        {/* project animation left */}
                         <div className="realisation-preview realisation-preview-left">
                             <div className="realisation-preview-top">
                                 <span></span>
@@ -52,7 +51,7 @@ function Realisations() {
                             </div>
                         </div>
 
-                        {/* Aperçu projet droit */}
+                        {/* project animation right */}
                         <div className="realisation-preview realisation-preview-right">
                             <div className="realisation-preview-top">
                                 <span></span>
@@ -72,7 +71,7 @@ function Realisations() {
                             </div>
                         </div>
 
-                        {/* Aperçu projet inférieur */}
+                        {/* project animation bottom */}
                         <div className="realisation-preview realisation-preview-bottom">
                             <div className="realisation-preview-top">
                                 <span></span>
@@ -92,22 +91,22 @@ function Realisations() {
                             </div>
                         </div>
 
-                        {/* Étoiles */}
+                        {/* stars animation */}
                         <span className="realisation-spark realisation-spark-left">✦</span>
                         <span className="realisation-spark realisation-spark-right">✦</span>
 
-                        {/* Orbites */}
+                        {/* orbit rings */}
                         <div className="orbit-ring primary"></div>
                         <div className="orbit-ring secondary"></div>
 
-                        {/* Cœur développement */}
+                        {/* core icon */}
                         <div className="core-icon">
                             <span className="code-symbol">&lt;/&gt;</span>
                         </div>
 
                     </div>
 
-                    {/* Titres et présentation */}
+                    {/* Title and subtitle */}
                     <div className="realisations-banner-texts fade-in-up">
                         <h2 className="realisations-banner-subtitle">Nos réalisations</h2>
                         <h1>Découvrez notre vitrine des Réalisations</h1>
@@ -120,7 +119,7 @@ function Realisations() {
 
             </div>
 
-            {/* MAIN CONTENT : GRILLE DES PROJETS */}
+            {/* MAIN CONTENT : projects grid */}
             <main className="realisations-section">
                 <div className="realisations-grid">
 
