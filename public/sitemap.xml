@@ -7,7 +7,13 @@
         <priority>1.0</priority>
     </url>
 
-    <!-- Page services -->
+    <!-- Page contact -->
+    <url>
+        <loc>https://webuniv.fr/contact</loc>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Page prestations -->
     <url>
         <loc>https://webuniv.fr/services</loc>
         <priority>0.8</priority>
@@ -16,25 +22,19 @@
     <!-- Page portfolio -->
     <url>
         <loc>https://webuniv.fr/realisations</loc>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Page contact -->
-    <url>
-        <loc>https://webuniv.fr/contact</loc>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Page mentions légales / politique -->
-    <url>
-        <loc>https://webuniv.fr/legal</loc>
-        <priority>0.3</priority>
+        <priority>0.7</priority>
     </url>
 
     <!-- Page CGV -->
     <url>
         <loc>https://webuniv.fr/gtc</loc>
-        <priority>0.4</priority>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- Page mentions légales / politique -->
+    <url>
+        <loc>https://webuniv.fr/legal</loc>
+        <priority>0.2</priority>
     </url>
 
 </urlset>
