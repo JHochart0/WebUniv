@@ -9,6 +9,33 @@
 /************************************************
 **************** ANIMATIONS **********************
 ************************************************/
+@keyframes projectBrowserFloat {
+    0%, 100% {
+        transform:
+            perspective(1000px)
+            translateY(0)
+            rotateY(-5deg)
+            rotateX(2deg)
+            rotateZ(-0.5deg);
+
+        box-shadow:
+            0 24px 40px rgba(0, 0, 0, 0.42),
+            0 0 28px rgba(110, 185, 233, 0.14);
+    }
+
+    50% {
+        transform:
+            perspective(1000px)
+            translateY(-14px)
+            rotateY(-1deg)
+            rotateX(6deg)
+            rotateZ(0.8deg);
+
+        box-shadow:
+            0 42px 65px rgba(0, 0, 0, 0.30),
+            0 0 42px rgba(110, 185, 233, 0.24);
+    }
+}
 
 @keyframes projectStarPulse {
     0%, 100% {
@@ -349,10 +376,21 @@
     border: 1px solid rgba(110, 185, 233, 0.5);
     border-radius: 16px;
     background: #0d1b2a;
+
     box-shadow:
         0 25px 45px rgba(0, 0, 0, 0.4),
         0 0 30px rgba(110, 185, 233, 0.12);
-    transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
+
+    transform:
+        perspective(1000px)
+        translateY(0)
+        rotateY(-4deg)
+        rotateX(2deg);
+
+    transform-style: preserve-3d;
+    will-change: transform, box-shadow;
+
+    animation: projectBrowserFloat 6s ease-in-out infinite;
 }
 
 .project-browser-header {

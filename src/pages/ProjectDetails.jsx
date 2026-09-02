@@ -34,7 +34,7 @@ function ProjectDetails() {
 
     useEffect(() => {
         if (project) {
-            document.title = `WebUniv | Découvrez l'Univers digital de ${project.title}`;
+            document.title = `WebUniv | Découvrez l'Univers Digital de ${project.title}`;
             window.scrollTo(0, 0);
         }
     }, [project]);
