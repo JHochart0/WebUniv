@@ -46,7 +46,7 @@ function ProjectDetails() {
     return (
         <div className="projet-detail-container">
 
-            {/* NAVIGATION HAUTE */}
+            {/* Nav button top */}
             <div className="detail-nav">
                 <button type="button" onClick={() => navigate('/realisations')} className="btn-project-back">
                     <FontAwesomeIcon icon={faArrowLeft} className="icon-left"/>
@@ -54,9 +54,9 @@ function ProjectDetails() {
                 </button>
             </div>
 
-            {/* HERO DU PROJET */}
+            {/* HERO SECTION */}
             <div className="project-detail-hero">
-                {/* Informations principales */}
+                {/* MAIN INFOS */}
                 <div className="project-detail-hero-content fade-in-side-left">
                     <span className="project-category-badge">{project.category}</span>
                     <h1>{project.title}</h1>
@@ -78,7 +78,7 @@ function ProjectDetails() {
                     )}
                 </div>
 
-                {/* Aperçu du site */}
+                {/* SITE PREVIEW */}
                 <div className="project-detail-hero-visual zoom-animation">
                     <div className="project-browser">
                         <div className="project-browser-header">
@@ -108,9 +108,9 @@ function ProjectDetails() {
                 </div>
             </div>
 
-            {/* CONTENU DU PROJET */}
+            {/* PROJECT CONTENT */}
             <div className="project-case-study">
-                {/* PRÉSENTATION */}
+                {/* PRESENTATION */}
                 <div className="detail-card-box project-overview-card fade-in-up">
                     <div className="project-section-heading">
                         <span className="project-section-number">01</span>
@@ -123,9 +123,9 @@ function ProjectDetails() {
 
                 </div>
 
-                {/* OBJECTIFS + POINTS CLÉS */}
+                {/* OBJECTIVES + FEATURES */}
                 <div className="project-information-grid">
-                    {/* OBJECTIFS */}
+                    {/* OBJECTIVES */}
                     {project.objectives && (
                         <div className="detail-card-box project-objectives-card fade-in-side-left">
                             <div className="project-card-title">
@@ -150,7 +150,7 @@ function ProjectDetails() {
                         </div>
                     )}
 
-                    {/* POINTS CLÉS */}
+                    {/* FEATURES */}
                     <div className="detail-card-box project-features-card fade-in-side-right">
                         <div className="project-card-title">
                             <div className="project-card-icon">
@@ -174,7 +174,7 @@ function ProjectDetails() {
                     </div>
                 </div>
 
-                {/* PROCESSUS */}
+                {/* DESIGN PROCESS */}
                 {project.process && (
                     <div className="detail-card-box project-process-card fade-in-up">
 
@@ -208,7 +208,7 @@ function ProjectDetails() {
                     </div>
                 )}
 
-                {/* RÉSULTAT */}
+                {/* RESULT */}
                 {project.result && (
                     <div className="project-result-section fade-in-up">
 
@@ -252,13 +252,12 @@ function ProjectDetails() {
                 </div>
             </div>
 
-            {/* NAVIGATION BASSE */}
+            {/* NAV BTN BOTTOM */}
             <div className="detail-bottom-nav">
                 <button type="button" onClick={() => navigate('/realisations')} className="btn-project-back">
                     <FontAwesomeIcon icon={faArrowLeft} className="icon-left"/>
                     Retour à toutes les réalisations
                 </button>
-
             </div>
 
         </div>
