@@ -3,7 +3,7 @@ export const realisationsData = [
         id: "webuniv",
         title: "WebUniv",
         category: "Site vitrine",
-        image: "/img_WebUniv/realisations/webuniv-preview.jpg",
+        image: "/img_WebUniv/realisations/webuniv-preview.webp",
 
         tags: [
             "ReactJS",
@@ -59,7 +59,7 @@ export const realisationsData = [
     id: "depan-auto-62",
     title: "DEPAN AUTO 62",
     category: "Site vitrine",
-    image: "/img_WebUniv/realisations/depan-auto-62-preview.jpg",
+    image: "/img_WebUniv/realisations/depan-auto-62-preview.webp",
 
     tags: [
         "ReactJS",
