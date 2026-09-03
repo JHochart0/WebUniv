@@ -79,7 +79,7 @@
     }
 }
 
-@keyframes pulseStar {
+@keyframes pulseStarProjectDetails {
     0%, 100% {
         transform: var(--inverse-skew) scale(0.85);
         opacity: 0.55;
@@ -906,7 +906,7 @@
     offset-rotate: 0deg;
     animation:
         followOrbit 20s linear infinite,
-        pulseStar 3s infinite ease-in-out;
+        pulseStarProjectDetails 3s infinite ease-in-out;
 }
 
 .project-detail-star-decoration::before {

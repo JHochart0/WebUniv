@@ -124,7 +124,7 @@
     to { offset-distance: 100%; }
 }
 
-@keyframes pulseStar {
+@keyframes pulseStarRealisations {
     0%, 100% { 
         transform: var(--inverse-skew) scale(0.85); 
         opacity: 0.55;
@@ -625,7 +625,7 @@
     will-change: transform, opacity;
     offset-path: border-box; 
     offset-rotate: 0deg; 
-    animation: followOrbit 20s linear infinite, pulseStar 3s infinite ease-in-out;
+    animation: followOrbit 20s linear infinite, pulseStarRealisations 3s infinite ease-in-out;
 }
 
 /* orbit stars shape*/
