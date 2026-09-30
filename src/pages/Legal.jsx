@@ -96,8 +96,8 @@ function Legal() {
 
                     <h3>Centre serveur et nom de domaine :</h3>
                     <p>
-                        Le site et son centre serveur sont hébergés par <strong>GitHub Pages</strong> (<a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>, Inc.), 
-                        dont le siège social est établi : <strong>88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États-Unis.</strong>
+                        Le site et son centre serveur sont hébergés par <strong>Cloudflare Pages</strong> (<a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer">Cloudflare</a>, Inc.), 
+                        dont le siège social est situé : <strong>101 Townsend St, San Francisco, CA 94107, États-Unis.</strong>
                     </p>
 
                     <p>
