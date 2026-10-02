@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import './css/App.css'
 
-import ScrollToTop from "./components/ScrollToTop.jsx";
+import ScrollToTop from "./hooks/useScrollToTop.jsx";
 
 import Header from './components/Header.jsx';
 import ScrollToTopButton from "./components/ScrollToTopButton.jsx";

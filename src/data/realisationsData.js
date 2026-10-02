@@ -55,54 +55,54 @@ export const realisationsData = [
 
         liveUrl: "https://www.webuniv.fr"
     },
-  {
-    id: "depan-auto-62",
-    title: "DEPAN AUTO 62",
-    category: "Site vitrine",
-    image: "/img_WebUniv/realisations/depan-auto-62-preview.webp",
+    {
+        id: "depan-auto-62",
+        title: "DEPAN AUTO 62",
+        category: "Site vitrine",
+        image: "/img_WebUniv/realisations/depan-auto-62-preview.webp",
 
-    tags: [
-        "ReactJS",
-        "Site vitrine",
-        "Responsive Design",
-        "Référencement local",
-        "API Google Drive",
-        "Galerie photos personnalisable"
-    ],
+        tags: [
+            "ReactJS",
+            "Site vitrine",
+            "Responsive Design",
+            "Référencement local",
+            "API Google Drive",
+            "Galerie photos personnalisable"
+        ],
 
-    shortDescription: "Conception et développement du site vitrine de DEPAN AUTO 62, une entreprise indépendante de mécanique automobile à domicile.",
+        shortDescription: "Conception et développement du site vitrine de DEPAN AUTO 62, une entreprise indépendante de mécanique automobile à domicile.",
 
-    overview: "DEPAN AUTO 62 souhaitait disposer d'un site web permettant de présenter clairement son activité de mécanique automobile à domicile, ses prestations et ses informations de contact. Le projet a été réalisé de la définition des besoins jusqu'à la mise en ligne du site, en passant par la conception des maquettes et le développement complet de l'interface sous ReactJS.",
+        overview: "DEPAN AUTO 62 souhaitait disposer d'un site web permettant de présenter clairement son activité de mécanique automobile à domicile, ses prestations et ses informations de contact. Le projet a été réalisé de la définition des besoins jusqu'à la mise en ligne du site, en passant par la conception des maquettes et le développement complet de l'interface sous ReactJS.",
 
-    objectives: [
-        "Créer une présence en ligne claire et professionnelle pour l'entreprise",
-        "Présenter les prestations et informations essentielles de manière accessible",
-        "Adapter l'interface aux ordinateurs, tablettes et smartphones",
-        "Permettre au client de gérer facilement les photos de sa galerie",
-        "Faciliter la prise de contact avec l'entreprise"
-    ],
+        objectives: [
+            "Créer une présence en ligne claire et professionnelle pour l'entreprise",
+            "Présenter les prestations et informations essentielles de manière accessible",
+            "Adapter l'interface aux ordinateurs, tablettes et smartphones",
+            "Permettre au client de gérer facilement les photos de sa galerie",
+            "Faciliter la prise de contact avec l'entreprise"
+        ],
 
-    process: [
-        "Échange avec le client afin d'identifier ses besoins et les contenus nécessaires au site",
-        "Conception des maquettes UI/UX pour ordinateur, tablette et mobile avec Pencil",
-        "Présentation des maquettes au client et ajustements selon ses retours",
-        "Développement du site entièrement sous ReactJS en respectant la charte graphique de DEPAN AUTO 62",
-        "Intégration de l'API Google Drive pour alimenter dynamiquement la galerie photos",
-        "Déploiement du site avec GitHub Pages",
-        "Configuration du nom de domaine auprès d'OVHcloud"
-    ],
+        process: [
+            "Échange avec le client afin d'identifier ses besoins et les contenus nécessaires au site",
+            "Conception des maquettes UI/UX pour ordinateur, tablette et mobile avec Pencil",
+            "Présentation des maquettes au client et ajustements selon ses retours",
+            "Développement du site entièrement sous ReactJS en respectant la charte graphique de DEPAN AUTO 62",
+            "Intégration de l'API Google Drive pour alimenter dynamiquement la galerie photos",
+            "Déploiement du site avec GitHub Pages",
+            "Configuration du nom de domaine auprès d'OVHcloud"
+        ],
 
-    features: [
-        "Interface responsive adaptée aux principaux formats d'écran",
-        "Présentation des prestations de mécanique automobile",
-        "Galerie photos administrable grâce à Google Drive",
-        "Accès rapide aux informations de contact",
-        "Navigation claire entre les différentes sections du site",
-        "Optimisation de la présence locale de l'entreprise"
-    ],
+        features: [
+            "Interface responsive adaptée aux principaux formats d'écran",
+            "Présentation des prestations de mécanique automobile",
+            "Galerie photos administrable grâce à Google Drive",
+            "Accès rapide aux informations de contact",
+            "Navigation claire entre les différentes sections du site",
+            "Optimisation de la présence locale de l'entreprise"
+        ],
 
-    result: "Le projet a permis à DEPAN AUTO 62 de disposer d'un nouvel outil de communication lui permettant de présenter son activité, ses prestations et ses réalisations en ligne. La galerie connectée à Google Drive permet également au client de faire évoluer les photos présentées sur son site sans avoir à modifier directement son code.",
+        result: "Le projet a permis à DEPAN AUTO 62 de disposer d'un nouvel outil de communication lui permettant de présenter son activité, ses prestations et ses réalisations en ligne. La galerie connectée à Google Drive permet également au client de faire évoluer les photos présentées sur son site sans avoir à modifier directement son code.",
 
-    liveUrl: "https://depan-auto-62.fr"
-}
+        liveUrl: "https://depan-auto-62.fr"
+    }
 ];
