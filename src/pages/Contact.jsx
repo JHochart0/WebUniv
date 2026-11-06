@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../css/Contact.css';
 
 import useRevealOnScroll from '../hooks/useRevealOnScroll';
+import usePageMetadata from '../hooks/usePageMetaData';
 
 import Schedules from '../components/Schedules';
 import NavLink from '../components/NavLink';
@@ -12,10 +13,10 @@ import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function Contact() {
     useRevealOnScroll(".stellar-orbit-left, .stellar-orbit-right");
-
-    useEffect(() => {
-        document.title = "WebUniv | Contactez-nous !";
-    }, []);
+    usePageMetadata(
+        "WebUniv | Contactez-nous !",
+        "Un projet de site internet ou d'application web ? Contactez WebUniv pour échanger sur vos besoins et obtenir un premier devis."
+    );
 
     const [formData, setFormData] = useState({
         name: '',

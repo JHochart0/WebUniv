@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import useRevealOnScroll from "../hooks/useRevealOnScroll";
+import usePageMetadata from '../hooks/usePageMetaData';
 
 import NavLink from "../components/NavLink.jsx";
 import '../css/Home.css';
@@ -32,10 +33,11 @@ import logoNameBright from '../assets/img/WebUniv_logo_name_only_bright.webp';
 function Home() {
     useRevealOnScroll(".fade-in-up, .fade-in-side-left, .fade-in-side-right, .zoom-animation");
 
-    // change the title
-    useEffect(() => {
-        document.title = "WebUniv | Votre Univers Digital";
-    }, []);
+    usePageMetadata(
+        "WebUniv | Votre Univers Digital",
+        "Création de site internet, site vitrine, application web. WebUniv crée votre site web sur-mesure. Bénéficiez d'un accompagnement complet et personnalisé pour concevoir votre univers digital."
+    );
+    
 
     return (
         <div className="home-container">

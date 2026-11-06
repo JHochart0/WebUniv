@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import '../css/GTC.css';
 import NavLink from "../components/NavLink.jsx";
+import usePageMetadata from '../hooks/usePageMetaData';
 
 // General Terms and Conditions page
 function GTC() {
 
-    // Change the tab title
-    useEffect(() => {
-        document.title = "WebUniv | Conditions générales de prestation de service";
-    }, []);
+    usePageMetadata(
+        "WebUniv | Conditions générales de prestation de service",
+        "Consultez les conditions générales de prestation de service de WebUniv."
+    );
+
     
     return (
         <div className="GTC-container">

@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/NotFound404.css';
+import usePageMetadata from '../hooks/usePageMetaData';
 
 function NotFound404() {
-    useEffect(() => {
-        document.title = "WebUniv | Page non trouvée";
-    }, []);
+    usePageMetadata(
+        "WebUniv | Page non trouvée",
+        "Erreur 404 : La page que vous cherchez n'existe pas."
+    );
 
     return (
         <div className="notfound-container">

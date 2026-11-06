@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import useRevealOnScroll from "../hooks/useRevealOnScroll";
+import usePageMetadata from '../hooks/usePageMetaData';
+
 import NavLink from "../components/NavLink.jsx";
 import '../css/Services.css';
 
@@ -22,9 +24,11 @@ import {
 function Services() {
     useRevealOnScroll(".fade-in-up, .fade-in-side-left, .fade-in-side-right, .zoom-animation");
 
-    useEffect(() => {
-        document.title = "WebUniv | Explorez nos offres de services";
-    }, []);
+    usePageMetadata(
+        "WebUniv | Explorez nos offres de services",
+        "Découvrez les différentes prestations chez WebUniv : création de sites vitrines, développement d'applications web, optimisation du référencement en ligne et bien d'autres..."
+    );
+
 
     // Fonction pour scroller fluidement vers la carte sélectionnée et déclencher l'animation
     const scrollToSection = (id) => {

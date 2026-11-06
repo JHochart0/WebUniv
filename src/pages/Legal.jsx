@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
 
 import '../css/Legal.css';
+import usePageMetadata from '../hooks/usePageMetaData';
 
 import NavLink from "../components/NavLink.jsx";
 
+
 // legal & privacy politics page
 function Legal() {
-    // change the title
-    useEffect(() => {
-        document.title = "WebUniv | Mentions légales et politique de confidentialité";
-    }, []);
+    usePageMetadata(
+        "WebUniv | Mentions légales et politique de confidentialité",
+        "Consultez les mentions légales et la politique de confidentialité de WebUniv."
+    );
 
     return (
         <div className="legal-container">

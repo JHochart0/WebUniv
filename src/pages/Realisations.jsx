@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { realisationsData } from '../data/realisationsData.js';
+
 import useRevealOnScroll from "../hooks/useRevealOnScroll";
+import usePageMetadata from '../hooks/usePageMetaData';
+
 import NavLink from "../components/NavLink.jsx";
 import '../css/Realisations.css';
 
@@ -15,9 +18,11 @@ import {
 function Realisations() {
     useRevealOnScroll(".fade-in-up, .fade-in-side-left, .fade-in-side-right, .zoom-animation");
 
-    useEffect(() => {
-        document.title = "WebUniv | Découvrez nos différentes réalisations";
-    }, []);
+    usePageMetadata(
+        "WebUniv | Découvrez nos différentes réalisations",
+        "Découvrez les projets réalisés par WebUniv : sites internet vitrines, applications web et solutions numériques conçues sur mesure."
+    );
+    
 
     return (
         <div className="realisations-container">

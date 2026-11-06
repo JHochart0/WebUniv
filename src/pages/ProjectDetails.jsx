@@ -9,6 +9,7 @@ import '../css/ProjectDetails.css';
 import { realisationsData } from '../data/realisationsData.js';
 
 import useRevealOnScroll from "../hooks/useRevealOnScroll";
+import usePageMetadata from '../hooks/usePageMetaData';
 
 import NavLink from '../components/NavLink.jsx';
 
@@ -34,7 +35,10 @@ function ProjectDetails() {
 
     useEffect(() => {
         if (project) {
-            document.title = `WebUniv | Découvrez l'Univers Digital de ${project.title}`;
+            usePageMetadata(
+                `WebUniv | Découvrez l'Univers Digital de ${project.title}`,
+                `Découvrez plus en détails l'Univers Digital de ${project.title} réalisé par nos soins.`
+            );
             window.scrollTo(0, 0);
         }
     }, [project]);
