@@ -372,6 +372,7 @@
     box-shadow: 0 10px 30px rgba(24, 49, 83, 0.04);
     min-height: 75vh;
     min-width: 30vw;
+    scroll-margin-top: 110px;
 }
 
 .contact-form-element {
